@@ -1,0 +1,59 @@
+{
+  "compilerOptions": {
+    // 캐시된 타입스크립트 빌드 정보 저장 경로 (Vite에서는 거의 필요 없음)
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    // 출력 JavaScript의 목표 버전 (ES2022: 최신 브라우저 타깃)
+    "target": "ES2022",
+
+    // 클래스 필드를 정의할 때 JS 표준 방식 사용
+    "useDefineForClassFields": true,
+
+    // 사용할 전역 라이브러리들: 최신 JS, DOM API, DOM 반복 가능 객체들
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // 모듈 시스템은 최신 ESM 방식
+    "module": "ESNext",
+
+    // 외부 라이브러리의 타입 검사 건너뜀 (속도 향상, 일부 위험)
+    "skipLibCheck": true,
+
+    /* 📦 번들러 모드 관련 설정 (Vite에서 권장) */
+    // 모듈 해석 방식: 번들러(Vite/ESBuild) 기준
+    "moduleResolution": "bundler",
+
+    // import할 때 `.ts` 확장자 허용
+    "allowImportingTsExtensions": true,
+
+    // import 문법을 그대로 유지 (최소한의 변환)
+    "verbatimModuleSyntax": true,
+
+    // 모듈로 감지할 조건을 강제 (패키지마다 entry 명시 안해도 감지)
+    "moduleDetection": "force",
+
+    // 타입만 체크하고 JS 파일은 내보내지 않음 (Vite가 빌드 담당)
+    "noEmit": true,
+
+    // JSX 변환 방식 (React 17+ 자동 import 지원)
+    "jsx": "react-jsx",
+
+    // 경로 별칭의 기준 디렉토리
+    "baseUrl": ".",
+
+    // @ → src 디렉토리 매핑
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
+    /* ✅ 엄격한 타입 검사 관련 설정 */
+    "strict": true,                 // 전체 strict mode
+    "noUnusedLocals": true,        // 사용되지 않는 지역변수 에러
+    "noUnusedParameters": true,    // 사용되지 않는 함수 매개변수 에러
+    "erasableSyntaxOnly": true,    // TS에서만 존재하는 문법만 타입체크 대상
+    "noFallthroughCasesInSwitch": true, // switch문 fallthrough 방지
+    "noUncheckedSideEffectImports": true // 부작용 있는 import 방지 (실험적)
+  },
+
+  // 검사 대상 파일 경로 지정
+  "include": ["src"]
+}
