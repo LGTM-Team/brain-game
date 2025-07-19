@@ -1,0 +1,12 @@
+blank_issues_enabled: false
+contact_links: []
+issue_templates:
+  - name: 🐛 버그 리포트
+    description: 동작하지 않거나 잘못된 동작을 설명해주세요.
+    labels: ["bug"]
+    body: bug_report.md
+
+  - name: ✨ 기능 제안
+    description: 새로운 기능이나 개선 아이디어를 제안해주세요.
+    labels: ["enhancement"]
+    body: feature_request.md

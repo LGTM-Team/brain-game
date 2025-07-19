@@ -1,0 +1,52 @@
+# ----------------------------------------
+# ✅ 줄바꿈(Line Ending) 강제 LF
+# ----------------------------------------
+* text=auto eol=lf
+
+# ----------------------------------------
+# ✅ TypeScript / JavaScript 소스코드
+# ----------------------------------------
+*.ts     text
+*.tsx    text
+*.js     text
+*.jsx    text
+*.mjs    text
+*.cjs    text
+
+# ----------------------------------------
+# ✅ 스타일 / 마크업 / 설정
+# ----------------------------------------
+*.css    text
+*.scss   text
+*.html   text
+*.json   text
+*.md     text
+*.yml    text
+*.yaml   text
+*.svg    text
+
+# ----------------------------------------
+# ✅ 환경파일 (보통 로컬 전용)
+# ----------------------------------------
+*.env    text
+
+# ----------------------------------------
+# ✅ 잠금파일 (CRLF 생기지 않게)
+# ----------------------------------------
+package-lock.json text eol=lf
+pnpm-lock.yaml    text eol=lf
+yarn.lock         text eol=lf
+
+# ----------------------------------------
+# ✅ 바이너리 파일 (줄바꿈 자동 변환 방지)
+# ----------------------------------------
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.ttf   binary
+*.woff  binary
+*.woff2 binary
+*.eot   binary
