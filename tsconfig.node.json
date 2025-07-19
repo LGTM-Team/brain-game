@@ -10,7 +10,7 @@
     "lib": ["ES2023"],
 
     // 모듈 시스템을 ESM 방식으로 설정 (import/export)
-    "module": "ESNext",
+    "module": "Node16",
 
     // 외부 라이브러리 타입 검사 생략 (속도 향상용)
     "skipLibCheck": true,
