@@ -1,69 +1,89 @@
-# React + TypeScript + Vite
+# 🧠 뇌하수체 – 체계적으로 즐기는 두뇌 피트니스
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **뇌** 깨울 시간! **하**루 10분! **수** 많은 게임! **체**계적 두뇌 트레이닝!
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 소개
 
-## Expanding the ESLint configuration
+**뇌하수체**는 집중력 저하와 기억력 감퇴를 경험하는 20~40대를 위한 **두뇌 훈련 웹 서비스**입니다. 짧고 재미있는 게임을 통해 **두뇌 활성화**, **자기계발 습관화**, **성과 시각화**까지 제공합니다.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🎯 주요 타겟
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- 반복 업무와 피로에 지친 **직장인**
+- 집중력이 흐려지는 **프로그래밍 수강생**
+- 두뇌도 체계적으로 관리하고 싶은 **자기계발 지향 유저**
+- 지루하지 않고 **재미있는 뇌게임**을 찾는 사람
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔧 주요 기능
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 🎮 1. 두뇌 훈련 게임
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **숫자 순서 기억 게임**
+  - 3×3 카드에서 시작해 점차 카드 수와 색상 증가
+- **초성 기반 단어 완성 게임**
+  - 주어진 초성으로 가능한 많은 단어 입력
+- **글자색 바르게 말하기 (스트룹 테스트)**
+  - 글자 내용과 색상이 다를 때 ‘색상’만 맞히기
+
+
+---
+
+### 📊 2. 랭킹 시스템
+
+- 게임 결과 기반 **월간 랭킹 집계**
+- **바 차트 + 점수 변화 그래프** 시각화
+- 최대 10명까지 표시, 내 순위 강조 표시
+
+---
+
+### 🛠️ 3. 관리자 페이지
+
+- 유저 정보 **조회/수정/삭제 (CRUD)**
+- **비정상 행위 탐지 및 제재**
+- 랭킹 조작 확인 및 제어 가능
+
+---
+
+### 📞 4. 고객센터
+
+- 유저의 피드백/버그 제보 접수
+- 관리자 피드백 확인 및 처리 시스템 제공
+
+---
+
+### 🔔 5. 알림 기능
+
+- 마이페이지 내 **랭킹 변화/공지사항/미접속 리마인더** 제공  
+  - ex) “○○님이 당신의 랭킹을 추월했습니다.”
+  - ex) “30일간 미접속 중입니다. 오늘도 뇌 깨우기 도전해보세요!”
+
+---
+
+## 🔍 유사 서비스 비교
+
+| 서비스 | 장점 | 한계점 |
+|--------|------|--------|
+| 실비아 | 생활습관/기억력 테스트 제공 | 게임 다양성 부족, 반복적 |
+| 뉴로네이션 | 다양한 게임 + 반응 시각화 | 고객센터 없음, 자동 결제 이슈, 랭킹 없음 |
+
+---
+
+## ✅ 목표
+
+- **단기 기억력**, **집중력**, **인지 기능**을 간단한 게임으로 트레이닝
+- **게임-랭킹-피드백 루프**로 사용자의 지속 참여 유도
+- **재미와 자기계발의 교차점**을 제공하는 두뇌 피트니스 플랫폼
+
+---
+
+## 📎 참고자료
+
+- https://news.hidoc.co.kr/news/articleView.html?idxno=26214  
+- https://www.dailytw.kr/news/articleView.html?idxno=31010
+
+---
