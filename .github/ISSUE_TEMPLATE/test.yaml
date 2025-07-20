@@ -1,0 +1,28 @@
+name: ✅ Test
+description: 테스트 코드 추가 및 개선 관련 이슈 등록
+title: "[test] "
+labels: ["test"]
+body:
+  - type: textarea
+    id: test_target
+    attributes:
+      label: 🎯 테스트 대상
+      description: 어떤 기능 또는 모듈의 테스트를 작성하나요?
+    validations:
+      required: true
+
+  - type: textarea
+    id: test_type
+    attributes:
+      label: 🧪 테스트 종류
+      description: 단위 테스트, 통합 테스트 등 테스트의 유형을 적어주세요.
+    validations:
+      required: false
+
+  - type: textarea
+    id: note
+    attributes:
+      label: 🗒 기타
+      description: 기타 참고하거나 주의할 사항이 있다면 작성해주세요.
+    validations:
+      required: false

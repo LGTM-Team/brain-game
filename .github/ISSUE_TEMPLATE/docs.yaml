@@ -1,0 +1,28 @@
+name: 📝 Docs
+description: 문서 추가/수정 관련 이슈 등록
+title: "[docs] "
+labels: ["docs"]
+body:
+  - type: textarea
+    id: doc_task
+    attributes:
+      label: 📚 문서 작업 내용
+      description: 작성 또는 수정하려는 문서 내용을 간단히 설명해주세요.
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: 📁 문서 위치
+      description: 대상 문서 파일 또는 URL
+    validations:
+      required: false
+
+  - type: textarea
+    id: note
+    attributes:
+      label: 📝 기타 참고 사항
+      description: 문서 작성 시 참고할 내용이 있다면 입력해주세요.
+    validations:
+      required: false

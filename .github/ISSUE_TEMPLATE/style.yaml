@@ -1,0 +1,20 @@
+name: 🎨 Style
+description: 코드 스타일 관련 수정 이슈 등록 (포맷팅, 들여쓰기, 네이밍 등)
+title: "[style] "
+labels: ["style"]
+body:
+  - type: textarea
+    id: style_issue
+    attributes:
+      label: ✏️ 스타일 수정 내용
+      description: 코드 스타일 관련 문제 또는 수정 계획을 설명해주세요.
+    validations:
+      required: true
+
+  - type: input
+    id: scope
+    attributes:
+      label: 📁 대상 파일/모듈
+      description: 스타일을 수정할 파일 또는 폴더 경로
+    validations:
+      required: false
