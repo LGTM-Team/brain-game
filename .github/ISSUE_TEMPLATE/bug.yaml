@@ -1,0 +1,53 @@
+name: 🐞 Bug Report
+description: 기능이 의도대로 작동하지 않을 때
+title: "[BUG] "
+labels: ["bug"]
+assignees: []
+
+body:
+  - type: textarea
+    id: bug
+    attributes:
+      label: 🧩 버그 설명
+      description: 어떤 문제가 발생했는지 명확하고 간결하게 설명해주세요.
+      placeholder: 예) 버튼을 눌러도 모달이 열리지 않습니다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 🔁 재현 방법
+      description: 버그를 재현할 수 있는 구체적인 단계를 작성해주세요.
+      placeholder: |
+        예)
+        1. 홈페이지 접속
+        2. 로그인 버튼 클릭
+        3. 에러 발생
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 📷 스크린샷 (선택)
+      description: 가능하다면 스크린샷을 첨부해주세요.
+    validations:
+      required: false
+
+  - type: input
+    id: environment
+    attributes:
+      label: 🧪 실행 환경
+      description: OS, 브라우저, Node.js 버전 등 실행 환경 정보를 입력해주세요.
+      placeholder: 예) Windows 11 / Chrome 115 / Node v20.11.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: etc
+    attributes:
+      label: 📌 기타 특이사항 (선택)
+      description: 이슈 해결에 도움이 될 만한 추가 정보를 적어주세요.
+    validations:
+      required: false

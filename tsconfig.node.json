@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": true,
     // TS의 빌드 캐시 파일 위치 (보통 tsc --build 시 사용, 없어도 무방)
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
 

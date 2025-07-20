@@ -1,0 +1,28 @@
+name: ♻️ Refactor
+description: 코드 리팩토링 이슈 등록 (기능 변화 없이 구조 개선)
+title: "[refactor] "
+labels: ["refactor"]
+body:
+  - type: textarea
+    id: reason
+    attributes:
+      label: 🔍 리팩토링 사유
+      description: 리팩토링이 필요한 이유를 설명해주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: 🧩 대상 범위
+      description: 리팩토링할 파일/모듈/컴포넌트 등을 명시해주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: plan
+    attributes:
+      label: 🛠️ 리팩토링 계획
+      description: 어떤 방식으로 개선할 예정인가요?
+    validations:
+      required: false

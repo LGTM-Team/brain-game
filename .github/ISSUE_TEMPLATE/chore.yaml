@@ -1,0 +1,20 @@
+name: 🧹 Chore
+description: 빌드, 패키징, 설정 등 유지보수성 작업 등록
+title: "[chore] "
+labels: ["chore"]
+body:
+  - type: textarea
+    id: task
+    attributes:
+      label: 📦 작업 내용
+      description: 설정 또는 관리 작업의 내용을 작성해주세요.
+    validations:
+      required: true
+
+  - type: input
+    id: scope
+    attributes:
+      label: 📁 관련 파일 또는 위치
+      description: 수정/추가/삭제할 디렉토리나 파일 경로
+    validations:
+      required: false
