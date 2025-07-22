@@ -1,3 +1,4 @@
+import { AppLink } from "@/router/AppLink";
 import S from "./styles/header.module.css";
 import backward from "@/assets/icons/backward.svg";
 interface Props {
@@ -7,9 +8,9 @@ function Header({ title }: Props) {
   return (
     <>
       <div className={S.container}>
-        <button type="button">
+        <AppLink variant={"back"}>
           <img src={backward} alt="뒤로가기" />
-        </button>
+        </AppLink>
         <h1>{title}</h1>
       </div>
     </>
