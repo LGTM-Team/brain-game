@@ -15,6 +15,7 @@ body {
 @media (min-width: 431px) and (max-width: 640px) {
   body {
     width: 100%;
+    background-color: var(--light-gray);
   }
 }
 
@@ -22,5 +23,6 @@ body {
 @media (min-width: 641px) {
   body {
     max-width: 640px;
+    background-color: var(--light-gray);
   }
 }
