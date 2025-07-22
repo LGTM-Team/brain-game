@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": true,
     // 캐시된 타입스크립트 빌드 정보 저장 경로 (Vite에서는 거의 필요 없음)
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
