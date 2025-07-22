@@ -1,6 +1,6 @@
 name: 🐞 Bug Report
 description: 기능이 의도대로 작동하지 않을 때
-title: "[BUG] "
+title: "[bug] "
 labels: ["bug"]
 assignees: []
 
