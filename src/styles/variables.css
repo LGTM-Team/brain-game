@@ -1,0 +1,32 @@
+/* Variable collection - Mode 1 */
+:root {
+  --black: #2b2b2bff;
+  --light-gray: #e8e8e8ff;
+  --dark-gray: #8c8c8cff;
+  --main-blue: #6db7ebff;
+  --main-yellow: #ffc260ff;
+  --main-orange: #fe7c4bff;
+  --main-red: #e55064ff;
+  --white: #ffffffff;
+
+  --space-0: 5px;
+  --space-1: 10px;
+  --space-2: 15px;
+  --space-3: 20px;
+  --space-4: 25px;
+  --space-5: 30px;
+
+  --font-1: 10px;
+  --font-2: 12px;
+  --font-3: 14px;
+  --font-4: 16px;
+  --font-5: 20px;
+  --font-6: 24px;
+  --font-game-inform: 30px;
+  --font-word-game: 100px;
+  --font-number-game: 45px;
+
+  --border-1: 5px;
+  --border-2: 8px;
+  --border-3: 10px;
+}
