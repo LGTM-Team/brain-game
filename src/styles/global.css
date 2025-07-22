@@ -1,2 +1,26 @@
 @import "./reset.css";
 @import "./variables.css";
+
+body {
+  margin: 0 auto;
+}
+/* 모바일 */
+@media (max-width: 430px) {
+  body {
+    width: 100%;
+  }
+}
+
+/* 태블릿 */
+@media (min-width: 431px) and (max-width: 640px) {
+  body {
+    width: 100%;
+  }
+}
+
+/* 데스크탑 */
+@media (min-width: 641px) {
+  body {
+    max-width: 640px;
+  }
+}
