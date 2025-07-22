@@ -1,6 +1,6 @@
 name: ✨ Feature Request
 description: 새로운 기능 또는 개선사항 제안
-title: "[FEAT] "
+title: "[feat] "
 labels: ["enhancement"]
 assignees: []
 

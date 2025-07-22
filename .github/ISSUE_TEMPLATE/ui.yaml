@@ -1,0 +1,40 @@
+name: 🎨 UI Issue
+description: UI 디자인 또는 동작 관련 이슈 제보
+title: "[ui] "
+labels: ["ui"]
+assignees: []
+
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 🎯 문제 또는 개선점 설명
+      description: UI 관련해서 어떤 점이 불편하거나 수정이 필요한지 구체적으로 적어주세요.
+      placeholder: 예) 버튼 위치가 너무 우측에 치우쳐 있음
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_ui
+    attributes:
+      label: 🖼 현재 UI 화면 (선택)
+      description: 현재 화면의 상태를 설명하거나 스크린샷을 첨부해주세요.
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected_ui
+    attributes:
+      label: ✅ 원하는 UI 모습 (선택)
+      description: 개선이 필요한 부분에 대한 아이디어나 원하는 상태를 작성해주세요.
+    validations:
+      required: false
+
+  - type: input
+    id: environment
+    attributes:
+      label: 🧪 실행 환경
+      description: 브라우저 종류, 화면 사이즈, OS 등을 입력해주세요.
+      placeholder: 예) Chrome 115 / macOS 14 / 1440x900
+    validations:
+      required: true
