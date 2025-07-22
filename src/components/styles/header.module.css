@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+
+  padding-bottom: var(--space-1);
+
+  background-color: var(--white);
+  border-bottom: 1px solid var(--light-gray);
+  justify-content: space-between;
+  h1 {
+    padding-top: var(--space-3);
+    text-align: center;
+    flex-grow: 1;
+    font-size: var(--font-header);
+    font-weight: normal;
+  }
+  button {
+    border: none;
+    background-color: var(--white);
+  }
+}
