@@ -12,7 +12,7 @@
 }
 
 .inputContainer {
-  p {
+  p:not(.errorMessage) {
     font-size: var(--font-4);
     font-weight: bold;
     margin-bottom: var(--space-0);
@@ -23,4 +23,11 @@
     border-radius: var(--border-2);
     padding: var(--space-1);
   }
+}
+
+.errorMessage {
+  color: var(--main-red);
+  font-size: var(--font-2);
+  font-weight: bold;
+  margin-top: var(--space-0);
 }
