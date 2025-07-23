@@ -12,7 +12,10 @@ const routes = createBrowserRouter([
     children: [
       { handle: { title: "뇌하수체" }, path: "", element: <HomePage /> },
       {
-        handle: { title: "게임 바로가기 왜 안돼?" },
+        handle: {
+          title:
+            "게임 바로가기 이번에도 리베이스 안되면 나는 그냥 이 브랜치를 버린다.",
+        },
         path: "games",
         element: <GamePage />,
       },
