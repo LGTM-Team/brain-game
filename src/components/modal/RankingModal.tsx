@@ -7,20 +7,25 @@ import { useEffect, useState } from "react";
 
 interface Props {
   gameName: string;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-function RankingModal({ gameName }: Props) {
+function RankingModal({ gameName, isOpen, onClose }: Props) {
   const [maxScore, setMaxScore] = useState(0);
+
+  if (!isOpen) return;
 
   useEffect(() => {
     const topScore = Math.max(...rankingData.map((item) => item.score));
     setMaxScore(topScore);
   }, []);
+
   return (
     <>
       <div className={S.overlay}>
         <div className={S.modal}>
-          <div className={S.cancel}>
+          <div className={S.close} onClick={onClose}>
             <img src={cancelIcon} alt="닫기" />
           </div>
           <div className={S.title}>
