@@ -33,9 +33,6 @@ function SignUp() {
           
           <Input placeholder={"닉네임을 입력해 주세요. (필수)"} id={nickname} label={"NICKNAME"} />
           
-          <Input placeholder={"비밀번호를 입력해주세요. (필수)"} id={password} label={"PW"} />
-          
-
           <fieldset className={S.optional}>
             <legend className={S["a11y-hidden"]}>선택 정보</legend>
             <div>
