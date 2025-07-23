@@ -4,12 +4,14 @@ import S from "./ranking.module.css";
 
 interface Props {
   data: Ranking;
+  maxScore: number;
 }
 
-export default function RankItem({ data }: Props) {
+export default function RankItem({ data, maxScore }: Props) {
   const { id, game_id, score, rank } = data;
   const [rankClass, setClass] = useState("");
-  const [isMine, setIsMine] = useState(false); // uuid가 같은 경우만 추가
+  const [isMine, setIsMine] = useState(false); // uuid가 같은 경우
+  const [scorePercentage, setScorePercentage] = useState(0);
 
   const getRankClass = () => {
     switch (rank) {
@@ -28,7 +30,8 @@ export default function RankItem({ data }: Props) {
   };
   useEffect(() => {
     getRankClass();
-  }, []);
+    setScorePercentage(Math.trunc((score / (maxScore + 100000)) * 100));
+  }, [maxScore]);
 
   return (
     <>
@@ -44,7 +47,10 @@ export default function RankItem({ data }: Props) {
                 <span>{score}</span>
               </div>
               <div className={S.totalScore}>
-                <div className={S.userScore} style={{ width: "200px" }}></div>
+                <div
+                  className={S.userScore}
+                  style={{ width: `${scorePercentage}%` }}
+                ></div>
               </div>
             </td>
           </tr>
