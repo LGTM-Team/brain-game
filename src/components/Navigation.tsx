@@ -4,20 +4,16 @@ import { AuthIcon, GameIcon, HomeIcon } from "./navigationIcons";
 import { AppLink } from "@/router/AppLink";
 
 function Navigation() {
-  const [iconColor, setIconColor] = useState("#8c8c8cff");
+  const [iconColor] = useState("#8c8c8cff");
   return (
     <div className={S.navigation}>
       <AppLink variant={"tab"} to={"games"}>
-        <button type="button">
-          <GameIcon color={iconColor} />
-          <p>게임</p>
-        </button>
+        <GameIcon color={iconColor} />
+        <p>게임</p>
       </AppLink>
       <AppLink className={S.active} variant={"tab"} to={""}>
-        <button type="button">
-          <HomeIcon color={iconColor} />
-          <p>홈</p>
-        </button>
+        <HomeIcon color={iconColor} />
+        <p>홈</p>
       </AppLink>
       <button type="button">
         <AuthIcon color={iconColor} />
