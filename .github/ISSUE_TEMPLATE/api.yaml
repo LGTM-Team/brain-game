@@ -5,14 +5,6 @@ labels: ["api"]
 assignees: []
 
 body:
-  - type: textarea
-    id: problem
-    attributes:
-      label: 🚨 API 문제 설명
-      description: 문제가 되는 API와 그 동작을 구체적으로 설명해주세요.
-      placeholder: 예) `GET /users/me` 요청 시 500 에러 발생
-    validations:
-      required: true
 
   - type: textarea
     id: request
@@ -26,12 +18,22 @@ body:
         - Headers: Authorization: Bearer ...
     validations:
       required: true
+      
 
   - type: textarea
     id: response
     attributes:
       label: 🧾 응답 내용 (선택)
       description: 에러 메시지, 응답 코드, 본문 등 가능한 정보를 첨부해주세요.
+    validations:
+      required: false
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 🚨 API 문제 설명
+      description: 문제가 되는 API와 그 동작을 구체적으로 설명해주세요.
+      placeholder: 예) `GET /users/me` 요청 시 500 에러 발생
     validations:
       required: false
 
@@ -42,4 +44,4 @@ body:
       description: Postman, 브라우저, Node 버전 등 테스트 환경을 입력해주세요.
       placeholder: 예) Postman v10.2 / Node.js 20.11.0
     validations:
-      required: true
+      required: false

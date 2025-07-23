@@ -8,8 +8,8 @@ body:
   - type: textarea
     id: background
     attributes:
-      label: 💡 제안 배경
-      description: 이 기능이 왜 필요한지 설명해주세요.
+      label: 💡 기능 설명
+      description: 이 기능에 대해서 설명해주세요.
       placeholder: 예) 유저가 X 동작을 할 때 불편함이 있어 기능 개선이 필요합니다.
     validations:
       required: true
