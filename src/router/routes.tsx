@@ -14,7 +14,7 @@ const routes = createBrowserRouter([
       { handle: { title: "뇌하수체" }, path: "", element: <HomePage /> },
       {
         handle: {
-          title: "게임 바로가기",
+          title: "게임",
         },
         path: "games",
         element: <GamePage />,
