@@ -12,6 +12,7 @@
 }
 .modal {
   width: 350px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,6 +20,7 @@
   border-radius: var(--border-3);
   padding-inline: var(--space-1);
   padding-top: var(--space-4);
+  overflow: hidden;
   position: relative;
   .cancel {
     position: absolute;
@@ -58,7 +60,7 @@ table {
   margin-bottom: var(--space-1);
 }
 
-.isMe {
+.isMine {
   background-color: var(--main-yellow);
 }
 
@@ -70,8 +72,10 @@ table {
     width: 15px;
     height: 15px;
     padding: var(--space-1);
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: var(--light-gray);
+    display: flex;
+    align-items: center;
     justify-content: center;
     margin-right: var(--space-0);
     p {
