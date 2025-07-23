@@ -16,7 +16,9 @@ footer {
       font-size: var(--font-4);
       padding-inline: var(--space-4);
     }
+
     button {
+      cursor: pointer;
       background-color: var(--light-gray);
       font-size: var(--font-3);
       font-weight: bold;
@@ -28,6 +30,9 @@ footer {
     justify-content: center;
     padding: var(--space-0);
     gap: var(--space-3);
+    img {
+      cursor: pointer;
+    }
   }
 
   h3 {
