@@ -1,28 +1,27 @@
-import MainLayout from "@/layouts/MainLayout";
+import App from "@/App";
+import ColorGame from "@/pages/Games/ColorGame";
 import GamePage from "@/pages/Games/GamePage";
 import HomePage from "@/pages/Home/HomePage";
-import type { JSX } from "react";
+import { createBrowserRouter } from "react-router-dom";
 
-interface Route {
-  title: string;
-  path: string;
-  element: JSX.Element;
-  children: {
-    title: string;
-    path: string;
-    element: JSX.Element;
-  }[];
-}
-const routes: Route[] = [
+const routes = createBrowserRouter([
   {
-    title: "메인 레이아웃",
     path: "/",
-    element: <MainLayout />,
+    element: <App />,
     children: [
-      { title: "홈", path: "", element: <HomePage /> },
-      { title: "게임 바로가기", path: "games", element: <GamePage /> },
+      { handle: { title: "뇌하수체" }, path: "", element: <HomePage /> },
+      {
+        handle: { title: "게임 바로가기" },
+        path: "games",
+        element: <GamePage />,
+      },
+      {
+        handle: { title: "글씨 색 맞추기 게임" },
+        path: "games/match-color",
+        element: <ColorGame />,
+      },
     ],
   },
-];
+]);
 
 export default routes;
