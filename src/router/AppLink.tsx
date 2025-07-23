@@ -1,5 +1,5 @@
 import { NavLink, useNavigate, Link } from "react-router-dom";
-import S from "./AppLink.module.css";
+import S from "../components/styles/fixedLayout.module.css";
 
 interface AppLinkProps {
   to?: string;
@@ -20,15 +20,16 @@ export const AppLink = ({ to, variant, children, className }: AppLinkProps) => {
     );
   }
 
-  // 탭바 라우팅 (activeClassName으로 현재 탭 표시 가능)
+  // 탭바 라우팅
   // 추후 auth 체크하는 로직 추가예정 로그인<->마이페이지 전환
   if (variant === "tab") {
     return (
-      <NavLink
-        to={to!}
-        className={({ isActive }) => (isActive ? S.active : "")}
-      >
-        {children}
+      <NavLink to={to!}>
+        {({ isActive }) => (
+          <button type="button" className={isActive ? S.active : ""}>
+            {children}
+          </button>
+        )}
       </NavLink>
     );
   }
@@ -40,4 +41,3 @@ export const AppLink = ({ to, variant, children, className }: AppLinkProps) => {
     </Link>
   );
 };
-//수정수정
