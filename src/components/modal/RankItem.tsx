@@ -1,70 +1,53 @@
+import { useEffect, useState } from "react";
+import type { Ranking } from "./RankData";
 import S from "./ranking.module.css";
 
-export default function RankItem() {
+interface Props {
+  data: Ranking;
+}
+
+export default function RankItem({ data }: Props) {
+  const { id, game_id, score, rank } = data;
+  const [rankClass, setClass] = useState("");
+  const [isMine, setIsMine] = useState(false); // uuid가 같은 경우만 추가
+
+  const getRankClass = () => {
+    switch (rank) {
+      case 1:
+        setClass("first");
+        break;
+      case 2:
+        setClass("second");
+        break;
+      case 3:
+        setClass("third");
+        break;
+      default:
+        break;
+    }
+  };
+  useEffect(() => {
+    getRankClass();
+  }, []);
+
   return (
     <>
-      <table>
-        <tbody className={S.rankItem}>
-          <td className={S.rank + " " + S.first}>
-            <p>1</p>
-          </td>
-          <td className={S.userInfo}>
-            <div className={S.userNameScore}>
-              <p> 로지</p>
-              <span>999,999</span>
-            </div>
-            <div className={S.totalScore}>
-              <div className={S.userScore} style={{ width: "200px" }}></div>
-            </div>
-          </td>
-        </tbody>
-      </table>
-      <table>
-        <tbody className={S.rankItem}>
-          <td className={S.rank + " " + S.second}>
-            <p>2</p>
-          </td>
-          <td className={S.userInfo}>
-            <div className={S.userNameScore}>
-              <p> 로지</p>
-              <span>999,999</span>
-            </div>
-            <div className={S.totalScore}>
-              <div className={S.userScore} style={{ width: "200px" }}></div>
-            </div>
-          </td>
-        </tbody>
-      </table>
-      <table className={S.isMe}>
-        <tbody className={S.rankItem}>
-          <td className={S.rank + " " + S.third}>
-            <p>3</p>
-          </td>
-          <td className={S.userInfo}>
-            <div className={S.userNameScore}>
-              <p> 로지</p>
-              <span>999,999</span>
-            </div>
-            <div className={S.totalScore}>
-              <div className={S.userScore} style={{ width: "200px" }}></div>
-            </div>
-          </td>
-        </tbody>
-      </table>
-      <table>
-        <tbody className={S.rankItem}>
-          <td className={S.rank}>
-            <p>4</p>
-          </td>
-          <td className={S.userInfo}>
-            <div className={S.userNameScore}>
-              <p> 로지</p>
-              <span>999,999</span>
-            </div>
-            <div className={S.totalScore}>
-              <div className={S.userScore} style={{ width: "200px" }}></div>
-            </div>
-          </td>
+      <table className={isMine ? S.isMine : ""}>
+        <tbody>
+          <tr className={S.rankItem}>
+            <td className={S.rank + " " + S[rankClass]}>
+              <p>{rank}</p>
+            </td>
+            <td className={S.userInfo}>
+              <div className={S.userNameScore}>
+                <p> 로지</p>
+                <span>{score}</span>
+              </div>
+              <div className={S.totalScore}>
+                <div className={S.userScore} style={{ width: "200px" }}></div>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </>
