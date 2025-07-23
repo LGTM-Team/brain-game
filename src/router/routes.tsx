@@ -3,7 +3,17 @@ import GamePage from "@/pages/Games/GamePage";
 import HomePage from "@/pages/Home/HomePage";
 import type { JSX } from "react";
 
-const routes = [
+interface Route {
+  title: string;
+  path: string;
+  element: JSX.Element;
+  children: {
+    title: string;
+    path: string;
+    element: JSX.Element;
+  }[];
+}
+const routes: Route[] = [
   {
     title: "메인 레이아웃",
     path: "/",
