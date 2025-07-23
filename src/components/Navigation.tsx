@@ -8,12 +8,16 @@ function Navigation() {
   return (
     <div className={S.navigation}>
       <AppLink variant={"tab"} to={"games"}>
-        <GameIcon color={iconColor} />
-        <p>게임</p>
+        <button type="button">
+          <GameIcon color={iconColor} />
+          <p>게임</p>
+        </button>
       </AppLink>
       <AppLink className={S.active} variant={"tab"} to={""}>
-        <HomeIcon color={iconColor} />
-        <p>홈</p>
+        <button type="button">
+          <HomeIcon color={iconColor} />
+          <p>홈</p>
+        </button>
       </AppLink>
       <button type="button">
         <AuthIcon color={iconColor} />
