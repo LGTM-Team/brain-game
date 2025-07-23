@@ -40,3 +40,4 @@ export const AppLink = ({ to, variant, children, className }: AppLinkProps) => {
     </Link>
   );
 };
+//수정수정
