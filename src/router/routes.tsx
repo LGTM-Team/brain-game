@@ -1,5 +1,5 @@
 import App from "@/App";
-import GamePage from "@/pages/Games/GamePage";
+import GamesPage from "@/pages/Games/GamesPage";
 import HomePage from "@/pages/Home/HomePage";
 import NotFoundPage from "@/pages/NotFound/NotFoundPage";
 import NoticePage from "@/pages/Notice/NoticePage";
@@ -17,7 +17,7 @@ const routes = createBrowserRouter([
           title: "게임",
         },
         path: "games",
-        element: <GamePage />,
+        element: <GamesPage />,
       },
       {
         handle: { title: "공지사항" },

@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--main-blue);
+  padding-top: 87px;
+  height: calc(100vh - 87px);
+
+  .anchors {
+    display: flex;
+    flex-direction: column;
+    gap: 47px;
+  }
+  .link {
+    display: flex;
+    width: 300px;
+    height: 43px;
+    padding: var(--space-1);
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--main-yellow, #ffc260);
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: var(--font-4);
+    font-style: normal;
+    font-weight: 700;
+  }
+}
