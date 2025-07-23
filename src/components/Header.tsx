@@ -1,5 +1,5 @@
 import { AppLink } from "@/router/AppLink";
-import S from "./styles/header.module.css";
+import S from "./styles/fixedLayout.module.css";
 import backward from "@/assets/icons/backward.svg";
 interface Props {
   title: string;
@@ -7,12 +7,12 @@ interface Props {
 function Header({ title }: Props) {
   return (
     <>
-      <div className={S.container}>
+      <header className={S.header}>
         <AppLink variant={"back"}>
           <img src={backward} alt="뒤로가기" />
         </AppLink>
         <h1>{title}</h1>
-      </div>
+      </header>
     </>
   );
 }
