@@ -35,19 +35,19 @@ body:
     validations:
       required: false
 
+  - type: textarea
+    id: etc
+    attributes:
+      label: 📌 기타 특이사항 (선택)
+      description: 이슈 해결에 도움이 될 만한 추가 정보를 적어주세요.
+    validations:
+      required: false
+
   - type: input
     id: environment
     attributes:
       label: 🧪 실행 환경
       description: OS, 브라우저, Node.js 버전 등 실행 환경 정보를 입력해주세요.
       placeholder: 예) Windows 11 / Chrome 115 / Node v20.11.0
-    validations:
-      required: true
-
-  - type: textarea
-    id: etc
-    attributes:
-      label: 📌 기타 특이사항 (선택)
-      description: 이슈 해결에 도움이 될 만한 추가 정보를 적어주세요.
     validations:
       required: false

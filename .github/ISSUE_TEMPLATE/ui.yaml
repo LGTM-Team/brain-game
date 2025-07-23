@@ -37,4 +37,4 @@ body:
       description: 브라우저 종류, 화면 사이즈, OS 등을 입력해주세요.
       placeholder: 예) Chrome 115 / macOS 14 / 1440x900
     validations:
-      required: true
+      required: false
