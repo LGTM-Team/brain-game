@@ -3,7 +3,13 @@
 
 body {
   margin: 0 auto;
+  .container {
+    background-color: var(--white);
+    padding-top: 54px;
+    height: 100vh;
+  }
 }
+
 /* 모바일 */
 @media (max-width: 430px) {
   body {
