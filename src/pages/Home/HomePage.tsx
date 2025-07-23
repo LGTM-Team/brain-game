@@ -1,6 +1,7 @@
 import neuro from "@/assets/images/Neuro.png";
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
+import Footer from "./components/Footer";
 
 function HomePage() {
   return (
@@ -12,6 +13,8 @@ function HomePage() {
           <img src={neuro} alt="Vite logo" />
         </a>
       </div>
+
+      <Footer />
       <Navigation />
     </>
   );
