@@ -6,6 +6,7 @@ interface Route {
   path: string;
   element: JSX.Element;
 }
+//테스트
 
 const routes: Route[] = [{ title: "홈", path: "/", element: <HomePage /> }];
 
