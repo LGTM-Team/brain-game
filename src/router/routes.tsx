@@ -5,7 +5,17 @@ import NoticePage from "@/pages/Notice/NoticePage";
 import QnaPage from "@/pages/Qna/QnaPage";
 import type { JSX } from "react";
 
-const routes = [
+interface Route {
+  title: string;
+  path: string;
+  element: JSX.Element;
+  children: {
+    title: string;
+    path: string;
+    element: JSX.Element;
+  }[];
+}
+const routes: Route[] = [
   {
     title: "메인 레이아웃",
     path: "/",
