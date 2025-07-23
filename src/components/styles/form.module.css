@@ -1,0 +1,26 @@
+.submitButton {
+  width: 350px;
+  background-color: var(--main-blue);
+  border-radius: var(--border-2);
+  padding: var(--space-1);
+  text-align: center;
+  border-style: none;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--main-yellow);
+  }
+}
+
+.inputContainer {
+  p {
+    font-size: var(--font-4);
+    font-weight: bold;
+    margin-bottom: var(--space-0);
+  }
+  input {
+    width: 328px;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-2);
+    padding: var(--space-1);
+  }
+}
