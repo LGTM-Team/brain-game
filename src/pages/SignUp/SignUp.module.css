@@ -12,9 +12,6 @@
 
 
 .container {
-  /* height: 100vh; */
-  /* height: 100%; */
-  height: calc(100vh - 77px);
   background-color: var(--white);
 
   display: flex;
