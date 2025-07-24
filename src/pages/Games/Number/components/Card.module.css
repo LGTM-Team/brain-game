@@ -1,18 +1,28 @@
-.backContainer {
+.cardContainer {
   width: 100px;
   height: 132px;
-  background: linear-gradient(47deg, #d7cadf 25.39%, #fec0be 76.26%);
+  overflow: "hidden";
+  position: "relative";
+  cursor: "pointer";
+  margin-bottom: 10px;
+}
+
+.backSide {
+  width: 100px;
+  height: 132px;
+  background-color: var(--main-blue);
+  border: 2px solid var(--dark-gray);
   border-radius: var(--space-1);
   display: flex;
   justify-content: center;
   align-items: center;
-
+  box-sizing: border-box;
   img {
     width: 200px;
   }
 }
 
-.frontContainer {
+.frontSide {
   width: 100px;
   height: 132px;
   background-color: var(--white);
