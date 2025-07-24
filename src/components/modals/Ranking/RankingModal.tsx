@@ -1,4 +1,4 @@
-import S from "./ranking.module.css";
+import S from "../style/ranking.module.css";
 import RankingItem from "./RankingItem";
 import prizeIcon from "@/assets/icons/prize.svg";
 import cancelIcon from "@/assets/icons/cancel.svg";
