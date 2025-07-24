@@ -1,7 +1,8 @@
 import App from "@/App";
+import GamesLayout from "@/pages/Games/GamesLayout";
 import GamesPage from "@/pages/Games/GamesPage";
+import LetterColorPlayPage from "@/pages/Games/LetterColor/LetterColorPlayPage";
 import NumberPlay from "@/pages/Games/Number/NumberPlay";
-import NumberGamePage from "@/pages/Games/Number/NumberPlay";
 import HomePage from "@/pages/Home/HomePage";
 import Login from "@/pages/Login/Login";
 import NotFoundPage from "@/pages/NotFound/NotFoundPage";
@@ -18,21 +19,34 @@ const routes = createBrowserRouter([
     children: [
       { handle: { title: "뇌하수체" }, path: "", element: <HomePage /> },
       {
-        handle: {
-          title: "게임",
-        },
-        path: "/games",
-        element: <GamesPage />,
+        path: "games",
+        element: <GamesLayout />,
+        children: [
+          {
+            handle: {
+              title: "게임",
+            },
+            path: "",
+            element: <GamesPage />,
+          },
+          {
+            handle: {
+              title: "글자색 맞추기",
+            },
+            path: "letter-color",
+            element: <LetterColorPlayPage />,
+          },
+          {
+            handle: { title: "숫자 순서 맞추기" },
+            path: "numbers",
+            element: <NumberPlay />,
+          },
+        ].filter(Boolean),
       },
       {
         handle: { title: "공지사항" },
         path: "/notice",
         element: <NoticePage />,
-      },
-      {
-        handle: { title: "숫자 순서 맞추기" },
-        path: "/numbers",
-        element: <NumberPlay />,
       },
       { handle: { title: "고객문의" }, path: "/qna", element: <QnaPage /> },
       { handle: { title: "로그인" }, path: "login", element: <Login /> },
