@@ -3,7 +3,7 @@ import Footer from "./components/Footer";
 import RankingModal from "@/components/modals/Ranking/RankingModal";
 import { useEffect, useState } from "react";
 import { rankingData } from "@/components/modals/Ranking/RankData";
-import SignUp from "../SignUp/SignUp";
+import { AppLink } from "@/router/AppLink";
 
 function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +11,7 @@ function HomePage() {
     if (isOpen) setIsOpen(false);
     else setIsOpen(true);
   };
+
 
   useEffect(() => {}, [isOpen]);
   return (
@@ -30,7 +31,10 @@ function HomePage() {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
       />
-      <SignUp />
+      
+      <AppLink to={"sign-up"} variant={"page"}>
+        <button type="button">회원가입 입니디~</button>
+      </AppLink>
 
       <Footer />
     </>

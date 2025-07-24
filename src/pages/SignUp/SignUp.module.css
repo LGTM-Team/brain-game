@@ -47,21 +47,35 @@
 
       input{
         border-style: solid;
-        border-width: 1px;
+        border-width: 2px;
         border-color: var(--light-gray);
         padding: var(--space-1);
         border-radius: var(--border-2);
         color: var(--dark-gray);
+        outline: none;
+
+        &:focus {
+          border-width: 2px;
+          border-color: var(--main-blue);
+          background-color: #fffbe6;
+        }
       }
 
       select{
         /* appearance: none; 아래 화살표 아이콘 */
         border-style: solid;
-        border-width: 1px;
+        border-width: 2px;
         border-color: var(--light-gray);
         padding: var(--space-1);
         border-radius: var(--border-2);
         color: var(--dark-gray);
+        outline: none;
+
+        &:focus {
+          border-width: 2px;
+          border-color: var(--main-blue);
+          background-color: #fffbe6;
+        }
       }
       option{
         border-radius: var(--border-2);

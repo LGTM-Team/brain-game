@@ -19,10 +19,18 @@
   }
   input {
     width: 328px;
-    border: 1px solid var(--light-gray);
+    border: 2px solid var(--light-gray);
     border-radius: var(--border-2);
     padding: var(--space-1);
+
+    &:focus {
+      outline: none;
+      border-width: 2px;
+      border-color: var(--main-blue);
+      background-color: #fffbe6;
+    }
   }
+
 }
 
 .errorMessage {
