@@ -11,6 +11,7 @@
 }
 
 .container{
+  height: calc(100vh - 77px);
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -20,20 +21,20 @@
   form{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     margin-bottom: 3rem;
 
     fieldset{
       display: flex;
       flex-direction: column;
-      gap: 3rem;
+      gap: 1rem;
     }
   }
 
   .findActions{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 5rem;
 
     .actionWrap{
       display: flex;
