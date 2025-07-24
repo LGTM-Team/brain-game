@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Ranking } from "./RankData";
-import S from "./ranking.module.css";
+import S from "../style/ranking.module.css";
 
 interface Props {
   data: Ranking;
