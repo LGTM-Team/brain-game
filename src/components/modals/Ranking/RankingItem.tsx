@@ -7,10 +7,10 @@ interface Props {
   maxScore: number;
 }
 
-export default function RankItem({ data, maxScore }: Props) {
+export default function RankingItem({ data, maxScore }: Props) {
   const { id, game_id, score, rank } = data;
   const [rankClass, setClass] = useState("");
-  const [isMine, setIsMine] = useState(false); // uuid가 같은 경우
+  const [isMine, setIsMine] = useState(false); // TODO: uuid 같을때만 true로 변경
   const [scorePercentage, setScorePercentage] = useState(0);
 
   const getRankClass = () => {
@@ -30,7 +30,8 @@ export default function RankItem({ data, maxScore }: Props) {
   };
   useEffect(() => {
     getRankClass();
-    setScorePercentage(Math.trunc((score / (maxScore + 100000)) * 100));
+    const padding = Math.pow(10, String(maxScore).length - 1);
+    setScorePercentage(Math.trunc((score / (maxScore + padding)) * 100));
   }, [maxScore]);
 
   return (
@@ -44,7 +45,7 @@ export default function RankItem({ data, maxScore }: Props) {
             <td className={S.userInfo}>
               <div className={S.userNameScore}>
                 <p> 로지</p>
-                <span>{score}</span>
+                <span>{score.toLocaleString()}</span>
               </div>
               <div className={S.totalScore}>
                 <div
