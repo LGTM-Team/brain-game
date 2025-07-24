@@ -1,0 +1,29 @@
+.backContainer {
+  width: 100px;
+  height: 132px;
+  background: linear-gradient(47deg, #d7cadf 25.39%, #fec0be 76.26%);
+  border-radius: var(--space-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 200px;
+  }
+}
+
+.frontContainer {
+  width: 100px;
+  height: 132px;
+  background-color: var(--white);
+  border-radius: var(--space-1);
+  box-sizing: border-box;
+  border: 3px solid #fec0be;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: var(--font-number-game);
+    font-weight: bold;
+  }
+}
