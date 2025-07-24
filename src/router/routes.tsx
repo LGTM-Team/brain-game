@@ -3,6 +3,7 @@ import GamesPage from "@/pages/Games/GamesPage";
 import NumberPlay from "@/pages/Games/Number/NumberPlay";
 import NumberGamePage from "@/pages/Games/Number/NumberPlay";
 import HomePage from "@/pages/Home/HomePage";
+import Login from "@/pages/Login/Login";
 import NotFoundPage from "@/pages/NotFound/NotFoundPage";
 import NoticePage from "@/pages/Notice/NoticePage";
 import QnaPage from "@/pages/Qna/QnaPage";
@@ -34,6 +35,7 @@ const routes = createBrowserRouter([
         element: <NumberPlay />,
       },
       { handle: { title: "고객문의" }, path: "/qna", element: <QnaPage /> },
+      { handle: { title: "로그인" }, path: "login", element: <Login /> },
       {
         handle: { title: "이메일 대기" },
         path: "pending-email",
