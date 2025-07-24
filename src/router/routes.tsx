@@ -1,5 +1,7 @@
 import App from "@/App";
 import GamesPage from "@/pages/Games/GamesPage";
+import NumberPlay from "@/pages/Games/Number/NumberPlay";
+import NumberGamePage from "@/pages/Games/Number/NumberPlay";
 import HomePage from "@/pages/Home/HomePage";
 import NotFoundPage from "@/pages/NotFound/NotFoundPage";
 import NoticePage from "@/pages/Notice/NoticePage";
@@ -18,7 +20,7 @@ const routes = createBrowserRouter([
         handle: {
           title: "게임",
         },
-        path: "games",
+        path: "/games",
         element: <GamesPage />,
       },
       {
@@ -26,8 +28,17 @@ const routes = createBrowserRouter([
         path: "/notice",
         element: <NoticePage />,
       },
+      {
+        handle: { title: "숫자 순서 맞추기" },
+        path: "/numbers",
+        element: <NumberPlay />,
+      },
       { handle: { title: "고객문의" }, path: "/qna", element: <QnaPage /> },
-      { handle: { title: "이메일 대기" }, path: "pending-email", element: <PendingEmail /> },
+      {
+        handle: { title: "이메일 대기" },
+        path: "pending-email",
+        element: <PendingEmail />,
+      },
       { handle: { title: "회원가입" }, path: "sign-up", element: <SignUp /> },
       { handle: { title: "ERROR" }, path: "*", element: <NotFoundPage /> },
     ],
