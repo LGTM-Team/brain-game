@@ -1,0 +1,24 @@
+
+.container{
+  height: calc(100vh - 77px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  background-color: var(--main-blue);
+
+  p{
+    font-weight: bold;
+    font-size: var(--font-5);
+  }
+
+  button{
+    background-color: var(--main-yellow);
+  }
+}
+
+
+
