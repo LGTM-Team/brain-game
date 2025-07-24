@@ -32,8 +32,8 @@ function HomePage() {
         onClose={() => setIsOpen(false)}
       />
       
-      <AppLink to={"sign-up"} variant={"page"}>
-        <button type="button">회원가입 입니디~</button>
+      <AppLink to={"login"} variant={"page"}>
+        <button type="button">로그인 입니디~</button>
       </AppLink>
 
       <Footer />
