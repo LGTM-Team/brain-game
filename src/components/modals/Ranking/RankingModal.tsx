@@ -1,26 +1,28 @@
 import S from "./ranking.module.css";
-import RankItem from "./RankItem";
+import RankingItem from "./RankingItem";
 import prizeIcon from "@/assets/icons/prize.svg";
 import cancelIcon from "@/assets/icons/cancel.svg";
-import { rankingData } from "./RankData";
+import { type RankingList } from "./RankData";
 import { useEffect, useState } from "react";
 
 interface Props {
   gameName: string;
   isOpen: boolean;
   onClose: () => void;
+  data: RankingList;
 }
 
-function RankingModal({ gameName, isOpen, onClose }: Props) {
+function RankingModal({ gameName, isOpen, onClose, data }: Props) {
   const [maxScore, setMaxScore] = useState(0);
 
-  if (!isOpen) return;
-
   useEffect(() => {
-    const topScore = Math.max(...rankingData.map((item) => item.score));
-    setMaxScore(topScore);
-  }, []);
+    if (isOpen && data.length > 0) {
+      const topScore = Math.max(...data.map((item) => item.score));
+      setMaxScore(topScore);
+    }
+  }, [isOpen, data]);
 
+  if (!isOpen) return null;
   return (
     <>
       <div className={S.overlay}>
@@ -32,8 +34,8 @@ function RankingModal({ gameName, isOpen, onClose }: Props) {
             <img src={prizeIcon} alt="랭킹 아이콘" />
             <h2>{gameName} 랭킹</h2>
           </div>
-          {rankingData.map((item) => (
-            <RankItem key={item.id} data={item} maxScore={maxScore} />
+          {data.map((item) => (
+            <RankingItem key={item.id} data={item} maxScore={maxScore} />
           ))}
         </div>
       </div>
