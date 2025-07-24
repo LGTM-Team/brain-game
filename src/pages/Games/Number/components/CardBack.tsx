@@ -1,10 +1,11 @@
 import S from "./Card.module.css";
-import neuro from "@/assets/images/numberGame/neuro1.svg";
+import { getRandomImage } from "./getRandomCard";
 
 function CardBack() {
+  const imageUrl = getRandomImage();
   return (
-    <div className={S.backContainer}>
-      <img src={neuro} />
+    <div className={S.backSide}>
+      <img src={imageUrl} />
     </div>
   );
 }
