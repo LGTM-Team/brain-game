@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import RankingModal from "@/components/modals/Ranking/RankingModal";
 import { useEffect, useState } from "react";
 import { rankingData } from "@/components/modals/Ranking/RankData";
+import SignUp from "../SignUp/SignUp";
 
 function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +30,7 @@ function HomePage() {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
       />
+      <SignUp />
 
       <Footer />
     </>
