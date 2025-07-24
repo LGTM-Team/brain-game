@@ -22,7 +22,7 @@
   padding-top: var(--space-4);
   overflow: hidden;
   position: relative;
-  .cancel {
+  .close {
     position: absolute;
     right: 3%;
     top: 1%;
@@ -47,9 +47,6 @@
     width: 25px;
     height: 25px;
   }
-}
-.cancel {
-  display: flex;
 }
 
 table {
