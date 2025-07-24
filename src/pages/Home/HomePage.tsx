@@ -2,8 +2,18 @@ import neuro from "@/assets/images/Neuro.png";
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
 import Footer from "./components/Footer";
+import RankingModal from "@/components/modals/Ranking/RankingModal";
+import { useEffect, useState } from "react";
+import { rankingData } from "@/components/modals/Ranking/RankData";
 
 function HomePage() {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleModal = () => {
+    if (isOpen) setIsOpen(false);
+    else setIsOpen(true);
+  };
+
+  useEffect(() => {}, [isOpen]);
   return (
     <>
       <Header title={"뇌하수체"} />
@@ -13,6 +23,15 @@ function HomePage() {
           <img src={neuro} alt="Vite logo" />
         </a>
       </div>
+      <button type="button" onClick={handleModal}>
+        모달창 열기{" "}
+      </button>
+      <RankingModal
+        data={rankingData}
+        gameName="숫자 순서 기억"
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
 
       <Footer />
       <Navigation />
