@@ -1,4 +1,4 @@
-import S from "./styles/game.module.css";
+import S from "./GamesPage.module.css";
 interface Props {
   score: number;
 }

@@ -5,7 +5,7 @@ body {
   margin: 0 auto;
   .container {
     background-color: var(--white);
-    padding-top: 54px;
+    padding-top: 55px;
     height: 100vh;
   }
 }
