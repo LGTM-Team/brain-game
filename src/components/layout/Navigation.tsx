@@ -1,5 +1,5 @@
 import { useState } from "react";
-import S from "./styles/fixedLayout.module.css";
+import S from "../styles/fixedLayout.module.css";
 import { AuthIcon, GameIcon, HomeIcon } from "./navigationIcons";
 import { AppLink } from "@/router/AppLink";
 

@@ -1,5 +1,5 @@
 import { AppLink } from "@/router/AppLink";
-import S from "./styles/fixedLayout.module.css";
+import S from "../styles/fixedLayout.module.css";
 import backward from "@/assets/icons/backward.svg";
 interface Props {
   title: string;
