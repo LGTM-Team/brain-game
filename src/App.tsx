@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Header title={currentTitle} />
-      <main>
+      <main className="container">
         <Outlet />
       </main>
       <Navigation />
