@@ -16,7 +16,9 @@ function Input({ type, placeholder, id, label, onChange, error, disabled }: Prop
     <label htmlFor={id} className={S.inputContainer}>
       <p>{label}</p>
       <input type={type} placeholder={placeholder} onChange={onChange} disabled={disabled}/>
-      {error && <p className={S.errorMessage}>{error}</p>}
+      <p className={S.errorMessage}>
+        {error ? error : "\u00A0" /* 공백 유니코드로 줄 유지 */}
+      </p>
     </label>
   );
 }

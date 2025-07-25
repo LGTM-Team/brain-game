@@ -34,7 +34,7 @@
   .findActions{
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 6rem;
 
     .actionWrap{
       display: flex;
