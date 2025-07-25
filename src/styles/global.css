@@ -2,7 +2,7 @@
 @import "./variables.css";
 
 body {
-  width: 100vw;
+  width: 100%;
   margin: 0;
 }
 
@@ -15,13 +15,13 @@ body {
   margin-inline: auto;
   box-sizing: border-box;
 
-  padding-top: 54px;      /* header 높이 */
-  padding-bottom: 74px;  
+  padding-top: 65px;      
+  padding-bottom: 75px;  
 }
 
 /* Outlet을 감싸는 영역 (헤더/풋터 제외 공간) */
 .outlet-wrapper {
   flex: 1;
   display: flex;
-  flex-direction: column; /* 내부 콘텐츠 중앙 정렬 시 유용 */
+  flex-direction: column; 
 }
