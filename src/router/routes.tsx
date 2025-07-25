@@ -2,7 +2,7 @@ import App from "@/App";
 import GamesLayout from "@/pages/Games/GamesLayout";
 import GamesPage from "@/pages/Games/GamesPage";
 import LetterColorPlayPage from "@/pages/Games/LetterColor/LetterColorPlayPage";
-import NumberPlay from "@/pages/Games/Number/NumberPlay";
+import NumberPlayPage from "@/pages/Games/Number/NumberPlay";
 import HomePage from "@/pages/Home/HomePage";
 import Login from "@/pages/Login/Login";
 import NotFoundPage from "@/pages/NotFound/NotFoundPage";
@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
           {
             handle: { title: "숫자 순서 맞추기" },
             path: "numbers",
-            element: <NumberPlay />,
+            element: <NumberPlayPage />,
           },
         ].filter(Boolean),
       },

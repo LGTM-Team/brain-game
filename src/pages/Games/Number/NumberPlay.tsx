@@ -1,12 +1,10 @@
-import CardBack from "./components/CardBack";
-import CardFront from "./components/CardFront";
-
-function NumberPlay() {
+import S from "./components/Card.module.css";
+import NumberCard from "./components/NumberCard";
+function NumberPlayPage() {
   return (
     <>
-      <CardFront />
-      <CardBack />
+      <NumberCard />
     </>
   );
 }
-export default NumberPlay;
+export default NumberPlayPage;
