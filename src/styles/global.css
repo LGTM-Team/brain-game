@@ -6,7 +6,9 @@ body {
   .container {
     background-color: var(--white);
     padding-top: 55px;
-    height: 100vh;
+    padding-bottom: 74px;
+    height: calc(100vh - 55px - 74px);
+    overflow: auto;
   }
 }
 
