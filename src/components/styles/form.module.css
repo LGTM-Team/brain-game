@@ -38,4 +38,5 @@
   font-size: var(--font-2);
   font-weight: bold;
   margin-top: var(--space-0);
+  user-select: none;
 }
