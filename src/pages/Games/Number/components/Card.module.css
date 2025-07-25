@@ -1,39 +1,43 @@
 .cardContainer {
-  width: 100px;
-  height: 132px;
-  overflow: "hidden";
-  position: "relative";
-  cursor: "pointer";
-  margin-bottom: 10px;
+  width: 100%;
+  padding: var(--space-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.backSide {
-  width: 100px;
-  height: 132px;
-  background-color: var(--main-blue);
-  border: 2px solid var(--dark-gray);
+.grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.card {
   border-radius: var(--space-1);
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  img {
-    width: 200px;
-  }
 }
 
 .frontSide {
-  width: 100px;
-  height: 132px;
   background-color: var(--white);
-  border-radius: var(--space-1);
-  box-sizing: border-box;
-  border: 3px solid #fec0be;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border: 2px solid var(--main-blue);
+
   p {
     font-size: var(--font-number-game);
     font-weight: bold;
+  }
+}
+.noNumber {
+  border: 2px solid var(--light-gray);
+}
+
+.backSide {
+  background-color: var(--main-blue);
+  border: 2px solid var(--light-gray);
+  img {
+    width: 200px;
   }
 }
