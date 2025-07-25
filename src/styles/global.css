@@ -3,6 +3,8 @@
 
 body {
   margin: 0 auto;
+  overflow: hidden;
+
   .container {
     background-color: var(--white);
     padding-top: 55px;
