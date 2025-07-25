@@ -72,3 +72,12 @@
   pointer-events: none;
   user-select: none;
 }
+
+.globalErrorMessage {
+  color: var(--main-red);
+  font-size: var(--font-2);
+  font-weight: bold;
+  text-align: center;
+  user-select: none;
+  margin-bottom: 0.5rem;
+}

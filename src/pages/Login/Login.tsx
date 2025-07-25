@@ -101,10 +101,12 @@ function Login() {
           />
         </fieldset>
 
-        {fieldErrors.global && (
-          <p className={S.errorMessage}>{fieldErrors.global}</p>
-        )}
-        <SubmitButton label="로그인" type="submit" />
+        <div className="btnWrap">
+          {fieldErrors.global && (
+            <p className={S.errorMessage}>{fieldErrors.global}</p>
+          )}
+          <SubmitButton label="로그인" type="submit" />
+        </div>
       </form>
 
       <div className={S.findActions}>
