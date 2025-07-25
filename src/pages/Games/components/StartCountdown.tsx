@@ -3,10 +3,10 @@ import S from "./styles/StartCountdown.module.css";
 import counter1 from "@/assets/icons/counter1.svg";
 import counter2 from "@/assets/icons/counter2.svg";
 import counter3 from "@/assets/icons/counter3.svg";
-import type { Play } from "./PlayPage";
+import type { State } from "./PlayPage";
 
 interface Props {
-  state: Play;
+  state: State;
   onCount: () => void;
 }
 

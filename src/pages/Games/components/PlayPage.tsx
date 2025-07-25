@@ -1,44 +1,93 @@
 import { useState } from "react";
-import letterColor from "@/assets/images/game/letterColor_game.svg";
 import StartGame from "./StartGame";
 import StartCountdown from "./StartCountdown";
 import FinishGame from "./FinishGame";
 import GameResult from "./GameResult";
 
-export type Play = "waiting" | "starting" | "playing" | "finish" | "result";
+export type State = "waiting" | "starting" | "playing" | "finish" | "result";
 
 interface Props {
-  children: (state: Play, finishGame: () => void) => React.ReactNode;
+  children: (
+    state: State,
+    finishGame: () => void,
+    getScore: (score: number) => void,
+    getGameOverMessage: (message: string) => void
+  ) => React.ReactNode;
+  gameImg: string;
+  imgAlt: string;
+  boldDescription: string;
+  description: string;
 }
 
-function PlayPage({ children }: Props) {
-  const [play, setPlay] = useState<Play>("waiting");
+function PlayPage({
+  children,
+  gameImg,
+  imgAlt,
+  boldDescription,
+  description,
+}: Props) {
+  const [gameState, setGameState] = useState<State>("waiting");
+  const [score, setScore] = useState<number | null>(null);
+  const [gameOverMessage, setGameOverMessage] = useState<string | null>(null);
+
+  //결과 보고 게임 점수랑 메세지 reset 필요 이건 GameResult 컴포넌트에 onReset={()=>setScore(null)} 이거 쓰면 될듯
+  // 게임 점수 로딩중에 조건문 필요 {(score&&gameOverMessage)|<FinishGame/>:"로딩중"} 이런느낌..
 
   const finishGame = () => {
-    setPlay("finish");
+    setGameState("finish");
   };
+
+  const getScore = (score: number) => {
+    setScore(score);
+  };
+
+  const getGameOverMessage = (message: string) => {
+    setGameOverMessage(message);
+  };
+
+  const handleReStart = () => {
+    setGameState("starting");
+    setScore(null);
+    setGameOverMessage(null);
+  };
+
+  const handleReWait = () => {
+    setGameState("waiting");
+    setScore(null);
+    setGameOverMessage(null);
+  };
+
   return (
     <>
-      {play === "waiting" && (
+      {gameState === "waiting" && (
         <StartGame
-          img={letterColor}
-          alt={"글자 색 맞추기 게임"}
-          boldText={"중요한건 색깔!"}
-          text={"주어진 글자의 색깔을 입력해 주세요."}
-          onStart={() => setPlay("starting")}
+          img={gameImg}
+          alt={imgAlt}
+          boldText={boldDescription}
+          text={description}
+          onStart={() => setGameState("starting")}
         />
       )}
-      {play === "starting" && (
-        <StartCountdown state={play} onCount={() => setPlay("playing")} />
+      {gameState === "starting" && (
+        <StartCountdown
+          state={gameState}
+          onCount={() => setGameState("playing")}
+        />
       )}
-      {play !== "waiting" && children(play, finishGame)}
-      {play === "finish" && (
-        <FinishGame state={play} onShowResult={() => setPlay("result")} />
+      {gameState !== "waiting" &&
+        children(gameState, finishGame, getScore, getGameOverMessage)}
+      {gameState === "finish" && (
+        <FinishGame
+          state={gameState}
+          onShowResult={() => setGameState("result")}
+          gameOverMessage={gameOverMessage}
+        />
       )}
-      {play === "result" && (
+      {gameState === "result" && (
         <GameResult
-          onStart={() => setPlay("starting")}
-          onWait={() => setPlay("waiting")}
+          onRestart={handleReStart}
+          onWait={handleReWait}
+          score={score}
         />
       )}
     </>

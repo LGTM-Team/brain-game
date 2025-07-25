@@ -1,11 +1,24 @@
-import type { Play } from "../components/PlayPage";
+import { useEffect } from "react";
+import type { State } from "../components/PlayPage";
 import S from "./LetterColorPlay.module.css";
 
 interface Props {
-  state: Play;
+  state: State;
   onFinish: () => void;
+  handleScore: (score: number) => void;
+  handleGameOverMessage: (message: string) => void;
 }
-function LetterColorPlaying({ state, onFinish }: Props) {
+function LetterColorPlaying({
+  state,
+  onFinish,
+  handleScore,
+  handleGameOverMessage,
+}: Props) {
+  useEffect(() => {
+    handleScore(2319845);
+    handleGameOverMessage("타임오버!");
+  }, []);
+
   return (
     <div className={S.container}>
       {state}
