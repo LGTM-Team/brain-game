@@ -13,20 +13,22 @@ interface Props {
 function StartGame({ img, alt, boldText, text, onStart }: Props) {
   return (
     <div className={S.container}>
-      <button className={S.tutorial} type="button">
-        <img src={questionNeuro} alt="게임방법 캐릭터" />
-        <img className={S.text} src={bubble} alt="게임방법 말풍선" />
-      </button>
-
-      <div className={S.card}>
-        <img src={img} alt={alt} />
-        <div>
-          <div className={S.bold}>{boldText}</div>
-          <div>{text}</div>
-        </div>
-        <button type="button" onClick={onStart}>
-          바로 시작!
+      <div className={S.inner}>
+        <button className={S.tutorial} type="button">
+          <img src={questionNeuro} alt="게임방법 캐릭터" />
+          <img className={S.text} src={bubble} alt="게임방법 말풍선" />
         </button>
+
+        <div className={S.card}>
+          <img src={img} alt={alt} />
+          <div>
+            <div className={S.bold}>{boldText}</div>
+            <div>{text}</div>
+          </div>
+          <button type="button" onClick={onStart}>
+            바로 시작!
+          </button>
+        </div>
       </div>
     </div>
   );
