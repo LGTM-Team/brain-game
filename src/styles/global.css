@@ -2,33 +2,14 @@
 @import "./variables.css";
 
 body {
-  margin: 0 auto;
+  width: 100vw;
   .container {
+    margin-inline: auto;
     background-color: var(--white);
-    padding-top: 55px;
-    height: 100vh;
-  }
-}
-
-/* 모바일 */
-@media (max-width: 430px) {
-  body {
-    width: 100%;
-  }
-}
-
-/* 태블릿 */
-@media (min-width: 431px) and (max-width: 640px) {
-  body {
-    width: 100%;
-    background-color: var(--light-gray);
-  }
-}
-
-/* 데스크탑 */
-@media (min-width: 641px) {
-  body {
+    padding-top: 54px;
+    padding-bottom: 74px;
     max-width: 640px;
-    background-color: var(--light-gray);
+    box-sizing: border-box;
+    overflow: auto;
   }
 }

@@ -1,12 +1,14 @@
 .header {
+  height: 54px;
   border-bottom: 1px solid var(--light-gray);
-  display: flex;
   padding-bottom: var(--space-1);
   background-color: var(--white);
 
-  justify-content: space-between;
   position: fixed;
   top: 0;
+  display: flex;
+  justify-content: space-between;
+
   h1 {
     padding-top: var(--space-3);
     text-align: center;
@@ -25,6 +27,7 @@
 }
 
 .navigation {
+  height: 74px;
   background-color: var(--white);
   border-top: 1px solid var(--light-gray);
   position: fixed;
