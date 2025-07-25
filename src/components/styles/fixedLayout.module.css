@@ -50,6 +50,12 @@
   }
 }
 
+.header,
+.navigation {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @media (max-width: 430px) {
   .header,
   .navigation {

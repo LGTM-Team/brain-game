@@ -13,9 +13,11 @@ function App() {
   const currentTitle = (currentMatch.handle as RouteHandle).title || "뇌하수체";
   return (
     <>
-      <main className="container">
+      <main className="global-container">
         <Header title={currentTitle} />
-        <Outlet />
+        <div className="outlet-wrapper">
+          <Outlet />
+        </div>
         <Navigation />
       </main>
     </>
