@@ -11,12 +11,13 @@
 }
 
 .container{
-  height: calc(100vh - 77px);
   background-color: #fff;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 2rem;
 
   form{
     display: flex;

@@ -3,13 +3,25 @@
 
 body {
   width: 100vw;
-  .container {
-    margin-inline: auto;
-    background-color: var(--white);
-    padding-top: 54px;
-    padding-bottom: 74px;
-    max-width: 640px;
-    box-sizing: border-box;
-    overflow: auto;
-  }
+  margin: 0;
+}
+
+/* 최상위 레이아웃 컨테이너 */
+.global-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
+  margin-inline: auto;
+  box-sizing: border-box;
+
+  padding-top: 54px;      /* header 높이 */
+  padding-bottom: 74px;  
+}
+
+/* Outlet을 감싸는 영역 (헤더/풋터 제외 공간) */
+.outlet-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* 내부 콘텐츠 중앙 정렬 시 유용 */
 }
