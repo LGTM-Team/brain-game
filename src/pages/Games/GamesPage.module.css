@@ -4,7 +4,11 @@
   justify-content: flex-start;
   align-items: center;
   background-color: var(--main-blue);
-  padding-top: 87px;
+  height: 100%;
+
+  .inner {
+    margin-top: 20%;
+  }
 
   .anchors {
     display: flex;
