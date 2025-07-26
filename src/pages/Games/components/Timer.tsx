@@ -11,16 +11,20 @@ interface Props {
 }
 
 export function Timer({ duration, onTimeOver, mode = "static", round = 0 }: Props) {
-  const [remainingTime, setRemainingTime] = useState(duration);
+  const effectiveDuration = mode === "dynamic"
+  ? Math.max(7, duration - (round - 1))
+  : duration;
+
+  const [remainingTime, setRemainingTime] = useState(effectiveDuration);
   const [prevRound, setPrevRound] = useState(round);
 
   // Static 모드 타이머 종료
   useEffect(() => {
     if (mode !== "static") return;
 
-    const timeout = setTimeout(onTimeOver, duration * 1000);
+    const timeout = setTimeout(onTimeOver, effectiveDuration * 1000);
     return () => clearTimeout(timeout);
-  }, [mode, duration, onTimeOver]);
+  }, [mode, effectiveDuration, onTimeOver]);
 
   // Dynamic 모드 타이머 감소
   useEffect(() => {
@@ -39,28 +43,26 @@ export function Timer({ duration, onTimeOver, mode = "static", round = 0 }: Prop
     return () => clearInterval(interval);
   }, [mode]);
 
-  // Dynamic 모드 라운드 회복
+  // Dynamic 모드 라운드 회복 (+3초)
   useEffect(() => {
     if (mode !== "dynamic") return;
     if (round > prevRound) {
       const diff = round - prevRound;
-      setRemainingTime((prev) => Math.min(prev + diff * 3, duration));
+      setRemainingTime((prev) => Math.min(prev + diff * 3, effectiveDuration));
       setPrevRound(round);
     }
-  }, [round, prevRound, mode, duration]);
+  }, [round, prevRound, mode, effectiveDuration]);
 
-  // 남은 시간 0일 때 onTimeOver 호출 (애니메이션 끝까지 보이게 약간 지연)
+  // 종료 조건 (남은 시간 0일 때)
   useEffect(() => {
     if (mode === "dynamic" && remainingTime === 0) {
-      const t = setTimeout(onTimeOver, 1000); // ⏱ 100ms 후 호출
+      const t = setTimeout(onTimeOver, 1000);
       return () => clearTimeout(t);
     }
   }, [remainingTime, mode, onTimeOver]);
 
-  const percent = (remainingTime / duration) * 100;
-  const linearTransition = {
-    ease: "linear" as const,
-  };
+  const percent = (remainingTime / effectiveDuration) * 100;
+  const linearTransition = { ease: "linear" as const };
 
   return (
     <div className={S.container}>
@@ -71,7 +73,7 @@ export function Timer({ duration, onTimeOver, mode = "static", round = 0 }: Prop
             className={S.bar}
             initial={{ width: "100%" }}
             animate={{ width: "0%" }}
-            transition={{ duration, ...linearTransition }}
+            transition={{ duration: effectiveDuration, ...linearTransition }}
           />
         ) : (
           <motion.div
@@ -90,7 +92,7 @@ export function Timer({ duration, onTimeOver, mode = "static", round = 0 }: Prop
             className={S.marker}
             initial={{ left: "100%" }}
             animate={{ left: "0%" }}
-            transition={{ duration, ...linearTransition }}
+            transition={{ duration: effectiveDuration, ...linearTransition }}
           />
         ) : (
           <motion.img
@@ -106,5 +108,6 @@ export function Timer({ duration, onTimeOver, mode = "static", round = 0 }: Prop
     </div>
   );
 }
+
 
 export default Timer;
