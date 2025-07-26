@@ -97,4 +97,5 @@
   color: var(--main-red);
   font-weight: bold;
   font-size: var(--font-2);
+  user-select: none;
 }
