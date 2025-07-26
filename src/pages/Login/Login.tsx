@@ -110,11 +110,11 @@ function Login() {
       </form>
 
       <div className={S.findActions}>
-        <div className={S.actionWrap}>
+        {/* <div className={S.actionWrap}>
           <AppLink to={"/find-account"} variant={"page"}>
             <p className={S.actionLinkText}>계정이 기억나지 않으신가요?</p>
           </AppLink>
-        </div>
+        </div> */}
 
         <div className={S.signUpWrap}>
           <p>아직 회원이 아니신가요?</p>
