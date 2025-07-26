@@ -1,19 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import S from "./styles/FinishGame.module.css";
 import cryingNeuro from "@/assets/images/game/crying_neuro.svg";
-import type { Play } from "./PlayPage";
+import type { State } from "./PlayPage";
 
 interface Props {
-  state: Play;
+  state: State;
   onShowResult: () => void;
+  gameOverMessage: string | null;
 }
 
-function FinishGame({ state, onShowResult }: Props) {
-  const [result, setResult] = useState<string | null>(null);
-
+function FinishGame({ state, onShowResult, gameOverMessage }: Props) {
   useEffect(() => {
     if (state !== "finish") return;
-    setResult("즉탈메세지 로직 만들어야해요...");
     setTimeout(() => {
       onShowResult();
     }, 3000);
@@ -24,7 +22,9 @@ function FinishGame({ state, onShowResult }: Props) {
       <div className={S.inner}>
         <div className={S.gameOver}>GAME OVER</div>
         <img src={cryingNeuro} alt="게임 오버" />
-        <div className={S.box}>{result}</div>
+        <div className={S.box}>
+          {gameOverMessage ? gameOverMessage : "로딩중..."}
+        </div>
       </div>
     </div>
   );
