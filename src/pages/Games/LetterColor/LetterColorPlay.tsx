@@ -5,18 +5,18 @@ import S from "./LetterColorPlay.module.css";
 interface Props {
   state: State;
   onFinish: () => void;
-  handleScore: (score: number) => void;
-  handleGameOverMessage: (message: string) => void;
+  onScoreCalculated: (score: number) => void;
+  onGameOver: (message: string) => void;
 }
 function LetterColorPlaying({
   state,
   onFinish,
-  handleScore,
-  handleGameOverMessage,
+  onScoreCalculated,
+  onGameOver,
 }: Props) {
   useEffect(() => {
-    handleScore(2319845);
-    handleGameOverMessage("타임오버!");
+    onScoreCalculated(2319845);
+    onGameOver("타임오버!");
   }, []);
 
   return (

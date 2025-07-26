@@ -10,12 +10,12 @@ function LetterColorGamePage() {
       boldDescription={"중요한건 색깔!"}
       description={"주어진 글자의 색깔을 입력해 주세요."}
     >
-      {(state, onFinish, getScore, getGameOverMessage) => (
+      {(state, onFinish, onScoreCalculated, onGameOver) => (
         <LetterColorPlay
           state={state}
           onFinish={onFinish}
-          handleScore={getScore}
-          handleGameOverMessage={getGameOverMessage}
+          onScoreCalculated={onScoreCalculated}
+          onGameOver={onGameOver}
         />
       )}
     </PlayPage>

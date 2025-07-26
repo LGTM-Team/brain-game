@@ -10,8 +10,8 @@ interface Props {
   children: (
     state: State,
     finishGame: () => void,
-    getScore: (score: number) => void,
-    getGameOverMessage: (message: string) => void
+    onScoreCalculated: (score: number) => void,
+    onGameOver: (message: string) => void
   ) => React.ReactNode;
   gameImg: string;
   imgAlt: string;
@@ -37,11 +37,11 @@ function PlayPage({
     setGameState("finish");
   };
 
-  const getScore = (score: number) => {
+  const onScoreCalculated = (score: number) => {
     setScore(score);
   };
 
-  const getGameOverMessage = (message: string) => {
+  const onGameOver = (message: string) => {
     setGameOverMessage(message);
   };
 
@@ -75,7 +75,7 @@ function PlayPage({
         />
       )}
       {gameState !== "waiting" &&
-        children(gameState, finishGame, getScore, getGameOverMessage)}
+        children(gameState, finishGame, onScoreCalculated, onGameOver)}
       {gameState === "finish" && (
         <FinishGame
           state={gameState}
