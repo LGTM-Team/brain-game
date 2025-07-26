@@ -3,6 +3,7 @@ import { supabase } from "@/services/supabase";
 interface Payload {
   id: string; // auth.users.id
   nickname: string;
+  email:string;
   gender?: "male" | "female" | "other";
   birth?: string;
 }
@@ -13,10 +14,12 @@ export async function insertProfile({
   nickname,
   gender,
   birth,
+  email,
 }: Payload) {
   const payload: Record<string, any> = {
     id,
     nickname,
+    email,
   };
   
   if (gender !== undefined && gender !== null) payload.gender = gender;

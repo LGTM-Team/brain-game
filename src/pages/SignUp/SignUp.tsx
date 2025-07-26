@@ -75,6 +75,7 @@ function SignUp() {
         await insertProfile({ //db에 넣기
           id: userId,
           nickname,
+          email,
           gender: gender ?? undefined,
           birth: birth ?? undefined,
         });

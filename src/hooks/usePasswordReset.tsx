@@ -5,6 +5,39 @@ export function usePasswordReset() {
   const [loading, setLoading] = useState<boolean>(false); // 로딩 상태
   const [error, setError] = useState<string | null>(null); // 에러 상태
 
+  //0단계 : 이메일 존재 여부 확인
+  const checkEmailExists = async (email: string) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("id")
+        .eq("email", email)
+        .single();
+
+      if (error) {
+        if (error.code === "PGRST116") {
+          // PGRST116 = row not found
+          return false;
+        }
+        throw error;
+      }
+
+      return true; // 이메일 존재
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("이메일 확인 중 알 수 없는 오류가 발생했습니다.");
+      }
+      return false;
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   //1단계: 비밀번호 재설정 이메일 요청
   const sendResetEmail = async (email: string, redirectTo: string) => {
@@ -56,7 +89,7 @@ export function usePasswordReset() {
     }
   };
 
-  return { sendResetEmail, updatePassword, loading, error };
+  return { sendResetEmail, updatePassword, checkEmailExists, loading, error };
 }
 
 export default usePasswordReset;
