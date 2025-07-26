@@ -1,4 +1,5 @@
 import App from "@/App";
+import FindAccount from "@/pages/FindAccount/FindAccount";
 import GamesLayout from "@/pages/Games/GamesLayout";
 import GamesPage from "@/pages/Games/GamesPage";
 import LetterColorPlayPage from "@/pages/Games/LetterColor/LetterColorPlayPage";
@@ -50,11 +51,7 @@ const routes = createBrowserRouter([
       },
       { handle: { title: "고객문의" }, path: "/qna", element: <QnaPage /> },
       { handle: { title: "로그인" }, path: "login", element: <Login /> },
-      {
-        handle: { title: "이메일 대기" },
-        path: "pending-email",
-        element: <PendingEmail />,
-      },
+      { handle: { title: "계정 찾기" }, path: "find-account", element: <FindAccount /> },
       { handle: { title: "회원가입" }, path: "sign-up", element: <SignUp /> },
       { handle: { title: "ERROR" }, path: "*", element: <NotFoundPage /> },
     ],
