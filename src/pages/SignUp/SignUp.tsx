@@ -26,7 +26,7 @@ function SignUp() {
     confirmPassword?: string;
     nickname?: string;
     agreeToPrivacy?: string;
-    global?:string
+    global?: string
   }>({});
 
   // 입력 필드 유효성 검사 함수.
@@ -79,7 +79,7 @@ function SignUp() {
           birth: birth ?? undefined,
         });
 
-        navigate("/pending-email");
+        navigate("/"); //홈으로 라우팅
       } catch (profileErr) {
         console.error("프로필 저장 실패:", profileErr);
         setFieldErrors({
@@ -92,107 +92,115 @@ function SignUp() {
   };
 
   return (
-      <main className={S.container}>
-        <h1 className={S["a11y-hidden"]}>회원가입</h1>
-        <img src={signUpImg} alt="회원가입 안내 이미지" />
+    <main className={S.container}>
+      <h1 className={S["a11y-hidden"]}>회원가입</h1>
+      <img src={signUpImg} alt="회원가입 안내 이미지" />
 
-        <form onSubmit={handelSubmitSignUp}>
-          <Input
-            type={"email"}
-            placeholder={"이메일을 입력해주세요. (필수)"}
-            id={"id"}
-            label={"ID"}
-            onChange={(e) => setEmail(e.target.value)}
-            error={fieldErrors.email}
-            disabled={loading}
-          />
+      <form onSubmit={handelSubmitSignUp}>
+        <Input
+          type={"email"}
+          placeholder={"이메일을 입력해주세요. (필수)"}
+          id={"id"}
+          label={"ID"}
+          onChange={(e) => setEmail(e.target.value)}
+          error={fieldErrors.email}
+          disabled={loading}
+        />
 
-          <Input
-            type={"password"}
-            placeholder={"비밀번호를 입력해주세요. (필수)"}
-            id={"password"}
-            label={"PW"}
-            onChange={(e) => setPassword(e.target.value)}
-            error={fieldErrors.password}
-            disabled={loading}
-          />
+        <Input
+          type={"password"}
+          placeholder={"비밀번호를 입력해주세요. (필수)"}
+          id={"password"}
+          label={"PW"}
+          onChange={(e) => setPassword(e.target.value)}
+          error={fieldErrors.password}
+          disabled={loading}
+        />
 
-          <Input
-            type={"password"}
-            placeholder={"비밀번호를 다시 입력해 주세요. (필수)"}
-            id={"confirmPassword"}
-            label={"RE-PW"}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            error={fieldErrors.confirmPassword}
-            disabled={loading}
-          />
+        <Input
+          type={"password"}
+          placeholder={"비밀번호를 다시 입력해 주세요. (필수)"}
+          id={"confirmPassword"}
+          label={"RE-PW"}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          error={fieldErrors.confirmPassword}
+          disabled={loading}
+        />
 
-          <Input
-            placeholder={"닉네임을 입력해 주세요. (필수)"}
-            id={"nickname"}
-            label={"NICKNAME"}
-            onChange={(e) => setNickname(e.target.value)}
-            error={fieldErrors.nickname}
-            disabled={loading}
-          />
+        <Input
+          placeholder={"닉네임을 입력해 주세요. (필수)"}
+          id={"nickname"}
+          label={"NICKNAME"}
+          onChange={(e) => setNickname(e.target.value)}
+          error={fieldErrors.nickname}
+          disabled={loading}
+        />
 
-          <fieldset className={S.optional}>
-            <legend className={S["a11y-hidden"]}>선택 정보</legend>
-            <div>
-              <label htmlFor="gender">GENDER</label>
-              <select
-                id="gender"
-                name="gender"
-                onChange={(e) => {
-                  const value = e.target.value;
-                  setGender(
-                    value === "" ? null : (value as "male" | "female" | "other")
-                  );
-                }}
-                disabled={loading}
-              >
-                <option value="">성별 선택</option>
-                <option value="male">남성</option>
-                <option value="female">여성</option>
-                <option value="other">기타</option>
-              </select>
-            </div>
+        <fieldset className={S.optional}>
+          <legend className={S["a11y-hidden"]}>선택 정보</legend>
+          <div>
+            <label htmlFor="gender">GENDER</label>
+            <select
+              id="gender"
+              name="gender"
+              onChange={(e) => {
+                const value = e.target.value;
+                setGender(
+                  value === "" ? null : (value as "male" | "female" | "other")
+                );
+              }}
+              disabled={loading}
+            >
+              <option value="">성별 선택</option>
+              <option value="male">남성</option>
+              <option value="female">여성</option>
+              <option value="other">기타</option>
+            </select>
+          </div>
 
-            <div>
-              <label htmlFor="birth">BIRTH</label>
-              <input
-                type="date"
-                id="birth"
-                name="birth"
-                onChange={(e) => setBirth(e.target.value)}
-                disabled={loading}
-              />
-            </div>
-          </fieldset>
-
-          <fieldset className={S.agree}>
-            <legend className={S["a11y-hidden"]}>약관 동의</legend>
+          <div>
+            <label htmlFor="birth">BIRTH</label>
             <input
-              type="checkbox"
-              id="agree"
-              name="privacy_agree"
-              onChange={(e) => setAgreeToPrivacy(e.target.checked)}
+              type="date"
+              id="birth"
+              name="birth"
+              onChange={(e) => setBirth(e.target.value)}
               disabled={loading}
             />
-            <label htmlFor="agree">개인정보 동의하시겠습니까?</label>
-          </fieldset>
-          {fieldErrors.agreeToPrivacy && (
-              <p className={S.errorMessage}>{fieldErrors.agreeToPrivacy}</p>
-            )}
-          {fieldErrors.global && <p className={S.errorMessage}>{fieldErrors.global}</p>}
+          </div>
+        </fieldset>
 
-          <SubmitButton
-            label={loading ? "가입 중..." : "회원가입"}
-            type="submit"
+        <fieldset className={S.agree}>
+          <legend className={S["a11y-hidden"]}>약관 동의</legend>
+          <input
+            type="checkbox"
+            id="agree"
+            name="privacy_agree"
+            onChange={(e) => setAgreeToPrivacy(e.target.checked)}
             disabled={loading}
           />
-        </form>
-      </main>
+          <label htmlFor="agree">개인정보 동의하시겠습니까?</label>
+        </fieldset>
+
+
+        <p className={S.errorMessage}>
+          {(fieldErrors.agreeToPrivacy || fieldErrors.global) ? (
+            <>
+              {fieldErrors.agreeToPrivacy && <>{fieldErrors.agreeToPrivacy}<br /></>}
+              {fieldErrors.global && <>{fieldErrors.global}</>}
+            </>
+          ) : (
+            "\u00A0"
+          )}
+        </p>
+
+        <SubmitButton
+          label={loading ? "가입 중..." : "회원가입"}
+          type="submit"
+          disabled={loading}
+        />
+      </form>
+    </main>
   );
 }
 export default SignUp;
