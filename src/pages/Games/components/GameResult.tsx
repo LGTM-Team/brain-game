@@ -1,5 +1,4 @@
 import S from "./styles/GameResult.module.css";
-import resultNeuro from "@/assets/images/game/result_neuro.svg";
 
 interface Props {
   onRestart: () => void;
@@ -15,7 +14,6 @@ function GameResult({ onRestart, onWait, score }: Props) {
           <div>당신의 점수</div>
           <div className={S.value}>{score ? `${score}점` : "계산중..."}</div>
         </div>
-        <img src={resultNeuro} alt="게임 결과" />
         <div className={S.buttonContainer}>
           <button type="button" onClick={onRestart}>
             다시 시작!
