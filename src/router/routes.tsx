@@ -5,6 +5,7 @@ import LetterColorPlayPage from "@/pages/Games/LetterColor/LetterColorPlayPage";
 import NumberPlayPage from "@/pages/Games/Number/NumberPlay";
 import HomePage from "@/pages/Home/HomePage";
 import Login from "@/pages/Login/Login";
+import MyPage from "@/pages/MyPage/MyPage";
 import NotFoundPage from "@/pages/NotFound/NotFoundPage";
 import NoticePage from "@/pages/Notice/NoticePage";
 import QnaPage from "@/pages/Qna/QnaPage";
@@ -48,6 +49,7 @@ const routes = createBrowserRouter([
         path: "/notice",
         element: <NoticePage />,
       },
+      { handle: { title: "마이페이지" }, path: "mypage", element: <MyPage /> },
       { handle: { title: "고객문의" }, path: "/qna", element: <QnaPage /> },
       { handle: { title: "로그인" }, path: "login", element: <Login /> },
       {
