@@ -1,74 +1,74 @@
 .container {
-  justify-content: center;
   background-color: var(--main-blue);
-  overflow: hidden;
-  width: 100%;
-  height: calc(100% - 55px);
 
-  .tutorial {
-    position: relative;
-    left: 0px;
-    top: 0px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
-    overflow: visible;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
 
-    .text {
-      position: sticky;
-      transform: translateX(-10px) translateY(-5px);
-    }
+  position: relative;
+}
+
+.tutorial {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.card {
+  background-color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  translate: -50%;
+
+  width: 350px;
+  height: 300px;
+  padding: 10px;
+
+  border-radius: 10px;
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
+
+  img {
+    width: 150px;
   }
 
-  .card {
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    translate: -50% -50%;
-
+  div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
 
-    background-color: var(--white);
-    width: 350px;
-    height: 300px;
-    padding: 10px;
+    color: var(--black, #2b2b2b);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+  }
+
+  .bold {
+    font-size: var(--font-5);
+    font-weight: 700;
+  }
+
+  button {
+    background: var(--main-red, #e55064);
+
+    width: 300px;
+    padding: var(--space-2, 15px) 10px;
     border-radius: 10px;
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
 
-    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
-
-    .bold {
-      font-size: var(--font-5);
-      font-weight: 700;
-    }
-
-    div {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-weight: 400;
-      line-height: 30px;
-    }
-
-    button {
-      width: 300px;
-      padding: var(--space-2) 10px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      border-radius: 10px;
-      background: var(--main-red, #e55064);
-      box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
-    }
+    color: var(--black, #2b2b2b);
+    text-align: center;
+    font-size: var(--font-4);
+    font-weight: 700;
   }
 }
