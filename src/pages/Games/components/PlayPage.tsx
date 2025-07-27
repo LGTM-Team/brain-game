@@ -8,7 +8,7 @@ export type State = "waiting" | "starting" | "playing" | "finish" | "result";
 
 interface Props {
   children: (
-    state: State,
+    gameState: State,
     finishGame: () => void,
     onScoreCalculated: (score: number) => void,
     onGameOver: (message: string) => void
