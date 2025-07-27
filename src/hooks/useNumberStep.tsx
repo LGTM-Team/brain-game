@@ -1,26 +1,32 @@
+import { getRandomPositions } from "@/pages/Games/Number/components/getRandomCard";
 import { useEffect, useState } from "react";
 
-export const useNumberStep = (step: number) => {
+interface Props {
+  step: string;
+}
+
+export const useNumberStep = (step: string) => {
   const [answer, setAnswer] = useState<number[] | null>(null);
   const [randomNumberList, setRandomNumberList] = useState<number[] | null>(
     null
   );
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     let answerList: number[] = [];
     let boardSize = 0;
 
-    if (step === 1) {
+    if (step === "first") {
       answerList = [1, 2, 3];
       boardSize = 9;
-    } else if (step === 2) {
+    } else if (step === "second") {
       answerList = [1, 2, 3, 4, 5, 6, 7];
       boardSize = 16;
-    } else if (step === 3) {
-      answerList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      boardSize = 20;
-    } else if (step === 4) {
+    } else if (step === "third") {
       answerList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+      boardSize = 20;
+    } else if (step === "fourth") {
+      answerList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
       boardSize = 25;
     } else {
       return;
@@ -40,14 +46,4 @@ export const useNumberStep = (step: number) => {
   }, [step]);
 
   return { answer, randomNumberList };
-};
-
-// 중복 없는 랜덤 위치 N개 뽑기
-const getRandomPositions = (count: number, range: number): number[] => {
-  const indices = Array.from({ length: range }, (_, i) => i);
-  for (let i = indices.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [indices[i], indices[j]] = [indices[j], indices[i]];
-  }
-  return indices.slice(0, count);
 };

@@ -5,13 +5,10 @@ import neuro from "@/assets/images/run_neuro_cloud.svg";
 interface Props {
   randomNumberList: number[];
   gridSize: number;
-  cellSize: {
-    width: string;
-    height: string;
-  };
+  gameStep: string;
 }
 
-function ShuffleCard({ randomNumberList, gridSize, cellSize }: Props) {
+function ShuffleCard({ randomNumberList, gridSize, gameStep }: Props) {
   const imageUrl = getRandomImage() ?? neuro;
 
   return (
@@ -21,11 +18,7 @@ function ShuffleCard({ randomNumberList, gridSize, cellSize }: Props) {
         style={{ gridTemplateColumns: `repeat(${gridSize}, 1fr)` }}
       >
         {randomNumberList?.map((item, idx) => (
-          <div
-            key={idx}
-            className={`${S.card} ${S.backSide}`}
-            style={{ ...cellSize }}
-          >
+          <div key={idx} className={`${S.card} ${S.backSide}  ${S[gameStep]} `}>
             <img src={imageUrl} />
           </div>
         ))}

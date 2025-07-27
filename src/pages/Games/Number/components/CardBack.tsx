@@ -6,18 +6,15 @@ import neuro from "@/assets/images/run_neuro_cloud.svg";
 interface Props {
   randomNumberList: number[];
   gridSize: number;
-  cellSize: {
-    width: string;
-    height: string;
-  };
+  gameStep: string;
   setUserAnswer: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
 function CardBack({
   randomNumberList,
   gridSize,
-  cellSize,
   setUserAnswer,
+  gameStep,
 }: Props) {
   const [clickedCardList, setClickedCardList] = useState<boolean[]>(
     Array(randomNumberList.length).fill(false)
@@ -46,8 +43,7 @@ function CardBack({
           return (
             <div
               key={idx}
-              className={`${S.card} ${isClicked ? S.frontSide : S.backSide}`}
-              style={{ ...cellSize }}
+              className={`${S.card} ${isClicked ? S.frontSide : S.backSide} ${S[gameStep]}`}
               onClick={() => {
                 handleClick(item, idx);
               }}

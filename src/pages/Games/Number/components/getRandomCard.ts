@@ -1,0 +1,20 @@
+import neuro1 from "@/assets/images/numberGame/neuro1.svg";
+import neuro2 from "@/assets/images/numberGame/neuro2.svg";
+import neuro3 from "@/assets/images/numberGame/neuro3.svg";
+import neuro4 from "@/assets/images/numberGame/neuro4.svg";
+
+const imgList = [neuro1, neuro2, neuro3, neuro4];
+
+export const getRandomImage = () => {
+  const index = Math.floor(Math.random() * imgList.length);
+  return imgList[index];
+};
+
+export const getRandomPositions = (count: number, range: number): number[] => {
+  const indices = Array.from({ length: range }, (_, i) => i);
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  return indices.slice(0, count);
+};

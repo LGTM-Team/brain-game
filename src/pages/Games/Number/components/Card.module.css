@@ -1,9 +1,8 @@
-.cardContainer {
-  width: 100%;
-  padding: var(--space-1);
+.playContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 
 .grid {
@@ -39,5 +38,42 @@
   border: 2px solid var(--light-gray);
   img {
     width: 200px;
+  }
+}
+.first {
+  width: 100px;
+  height: 132px;
+}
+
+.second {
+  width: 90px;
+  height: 119px;
+}
+
+.third {
+  width: 74px;
+  height: 98px;
+}
+
+.fourth {
+  width: 60px;
+  height: 74px;
+}
+
+@media (max-width: 376px) {
+  .third {
+    width: 60px;
+    height: 74px;
+  }
+}
+
+@media (min-width: 641px) and (max-height: 660px) {
+  .second {
+    width: 90px;
+    height: 98px;
+  }
+  .third {
+    width: 60px;
+    height: 74px;
   }
 }
