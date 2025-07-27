@@ -13,6 +13,7 @@ import QnaPage from "@/pages/Qna/QnaPage";
 import PendingEmail from "@/pages/SignUp/PendingEmail";
 import SignUp from "@/pages/SignUp/SignUp";
 import { createBrowserRouter } from "react-router-dom";
+import ChosungPlayPage from "@/pages/Games/Chosung/ChosungPlayPage";
 
 const routes = createBrowserRouter([
   {
@@ -46,7 +47,7 @@ const routes = createBrowserRouter([
           {
             handle: { title: "초성 퀴즈" },
             path: "chosung",
-            element: <Chosung />,
+            element: <ChosungPlayPage />,
           },
         ].filter(Boolean),
       },
