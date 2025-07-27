@@ -25,7 +25,7 @@ function SubmitAnswer({placeholder, onSubmit}:Props) {
 
   return (
     <form className={S.container} onSubmit={handleSubmit}>
-      <input type="text" placeholder={placeholder}/>
+      <input ref={inputRef} type="text" placeholder={placeholder} />
     </form>
   )
 }

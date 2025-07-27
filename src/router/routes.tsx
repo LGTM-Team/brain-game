@@ -1,6 +1,7 @@
 import App from "@/App";
 import GamesLayout from "@/pages/Games/GamesLayout";
 import GamesPage from "@/pages/Games/GamesPage";
+import Chosung from "@/pages/Games/Chosung/Chosung";
 import LetterColorPlayPage from "@/pages/Games/LetterColor/LetterColorPlayPage";
 import NumberPlayPage from "@/pages/Games/Number/NumberPlay";
 import HomePage from "@/pages/Home/HomePage";
@@ -41,6 +42,11 @@ const routes = createBrowserRouter([
             handle: { title: "숫자 순서 맞추기" },
             path: "numbers",
             element: <NumberPlayPage />,
+          },
+          {
+            handle: { title: "초성 퀴즈" },
+            path: "chosung",
+            element: <Chosung />,
           },
         ].filter(Boolean),
       },
