@@ -1,0 +1,21 @@
+{
+  "colors": {
+    "rgb(254,0,0)": "red",
+    "rgb(255,99,0)": "orange",
+    "rgb(255,255,1)": "yellow",
+    "rgb(0,128,1)": "green",
+    "rgb(0,0,254)": "blue",
+    "rgb(255,102,219)": "pink",
+    "rgb(188,49,254)": "purple"
+  },
+
+  "letters": {
+    "빨강": "red",
+    "주황": "orange",
+    "노랑": "yellow",
+    "초록": "green",
+    "파랑": "blue",
+    "분홍": "pink",
+    "보라": "purple"
+  }
+}
