@@ -4,6 +4,7 @@ import S from "./LetterColorPlay.module.css";
 import submitIcon from "@/assets/icons/submit.svg";
 import { useEffect, useState } from "react";
 import letterColorData from "./letterColorData.json";
+import Timer from "../components/Timer";
 
 interface Props {
   state: State;
@@ -28,6 +29,8 @@ function LetterColorPlay({
   const [quizLetter, setQuizLetter] = useState<string | null>(null);
   const [input, setInput] = useState("");
   const [score, setScore] = useState(0);
+  const [isTimeUp, setIsTimeUp] = useState(false);
+  const [round, setRound] = useState(0);
 
   const inputChecker = (input: string): Letter => {
     return input as Letter;
@@ -35,6 +38,13 @@ function LetterColorPlay({
   const colorChecker = (color: string): Color => {
     return color as Color;
   };
+  useEffect(() => {
+    if (state === "starting") {
+      setIsTimeUp(false);
+      setScore(0);
+      setRound(0);
+    }
+  }, [state]);
 
   useEffect(() => {
     if (state !== "starting") return;
@@ -54,6 +64,7 @@ function LetterColorPlay({
 
     if (isCorrect) {
       setScore(score + 1);
+      setRound(round + 1);
       setQuizColor(colorList[getRandom(colorList.length)]);
       setQuizLetter(letterList[getRandom(letterList.length)]);
       setInput("");
@@ -63,6 +74,15 @@ function LetterColorPlay({
       onFinish();
     }
   };
+
+  useEffect(() => {
+    if (isTimeUp === true) {
+      onGameOver("타임 오버!");
+      onScoreCalculated(score);
+      onFinish();
+    }
+  }, [isTimeUp]);
+
   const isYellow = () => {
     if (quizColor === "rgb(255,255,1)") return true;
     return false;
@@ -74,6 +94,16 @@ function LetterColorPlay({
         <div>현재점수</div>
         <div className={S.value}>{score}</div>
       </div>
+      {state === "playing" ? (
+        <Timer
+          mode="dynamic"
+          duration={10}
+          round={round}
+          onTimeOver={() => setIsTimeUp(true)}
+        />
+      ) : (
+        ""
+      )}
       {quizColor && quizLetter ? (
         <div
           className={`${S.quiz} ${isYellow() ? S.stroke : ""}`.trim()}
