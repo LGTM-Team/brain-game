@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import S from "./styles/submitAnswer.module.css";
+import submitIcon from "@/assets/icons/submit.svg";
 
 interface Props {
   placeholder: string;
@@ -25,6 +26,9 @@ function SubmitAnswer({ placeholder, onSubmit }: Props) {
   return (
     <form className={S.container} onSubmit={handleSubmit}>
       <input ref={inputRef} type="text" placeholder={placeholder} />
+      <button type="submit">
+        <img src={submitIcon} alt="제출 아이콘" />
+      </button>
     </form>
   );
 }
