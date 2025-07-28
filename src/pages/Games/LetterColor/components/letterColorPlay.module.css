@@ -45,7 +45,11 @@
   font-weight: 700;
 }
 .stroke {
-  -webkit-text-stroke: rgb(225, 225, 1) 1px;
+  text-shadow:
+    -1px 0 var(--main-yellow),
+    1px 0 var(--main-yellow),
+    0 -1px var(--main-yellow),
+    0 1px var(--main-yellow);
 }
 
 .formWrapper {
