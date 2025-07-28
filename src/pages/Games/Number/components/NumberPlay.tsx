@@ -1,5 +1,5 @@
-import S from "./components/Card.module.css";
-import NumberCard from "./components/NumberCard";
+import S from "./Card.module.css";
+import NumberCard from "./NumberCard";
 function NumberPlayPage() {
   return (
     <>
