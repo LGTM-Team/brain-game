@@ -1,4 +1,4 @@
-import S from "./styles/GameResult.module.css";
+import S from "./styles/gameResult.module.css";
 
 interface Props {
   onRestart: () => void;

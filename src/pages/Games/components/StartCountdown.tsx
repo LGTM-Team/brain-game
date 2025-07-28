@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import S from "./styles/StartCountdown.module.css";
+import S from "./styles/startCountdown.module.css";
 import counter1 from "@/assets/icons/counter1.svg";
 import counter2 from "@/assets/icons/counter2.svg";
 import counter3 from "@/assets/icons/counter3.svg";

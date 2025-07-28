@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import S from "./styles/Timer.module.css";
+import S from "./styles/timer.module.css";
 import Img from "@/assets/images/timer_img.svg";
 
 interface Props {
@@ -10,10 +10,14 @@ interface Props {
   round?: number;
 }
 
-export function Timer({ duration, onTimeOver, mode = "static", round = 0 }: Props) {
-  const effectiveDuration = mode === "dynamic"
-  ? Math.max(7, duration - (round - 1))
-  : duration;
+export function Timer({
+  duration,
+  onTimeOver,
+  mode = "static",
+  round = 0,
+}: Props) {
+  const effectiveDuration =
+    mode === "dynamic" ? Math.max(7, duration - (round - 1)) : duration;
 
   const [remainingTime, setRemainingTime] = useState(effectiveDuration);
   const [prevRound, setPrevRound] = useState(round);
@@ -108,6 +112,5 @@ export function Timer({ duration, onTimeOver, mode = "static", round = 0 }: Prop
     </div>
   );
 }
-
 
 export default Timer;

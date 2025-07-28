@@ -1,4 +1,4 @@
-import S from "./styles/StartGame.module.css";
+import S from "./styles/startGame.module.css";
 import questionNeuro from "@/assets/images/game/question_neuro.svg";
 import bubble from "@/assets/images/game/tutorial_bubble.svg";
 

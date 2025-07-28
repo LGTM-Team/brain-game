@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import S from "./styles/FinishGame.module.css";
+import S from "./styles/finishGame.module.css";
 import cryingNeuro from "@/assets/images/game/crying_neuro.svg";
 import type { State } from "./PlayPage";
 

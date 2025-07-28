@@ -1,4 +1,4 @@
-import S from "./GamesPage.module.css";
+import S from "./gamePage.module.css";
 import { AppLink } from "@/router/AppLink";
 import runNeuro from "@/assets/images/run_neuro_cloud.svg";
 
