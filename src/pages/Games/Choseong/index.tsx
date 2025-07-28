@@ -7,8 +7,8 @@ function ChoseongPlayPage() {
     <PlayPage
       gameImg={word_img}
       imgAlt={"초성 퀴즈"}
-      boldDescription={"제시된 초성에 맞는 단어를 입력하세요!"}
-      description={"올바른 단어를 입력하면 점수를 얻어요."}
+      boldDescription={"중요한건 스피드!"}
+      description={"주어진 초성에 일치하는 단어를 입력해 주세요."}
     >
       {(gameState, onFinish, onScoreCalculated, onGameOver) => (
         <Choseong

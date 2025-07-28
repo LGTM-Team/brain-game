@@ -1,13 +1,13 @@
 import { useRef } from 'react';
 
-export function useScore(sec: number) {
+export function useBonusScore(sec: number) {
   const ref = useRef<NodeJS.Timeout | null>(null); // 타이머 저장
   const scoreRef = useRef<number>(100);            // 실시간 점수
   const resultRef = useRef<number | null>(null);   // 최종 점수 고정
   const unitRef = useRef<number>(100 / sec);       // 초당 감소량
 
   // 시작
-  const start = () => {
+  const BonusStart = () => {
     // 이전 타이머 정리
     if (ref.current) clearInterval(ref.current);
 
@@ -29,11 +29,11 @@ export function useScore(sec: number) {
   };
 
   // 리셋 + 타이머 다시 시작
-  const restart = () => {
+  const BonusRestart = () => {
     scoreRef.current = 100;
     resultRef.current = null;
-    start();
+    BonusStart();
   };
 
-  return { get, restart, start };
+  return { get, BonusRestart, BonusStart };
 }
