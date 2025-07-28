@@ -1,8 +1,8 @@
 import PlayPage from "../components/PlayPage";
-import Chosung from "./Chosung";
+import Choseong from "./Choseong";
 import word_img from "@/assets/images/game/word_game.svg";
 
-function ChosungPlayPage() {
+function ChoseongPlayPage() {
   return (
     <PlayPage
       gameImg={word_img}
@@ -11,7 +11,7 @@ function ChosungPlayPage() {
       description={"올바른 단어를 입력하면 점수를 얻어요."}
     >
       {(gameState, onFinish, onScoreCalculated, onGameOver) => (
-        <Chosung
+        <Choseong
           state={gameState}
           onFinish={onFinish}
           onScoreCalculated={onScoreCalculated}
@@ -21,4 +21,4 @@ function ChosungPlayPage() {
     </PlayPage>
   );
 }
-export default ChosungPlayPage;
+export default ChoseongPlayPage;

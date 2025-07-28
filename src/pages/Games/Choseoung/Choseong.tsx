@@ -3,7 +3,7 @@ import S from '../Chosung/Chosung.module.css';
 import SubmitAnswer from '../components/SubmitAnswer';
 import CurrentGameScore from '../CurrentGameScore';
 import isExistWord from '@/utils/isExistWord';
-import { makeRandomChosung } from '@/utils/makeRandomChosung';
+import { makeRandomChoseong } from '@/utils/makeRandomChoseong';
 import { getChoseong } from 'es-hangul';
 import { useScore } from '@/hooks/useBonusScore';
 
@@ -14,7 +14,7 @@ interface Props {
   onGameOver: (message: string) => void;
 }
 
-function Chosung({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
+function Choseoung({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
   const [currentScore, setCurrentScore] = useState<number>(0);
   const [currentQuiz, setCurrentQuiz] = useState<string>("");
   const [usedWords, setUsedWords] = useState<string[]>([]); // 중복 저장 공간.
@@ -23,7 +23,7 @@ function Chosung({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
   // 초기 문제 설정
   useEffect(() => {
     if (state === "playing") {
-      setCurrentQuiz(makeRandomChosung());
+      setCurrentQuiz(makeRandomChoseong());
       setUsedWords([]);
       setCurrentScore(0);
       start();
@@ -56,7 +56,7 @@ function Chosung({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
 
     setCurrentScore(currentScore + 100 + bonus);
     setUsedWords((prev) => [...prev, trimmed]);
-    setCurrentQuiz(makeRandomChosung());
+    setCurrentQuiz(makeRandomChoseong());
     restart();
   };
 
@@ -77,4 +77,4 @@ function Chosung({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
   );
 }
 
-export default Chosung;
+export default Choseoung;
