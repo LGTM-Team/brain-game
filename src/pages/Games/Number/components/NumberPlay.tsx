@@ -3,6 +3,7 @@ import S from "./card.module.css";
 import NumberCard from "./NumberCard";
 import CurrentGameScore from "../../components/CurrentGameScore";
 import Timer from "../../components/Timer";
+import StaticTimer from "../../components/StaticTimer";
 
 interface Props {
   state: "waiting" | "starting" | "playing" | "finish" | "result";
@@ -28,13 +29,22 @@ function NumberCardPlay({
   }, [state]);
 
   // 정답인지 확인
+  const handleGame = () => {};
 
   return (
     <>
       <CurrentGameScore score={score} />
-      <Timer duration={10} onTimeOver={() => {}} mode="static" round={round} />
+
       <main className={S.playContainer}>
-        <NumberCard round={round} />
+        <StaticTimer
+          duration={60}
+          onTimeOver={handleGame}
+          isPlaying={state === "playing"}
+          key={round}
+        />
+        <div className={S.cardContainer}>
+          <NumberCard round={round} />
+        </div>
       </main>
     </>
   );
