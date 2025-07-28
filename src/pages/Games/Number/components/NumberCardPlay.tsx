@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import S from "./card.module.css";
-import NumberCard from "./NumberCard";
-import CurrentGameScore from "../../components/CurrentGameScore";
+
 import Timer from "../../components/Timer";
+import NumberCard from "./NumberCard";
+import S from "./card.module.css";
+import CurrentGameScore from "../../components/CurrentGameScore";
 
 interface Props {
   state: "waiting" | "starting" | "playing" | "finish" | "result";
@@ -10,7 +11,7 @@ interface Props {
   onScoreCalculated: (score: number) => void;
   onGameOver: (message: string) => void;
 }
-function NumberCardPlay({
+function NumberCardPay({
   state,
   onFinish,
   onScoreCalculated,
@@ -27,8 +28,6 @@ function NumberCardPlay({
     }
   }, [state]);
 
-  // 정답인지 확인
-
   return (
     <>
       <CurrentGameScore score={score} />
@@ -39,4 +38,4 @@ function NumberCardPlay({
     </>
   );
 }
-export default NumberCardPlay;
+export default NumberCardPay;

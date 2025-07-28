@@ -1,4 +1,4 @@
-import { getRandomPositions } from "@/pages/Games/Number/components/getRandomCard";
+import { getRandomPositions } from "@/utils/getRandom";
 import { useEffect, useState } from "react";
 
 interface Props {

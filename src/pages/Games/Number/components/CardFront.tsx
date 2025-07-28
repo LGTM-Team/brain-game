@@ -1,4 +1,4 @@
-import S from "./Card.module.css";
+import S from "./card.module.css";
 
 interface Props {
   randomNumberList: number[];

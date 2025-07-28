@@ -1,7 +1,5 @@
 import { useState } from "react";
-import S from "./Card.module.css";
-import { getRandomImage } from "@/utils/getRandom";
-import neuro from "@/assets/images/run_neuro_cloud.svg";
+import S from "./card.module.css";
 
 interface Props {
   randomNumberList: number[];

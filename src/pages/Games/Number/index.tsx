@@ -1,6 +1,5 @@
 import { useState } from "react";
 import S from "./components/card.module.css";
-import NumberCard from "./components/NumberCard";
 import PlayPage from "../components/PlayPage";
 import numberCardImg from "@/assets/images/game/number_game.svg";
 import NumberCardPlay from "./components/NumberPlay";
@@ -8,7 +7,7 @@ import NumberCardPlay from "./components/NumberPlay";
 function NumberPlayPage() {
   return (
     <>
-      {/* <PlayPage
+      <PlayPage
         gameImg={numberCardImg}
         imgAlt={"숫자 맞추기"}
         boldDescription={"중요한건 순서!"}
@@ -22,7 +21,7 @@ function NumberPlayPage() {
             onGameOver={onGameOver}
           />
         )}
-      </PlayPage> */}
+      </PlayPage>
     </>
   );
 }

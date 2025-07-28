@@ -7,12 +7,12 @@ import LetterColorPlayPage from "@/pages/Games/LetterColor/index";
 import NoticePage from "@/pages/Notice/index";
 import QnaPage from "@/pages/Qna/index";
 import MyPage from "@/pages/MyPage/MyPage";
-import Login from "@/pages/Login/Login";
 import PendingEmail from "@/pages/SignUp/PendingEmail";
 import SignUp from "@/pages/SignUp/SignUp";
 import ChoseongPlayPage from "@/pages/Games/Choseong/index";
 import NumberPlayPage from "@/pages/Games/Number/index";
 import NotFoundPage from "@/pages/NotFound/NotFoundPage";
+import Login from "@/pages/Login/Login";
 
 const routes = createBrowserRouter([
   {
