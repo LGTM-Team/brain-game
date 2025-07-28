@@ -10,7 +10,7 @@ import MyPage from "@/pages/MyPage/MyPage";
 import Login from "@/pages/Login/Login";
 import PendingEmail from "@/pages/SignUp/PendingEmail";
 import SignUp from "@/pages/SignUp/SignUp";
-import ChoseongPlayPage from "@/pages/Games/Choseoung/index";
+import ChoseongPlayPage from "@/pages/Games/Choseong/index";
 import NumberPlayPage from "@/pages/Games/Number/index";
 import NotFoundPage from "@/pages/NotFound/NotFoundPage";
 
