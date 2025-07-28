@@ -4,6 +4,7 @@
 body {
   width: 100%;
   margin: 0;
+  background-color: var(--light-gray);
 }
 
 /* 최상위 레이아웃 컨테이너 */
@@ -14,14 +15,13 @@ body {
   max-width: 640px;
   margin-inline: auto;
   box-sizing: border-box;
-
-  padding-top: 65px;      
-  padding-bottom: 75px;  
+  padding-top: 65px;
+  padding-bottom: 75px;
 }
 
 /* Outlet을 감싸는 영역 (헤더/풋터 제외 공간) */
 .outlet-wrapper {
   flex: 1;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
