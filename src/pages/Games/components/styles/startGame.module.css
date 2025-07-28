@@ -36,6 +36,7 @@
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
 
   img {
+    height: 85px;
     width: 150px;
   }
 

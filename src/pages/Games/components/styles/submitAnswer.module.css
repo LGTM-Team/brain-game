@@ -1,23 +1,29 @@
-.container{
+.container {
   background-color: var(--main-blue);
   box-sizing: border-box;
   width: 100%;
   height: 70px;
   padding: 1rem;
-  
+  position: relative;
+
   display: flex;
 
-
-  input{
+  input {
     flex: 1;
-    border: 1px solid var(--dark-gray) ;
+    border: 1px solid var(--dark-gray);
     border-radius: 5px;
     padding-left: 0.5rem;
 
     &:focus {
       outline: none;
       box-shadow: none;
-      border-color: var(--dark-gray); 
+      border-color: var(--dark-gray);
     }
+  }
+  img {
+    position: absolute;
+    right: var(--space-5);
+    top: 50%;
+    translate: 0% -50%;
   }
 }

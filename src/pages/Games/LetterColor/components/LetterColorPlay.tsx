@@ -1,10 +1,13 @@
 import { getRandom } from "@/utils/getRandom";
 import type { State } from "../../components/PlayPage";
 import S from "./LetterColorPlay.module.css";
-import submitIcon from "@/assets/icons/submit.svg";
 import { useEffect, useState } from "react";
 import letterColorData from "@/data/letterColorData.json";
-import Timer from "../../components/Timer";
+import DynamicTimer from "../../components/DynamicTimer";
+import CurrentGameScore from "../../components/CurrentGameScore";
+import SubmitAnswer from "../../components/SubmitAnswer";
+import { useBonusScore } from "@/hooks/useBonusScore";
+import { motion } from "framer-motion";
 
 interface Props {
   state: State;
@@ -27,107 +30,126 @@ function LetterColorPlay({
 }: Props) {
   const [quizColor, setQuizColor] = useState<string | null>(null);
   const [quizLetter, setQuizLetter] = useState<string | null>(null);
-  const [input, setInput] = useState("");
   const [score, setScore] = useState(0);
-  const [isTimeUp, setIsTimeUp] = useState(false);
   const [round, setRound] = useState(0);
+  const { get, BonusRestart, BonusStart } = useBonusScore(10);
+  const [shake, setShake] = useState(false);
 
-  const inputChecker = (input: string): Letter => {
-    return input as Letter;
+  const answerChecker = (answer: string): Letter => {
+    return answer as Letter;
   };
   const colorChecker = (color: string): Color => {
     return color as Color;
   };
-  useEffect(() => {
-    if (state === "starting") {
-      setIsTimeUp(false);
-      setScore(0);
-      setRound(0);
-    }
-  }, [state]);
-
-  useEffect(() => {
-    if (state !== "starting") return;
-    setQuizColor(colorList[getRandom(colorList.length)]);
-    setQuizLetter(letterList[getRandom(letterList.length)]);
-    setInput("");
-  }, [state]);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!input || !quizColor) return;
-    const checkedInput = inputChecker(input);
-    const checkedColor = colorChecker(quizColor);
-    const isCorrect =
-      letterColorData.letters[checkedInput] ===
-      letterColorData.colors[checkedColor];
-
-    if (isCorrect) {
-      setScore(score + 1);
-      setRound(round + 1);
-      setQuizColor(colorList[getRandom(colorList.length)]);
-      setQuizLetter(letterList[getRandom(letterList.length)]);
-      setInput("");
-    } else {
-      onGameOver("잘못된 정답을 입력하였습니다.");
-      onScoreCalculated(score);
-      onFinish();
-    }
-  };
-
-  useEffect(() => {
-    if (isTimeUp === true) {
-      onGameOver("타임 오버!");
-      onScoreCalculated(score);
-      onFinish();
-    }
-  }, [isTimeUp]);
 
   const isYellow = () => {
     if (quizColor === "rgb(255,255,1)") return true;
     return false;
   };
 
+  const triggerShake = () => {
+    setShake(true);
+    setTimeout(() => setShake(false), 400); // 애니메이션 지속 시간 후 제거
+  };
+
+  useEffect(() => {
+    if (state === "starting") {
+      setScore(0);
+      setRound(0);
+    }
+  }, [state]);
+
+  useEffect(() => {
+    if (state === "playing") {
+      setQuizColor(colorList[getRandom(colorList.length)]);
+      setQuizLetter(letterList[getRandom(letterList.length)]);
+      setScore(0);
+      setRound(1);
+      BonusStart();
+    }
+  }, [state]);
+
+  const handleSubmit = (text: string) => {
+    const trimmed = text.trim();
+
+    //정답 입력 안했을때, 문제 컬러 없을때
+    if (!trimmed || !quizColor) return;
+
+    const checkedAnswer = answerChecker(trimmed);
+    const checkedColor = colorChecker(quizColor);
+
+    const isCorrect =
+      letterColorData.letters[checkedAnswer] ===
+      letterColorData.colors[checkedColor];
+
+    const bonus = get();
+
+    if (isCorrect) {
+      setScore(score + 100 + bonus);
+      setQuizColor(colorList[getRandom(colorList.length)]);
+      setQuizLetter(letterList[getRandom(letterList.length)]);
+      BonusRestart();
+      setRound(round + 1);
+    } else {
+      triggerShake();
+      onGameOver("잘못된 정답을 입력하였습니다.");
+      onScoreCalculated(score);
+      onFinish();
+    }
+  };
+
+  const handelTimeOver = () => {
+    onGameOver("타임 오버!");
+    onScoreCalculated(score);
+    onFinish();
+  };
+
   return (
     <div className={S.container}>
-      <div className={S.score}>
-        <div>현재점수</div>
-        <div className={S.value}>{score}</div>
-      </div>
-      {state === "playing" ? (
-        <Timer
-          mode="dynamic"
-          duration={10}
-          round={round}
-          onTimeOver={() => setIsTimeUp(true)}
-        />
-      ) : (
-        ""
-      )}
-      {quizColor && quizLetter ? (
-        <div
-          className={`${S.quiz} ${isYellow() ? S.stroke : ""}`.trim()}
-          id="quiz"
-          style={{ color: `${quizColor}` }}
+      <CurrentGameScore score={score} />
+      <DynamicTimer
+        duration={10}
+        round={round}
+        isPlaying={state === "playing"}
+        onTimeOver={handelTimeOver}
+      />
+      <div className={S.quizSection}>
+        <motion.div
+          className={S.quiz}
+          animate={{
+            x: shake ? [0, -10, 10, -6, 6, -3, 3, 0] : 0,
+            boxShadow: shake
+              ? [
+                  "0px 4px 30px 0px rgba(0, 0, 0, 0.25)", // 시작: 원래 쉐도우
+                  "0px 0px 12px rgba(255, 0, 0, 0.6)", // 중간: 붉은 쉐도우 강조
+                  "0px 0px 18px rgba(255, 0, 0, 0.8)",
+                  "0px 0px 12px rgba(255, 0, 0, 0.6)",
+                  "0px 4px 30px 0px rgba(0, 0, 0, 0.25)", // 끝: 원래 쉐도우로 복귀
+                ]
+              : "0px 4px 30px 0px rgba(0, 0, 0, 0.25)",
+          }}
+          transition={{
+            x: { duration: 0.4 },
+            boxShadow: { duration: 0.4 },
+          }}
         >
-          {quizLetter}
-        </div>
-      ) : (
-        <div className={S.quiz}>로딩 중...</div>
-      )}
-      <div className={S.formWrapper}>
-        <form action="submit" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="정답을 입력해주세요"
-          />
-          <button type="submit">
-            <img src={submitIcon} alt="제출버튼" />
-          </button>
-        </form>
+          {quizColor && quizLetter ? (
+            <div
+              className={`${isYellow() ? S.stroke : ""}`.trim()}
+              id="quiz"
+              style={{ color: `${quizColor}` }}
+            >
+              {quizLetter}
+            </div>
+          ) : (
+            ""
+          )}
+        </motion.div>
       </div>
+      <SubmitAnswer
+        placeholder="정답을 입력해 주세요."
+        onSubmit={handleSubmit}
+      />
     </div>
   );
 }

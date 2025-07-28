@@ -30,9 +30,6 @@ function PlayPage({
   const [score, setScore] = useState<number | null>(null);
   const [gameOverMessage, setGameOverMessage] = useState<string | null>(null);
 
-  //결과 보고 게임 점수랑 메세지 reset 필요 이건 GameResult 컴포넌트에 onReset={()=>setScore(null)} 이거 쓰면 될듯
-  // 게임 점수 로딩중에 조건문 필요 {(score&&gameOverMessage)|<FinishGame/>:"로딩중"} 이런느낌..
-
   const finishGame = () => {
     setGameState("finish");
   };
