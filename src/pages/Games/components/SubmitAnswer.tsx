@@ -1,12 +1,12 @@
-import { useEffect, useRef } from 'react';
-import S from '../components/styles/SubmitAnswer.module.css'
+import { useEffect, useRef } from "react";
+import S from "./styles/submitAnswer.module.css";
 
-interface Props{
-  placeholder:string;
+interface Props {
+  placeholder: string;
   onSubmit: (value: string) => void;
 }
 
-function SubmitAnswer({placeholder, onSubmit}:Props) {
+function SubmitAnswer({ placeholder, onSubmit }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -22,11 +22,10 @@ function SubmitAnswer({placeholder, onSubmit}:Props) {
     }
   };
 
-
   return (
     <form className={S.container} onSubmit={handleSubmit}>
       <input ref={inputRef} type="text" placeholder={placeholder} />
     </form>
-  )
+  );
 }
-export default SubmitAnswer
+export default SubmitAnswer;
