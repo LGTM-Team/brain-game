@@ -17,7 +17,7 @@ interface Props {
   onGameOver: (message: string) => void;
 }
 
-function Choseoung({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
+function Choseong({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
   const [currentScore, setCurrentScore] = useState<number>(0);
   const [currentQuiz, setCurrentQuiz] = useState<string>("");
   const [usedWords, setUsedWords] = useState<string[]>([]); // 중복 저장 공간.
@@ -120,4 +120,4 @@ function Choseoung({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
   );
 }
 
-export default Choseoung;
+export default Choseong;
