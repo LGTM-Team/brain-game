@@ -11,7 +11,7 @@ function GamesPage() {
           <AppLink variant={"page"} to={"numbers"} className={S.link}>
             숫자 맞추기 게임 시작하기
           </AppLink>
-          <AppLink variant={"page"} to={"chosung"} className={S.link}>
+          <AppLink variant={"page"} to={"choseong"} className={S.link}>
             단어 완성 게임 시작하기
           </AppLink>
           <AppLink variant={"page"} to={"letter-color"} className={S.link}>

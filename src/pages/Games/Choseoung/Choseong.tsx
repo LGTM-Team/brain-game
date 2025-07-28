@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import S from '../Chosung/Chosung.module.css';
+import S from '../Choseoung/choseong.module.css';
 import SubmitAnswer from '../components/SubmitAnswer';
 import CurrentGameScore from '../CurrentGameScore';
 import isExistWord from '@/utils/isExistWord';
