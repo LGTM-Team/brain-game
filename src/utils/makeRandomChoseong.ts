@@ -1,8 +1,8 @@
-export function makeRandomChosung(): string {
+export function makeRandomChoseong(): string {
   const choseongList = [
-    'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ',
-    'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ',
-    'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ',
+    'ㄱ', 'ㄴ', 'ㄷ',
+    'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ',
+    'ㅇ', 'ㅈ', 'ㅊ',
     'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ',
   ];
 
