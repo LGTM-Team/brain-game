@@ -1,0 +1,88 @@
+.card {
+  width: 100%;
+  max-width: 420px;           /* 카드 최대 너비 */
+  height: 270px;              /* 카드 고정 높이 */
+  background-color: var(--white);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+  gap: 1rem;
+
+  position: relative;         /* 아이콘 버튼 포지셔닝 기준 */
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.31);
+  margin-bottom: var(--space-4);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.card img {
+  height: 87px;               /* 이미지 고정 높이 */
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.card .gameTitle {
+  font-weight: bold;
+  font-size: var(--font-5);
+  text-align: center;
+}
+
+.card .gameDescription {
+  color: var(--dark-gray);
+  font-size: var(--font-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.card .link {
+  width: 100%;
+  background-color: var(--main-orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card .link p {
+  font-weight: bold;
+  font-size: var(--font-4);
+  color: var(--white);
+  text-align: center;
+}
+
+.card .link:hover {
+  background-color: var(--main-blue);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+
+.iconButton {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-3);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--dark-gray);
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.iconButton:hover {
+  transform: scale(1.1);
+  color: var(--main-blue); /* 필요시 조정 */
+}
