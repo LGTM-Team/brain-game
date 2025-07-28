@@ -1,5 +1,5 @@
 import PlayPage from "../components/PlayPage";
-import LetterColorPlay from "./LetterColorPlay";
+import LetterColorPlay from "./components/LetterColorPlay";
 import letterColor from "@/assets/images/game/letterColor_game.svg";
 
 function LetterColorGamePage() {
