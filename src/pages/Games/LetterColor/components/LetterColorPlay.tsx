@@ -1,10 +1,10 @@
 import { getRandom } from "@/utils/getRandom";
-import type { State } from "../components/PlayPage";
+import type { State } from "../../components/PlayPage";
 import S from "./LetterColorPlay.module.css";
 import submitIcon from "@/assets/icons/submit.svg";
 import { useEffect, useState } from "react";
 import letterColorData from "@/data/letterColorData.json";
-import Timer from "../components/Timer";
+import Timer from "../../components/Timer";
 
 interface Props {
   state: State;
