@@ -21,7 +21,7 @@ function Choseoung({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
   const [currentScore, setCurrentScore] = useState<number>(0);
   const [currentQuiz, setCurrentQuiz] = useState<string>("");
   const [usedWords, setUsedWords] = useState<string[]>([]); // 중복 저장 공간.
-  const { get, restart, start } = useBonusScore(10);
+  const { get, BonusRestart, BonusStart } = useBonusScore(10);
   const [round, setRound] = useState<number>(1);
   const [shake, setShake] = useState(false);
 
@@ -32,7 +32,7 @@ function Choseoung({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
       setCurrentQuiz(makeRandomChoseong());
       setUsedWords([]);
       setCurrentScore(0);
-      start();
+      BonusStart();
     }
   }, [state]);
 
@@ -63,7 +63,7 @@ function Choseoung({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
     setCurrentScore(currentScore + 100 + bonus);
     setUsedWords((prev) => [...prev, trimmed]);
     setCurrentQuiz(makeRandomChoseong());
-    restart();
+    BonusRestart();
     setRound((prev) => prev + 1); // Timer 강제 리셋
   };
 

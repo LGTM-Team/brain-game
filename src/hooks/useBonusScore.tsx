@@ -7,7 +7,7 @@ export function useBonusScore(sec: number) {
   const unitRef = useRef<number>(100 / sec);       // 초당 감소량
 
   // 시작
-  const start = () => {
+  const BonusStart = () => {
     // 이전 타이머 정리
     if (ref.current) clearInterval(ref.current);
 
@@ -29,11 +29,11 @@ export function useBonusScore(sec: number) {
   };
 
   // 리셋 + 타이머 다시 시작
-  const restart = () => {
+  const BonusRestart = () => {
     scoreRef.current = 100;
     resultRef.current = null;
-    start();
+    BonusStart();
   };
 
-  return { get, restart, start };
+  return { get, BonusRestart, BonusStart };
 }
