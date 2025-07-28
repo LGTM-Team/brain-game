@@ -12,7 +12,7 @@ function GameResult({ onRestart, onWait, score }: Props) {
       return `계산중...`;
     }
 
-    return `${score}점`;
+    return `${score.toLocaleString()}점`;
   };
 
   return (
