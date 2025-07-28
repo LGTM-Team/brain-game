@@ -49,6 +49,7 @@
 
   .active {
     color: var(--main-blue);
+    font-weight: bold;
   }
 }
 
@@ -63,7 +64,6 @@
   max-width: 640px;
   z-index: 100;
 }
-
 
 @media (max-width: 430px) {
   .header,
