@@ -12,7 +12,7 @@ import QnaPage from "@/pages/Qna/QnaPage";
 import PendingEmail from "@/pages/SignUp/PendingEmail";
 import SignUp from "@/pages/SignUp/SignUp";
 import { createBrowserRouter } from "react-router-dom";
-import ChoseongPlayPage from "@/pages/Games/Choseoung";
+import ChoseongPlayPage from "@/pages/Games/Choseoung/index";
 
 const routes = createBrowserRouter([
   {
