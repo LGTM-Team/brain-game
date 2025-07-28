@@ -3,7 +3,7 @@ import type { State } from "../components/PlayPage";
 import S from "./LetterColorPlay.module.css";
 import submitIcon from "@/assets/icons/submit.svg";
 import { useEffect, useState } from "react";
-import letterColorData from "./letterColorData.json";
+import letterColorData from "@/data/letterColorData.json";
 import Timer from "../components/Timer";
 
 interface Props {
