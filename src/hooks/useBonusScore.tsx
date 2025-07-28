@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-export function useScore(sec: number) {
+export function useBonusScore(sec: number) {
   const ref = useRef<NodeJS.Timeout | null>(null); // 타이머 저장
   const scoreRef = useRef<number>(100);            // 실시간 점수
   const resultRef = useRef<number | null>(null);   // 최종 점수 고정
