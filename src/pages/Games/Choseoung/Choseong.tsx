@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import S from '../Choseoung/choseong.module.css';
-import SubmitAnswer from '../components/SubmitAnswer';
-import CurrentGameScore from '../CurrentGameScore';
-import isExistWord from '@/utils/isExistWord';
-import { makeRandomChoseong } from '@/utils/makeRandomChoseong';
-import { getChoseong } from 'es-hangul';
-import { useScore } from '@/hooks/useBonusScore';
+import { useEffect, useState } from "react";
+import S from "../Choseoung/choseong.module.css";
+import SubmitAnswer from "../components/SubmitAnswer";
+import CurrentGameScore from "../components/CurrentGameScore";
+import isExistWord from "@/utils/isExistWord";
+import { makeRandomChoseong } from "@/utils/makeRandomChoseong";
+import { getChoseong } from "es-hangul";
+import { useScore } from "@/hooks/useBonusScore";
 
 interface Props {
   state: "waiting" | "starting" | "playing" | "finish" | "result";
@@ -60,19 +60,21 @@ function Choseoung({ state, onFinish, onScoreCalculated, onGameOver }: Props) {
     restart();
   };
 
-
   return (
     <main className={S.container}>
       <CurrentGameScore score={currentScore} />
       <div className="timer"></div>
       <div className={S.cardSection}>
         <div className={S.card}>
-          {currentQuiz.split('').map((ch, idx) => (
+          {currentQuiz.split("").map((ch, idx) => (
             <p key={idx}>{ch}</p>
           ))}
         </div>
       </div>
-      <SubmitAnswer placeholder="단어를 입력해 주세요." onSubmit={handleAnswerSubmit} />
+      <SubmitAnswer
+        placeholder="단어를 입력해 주세요."
+        onSubmit={handleAnswerSubmit}
+      />
     </main>
   );
 }

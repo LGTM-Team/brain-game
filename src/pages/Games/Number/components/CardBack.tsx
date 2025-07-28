@@ -1,5 +1,5 @@
 import S from "./Card.module.css";
-import { getRandomImage } from "./getRandomCard";
+import { getRandomImage } from "@/utils/getRandom";
 import neuro from "@/assets/images/run_neuro_cloud.svg";
 
 interface Props {
