@@ -3,6 +3,7 @@ import StartGame from "./StartGame";
 import StartCountdown from "./StartCountdown";
 import FinishGame from "./FinishGame";
 import GameResult from "./GameResult";
+import Tutorial from "./Tutorial";
 
 export type State = "waiting" | "starting" | "playing" | "finish" | "result";
 
@@ -17,6 +18,7 @@ interface Props {
   imgAlt: string;
   boldDescription: string;
   description: string;
+  tutorial?: React.ReactNode;
 }
 
 function PlayPage({
@@ -25,10 +27,12 @@ function PlayPage({
   imgAlt,
   boldDescription,
   description,
+  tutorial,
 }: Props) {
   const [gameState, setGameState] = useState<State>("waiting");
   const [score, setScore] = useState<number | null>(null);
   const [gameOverMessage, setGameOverMessage] = useState<string | null>(null);
+  const [showTutorial, setShowTutorial] = useState(false);
 
   const finishGame = () => {
     setGameState("finish");
@@ -63,7 +67,13 @@ function PlayPage({
           boldText={boldDescription}
           text={description}
           onStart={() => setGameState("starting")}
+          onOpenTutorial={() => setShowTutorial(true)}
         />
+      )}
+      {gameState === "waiting" && showTutorial === true && (
+        <Tutorial onCloseTutorial={() => setShowTutorial(false)}>
+          {tutorial}
+        </Tutorial>
       )}
       {gameState === "starting" && (
         <StartCountdown
