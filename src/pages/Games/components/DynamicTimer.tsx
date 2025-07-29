@@ -37,37 +37,28 @@ export function DynamicTimer({
     Math.max(minTime, duration - decayPerRound * (r - 1)) * 1000;
 
   const update = () => {
-    const now = Date.now();
-    const elapsed = now - startTimeRef.current;
-    const remaining = Math.max(0, remainingTimeRef.current - elapsed);
-    const percent = (remaining / maxTimeRef.current) * 100;
+  const now = Date.now();
+  const elapsed = now - startTimeRef.current;
+  const remaining = Math.max(0, remainingTimeRef.current - elapsed);
+  const percent = (remaining / maxTimeRef.current) * 100;
 
-    // 바 너비 갱신
-    if (barRef.current) {
-      barRef.current.style.width = `${percent}%`;
-    }
+  // 게이지 바 너비 업데이트
+  if (barRef.current) {
+    barRef.current.style.width = `${percent}%`;
+  }
 
-    // 마커 이동 계산
-    const prev = prevPercentRef.current;
-    const isRecovering = percent > prev;
-    if (isRecovering) {
-      markerX.set(percent);
-    } else {
-      const current = markerX.get();
-      const next = current + (percent - current) * 0.1;
-      markerX.set(next);
-    }
-    prevPercentRef.current = percent;
+  // 마커 위치도 항상 percent 기준으로 맞춤
+  markerX.set(percent);
 
-    // 타이머 종료 처리
-    if (remaining <= 0 && !finishedRef.current) {
-      finishedRef.current = true;
-      onTimeOver();
-      return;
-    }
+  // 종료 처리
+  if (remaining <= 0 && !finishedRef.current) {
+    finishedRef.current = true;
+    onTimeOver();
+    return;
+  }
 
-    rafRef.current = requestAnimationFrame(update);
-  };
+  rafRef.current = requestAnimationFrame(update);
+};
 
   useEffect(() => {
     if (!isPlaying) return;
