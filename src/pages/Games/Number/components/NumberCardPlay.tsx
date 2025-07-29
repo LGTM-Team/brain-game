@@ -5,6 +5,7 @@ import CurrentGameScore from "../../components/CurrentGameScore";
 import StaticTimer from "../../components/StaticTimer";
 import { useNumberStep } from "@/hooks/useNumberStep";
 import { useBonusScore } from "@/hooks/useBonusScore";
+import { useNumberCardTransition } from "@/hooks/useNumberCardTransition";
 
 interface Props {
   state: "waiting" | "starting" | "playing" | "finish" | "result";
@@ -29,18 +30,17 @@ function NumberCardPlay({
   const [gameStep, setGameStep] = useState<
     "first" | "second" | "third" | "fourth"
   >("first");
-
+  const [userAnswer, setUserAnswer] = useState<number[]>([]);
+  const [isTimerActive, setIsTimerActive] = useState(false);
+  const [gameStartCountdown, setGameStartCountdown] = useState<number | null>(
+    null
+  );
   const { answer, randomNumberList } = useNumberStep({
     step: gameStep,
     round,
     setGameStep,
   });
-  const [userAnswer, setUserAnswer] = useState<number[]>([]);
   const gridSize = Math.round(Math.sqrt(randomNumberList?.length ?? 1));
-  const [isTimerActive, setIsTimerActive] = useState(false);
-  const [gameStartCountdown, setGameStartCountdown] = useState<number | null>(
-    null
-  );
 
   useEffect(() => {
     if (state === "starting") {
@@ -57,7 +57,6 @@ function NumberCardPlay({
   useEffect(() => {
     if (state === "playing") {
       setIsTimerActive(false);
-
       setCardStatus("front");
       setGameStartCountdown(3);
       const toBack = setTimeout(() => {
@@ -114,53 +113,25 @@ function NumberCardPlay({
     handleGame();
   }, [userAnswer]);
 
-  // 게임 단계 ui상 grid가 변경되면 ->  라운드와 사용자 입력 초기화
-  useEffect(() => {
-    setRound(0);
-    setUserAnswer([]);
-    if (gameStep === "first") return;
-    setIsTimerActive(false);
-    setCardStatus("shuffle");
+  // gameStep이 바뀔때마다 카드 변경
+  useNumberCardTransition({
+    trigger: gameStep,
+    condition: gameStep === "first",
+    setCardStatus,
+    setIsTimerActive,
+    setGameStartCountdown,
+    setUserAnswer,
+  });
 
-    const toFront = setTimeout(() => {
-      setCardStatus("front");
-      setGameStartCountdown(3);
-    }, 3000);
-
-    const toBack = setTimeout(() => {
-      setCardStatus("back");
-      setIsTimerActive(true);
-    }, 3000 + 3000);
-
-    return () => {
-      clearTimeout(toFront);
-      clearTimeout(toBack);
-    };
-  }, [gameStep]);
-
-  // round 변경시 카드 상태 초기화
-  useEffect(() => {
-    if (round === 0) return;
-    setUserAnswer([]);
-
-    setCardStatus("shuffle");
-    setIsTimerActive(false);
-
-    const toFront = setTimeout(() => {
-      setCardStatus("front");
-      setGameStartCountdown(3);
-    }, 3000);
-
-    const toBack = setTimeout(() => {
-      setIsTimerActive(true);
-      setCardStatus("back");
-    }, 3000 + 3000);
-
-    return () => {
-      clearTimeout(toFront);
-      clearTimeout(toBack);
-    };
-  }, [round]);
+  // round가 바뀔때마다 카드 변경
+  useNumberCardTransition({
+    trigger: round,
+    condition: round === 0,
+    setCardStatus,
+    setIsTimerActive,
+    setGameStartCountdown,
+    setUserAnswer,
+  });
 
   useEffect(() => {
     if (gameStartCountdown === null) return;
