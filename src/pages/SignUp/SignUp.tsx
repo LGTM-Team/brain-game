@@ -79,7 +79,7 @@ function SignUp() {
           birth: birth ?? undefined,
         });
 
-        navigate("/"); //홈으로 라우팅
+        navigate("/", { replace: true }); //홈으로 라우팅하는데 히스토리도 지움.
       } catch (profileErr) {
         console.error("프로필 저장 실패:", profileErr);
         setFieldErrors({

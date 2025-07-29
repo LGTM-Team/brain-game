@@ -5,7 +5,7 @@ import SubmitButton from "@/components/form/SubmitButton";
 import { useState } from "react";
 import useLogin from "@/hooks/useLogin";
 import { AppLink } from "@/router/AppLink";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
@@ -18,6 +18,8 @@ function Login() {
     password?: string;
     global?: string;
   }>({});
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const validateForm = () => {
     const errors: typeof fieldErrors = {};
@@ -54,9 +56,9 @@ function Login() {
           return;
         }
 
-        // ✅ 로그인 성공 처리
+        //  로그인 성공 처리
         console.log("로그인 성공:", user);
-        navigate("/") // 홈 화면으로 라우팅.
+        navigate(from, { replace: true }); // 이전 페이지로 복귀 또는 홈으로
       }
     } catch (err: unknown) {
       let message = "로그인 중 알 수 없는 오류가 발생했습니다.";

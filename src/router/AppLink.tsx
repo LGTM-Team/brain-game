@@ -1,4 +1,4 @@
-import { NavLink, useNavigate, Link } from "react-router-dom";
+import { NavLink, useNavigate, Link, useLocation } from "react-router-dom";
 import S from "../components/styles/fixedLayout.module.css";
 
 interface AppLinkProps {
@@ -9,6 +9,7 @@ interface AppLinkProps {
 }
 
 export const AppLink = ({ to, variant, children, className }: AppLinkProps) => {
+  const location = useLocation();
   const navigate = useNavigate();
 
   // 헤더 뒤로가기 전용
@@ -36,7 +37,7 @@ export const AppLink = ({ to, variant, children, className }: AppLinkProps) => {
 
   // 일반 페이지 내 링크
   return (
-    <Link to={to!} className={className}>
+    <Link to={to!} className={className} state={{ from: location }}>
       {children}
     </Link>
   );
