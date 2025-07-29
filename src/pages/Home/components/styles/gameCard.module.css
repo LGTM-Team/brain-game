@@ -58,14 +58,11 @@
 .card .link p {
   font-weight: bold;
   font-size: var(--font-4);
-  color: var(--white);
   text-align: center;
 }
 
 .card .link:hover {
-  background-color: var(--main-blue);
-  transform: translateY(-2px);
-  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 9px 9px 20px 0 rgba(0, 0, 0, 0.15) inset;
 }
 
 
@@ -80,9 +77,9 @@
   cursor: pointer;
   z-index: 10;
   transition: transform 0.2s ease, color 0.2s ease;
+  transform: scale(0.9);
 }
 
 .iconButton:hover {
-  transform: scale(1.1);
-  color: var(--main-blue); /* 필요시 조정 */
+  transform: scale(1);
 }

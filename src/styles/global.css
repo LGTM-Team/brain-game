@@ -1,6 +1,10 @@
 @import "./reset.css";
 @import "./variables.css";
 
+html{
+  scrollbar-gutter: stable;
+}
+
 body {
   width: 100%;
   margin: 0;
