@@ -4,15 +4,25 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
 
   position: relative;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 350px;
+  padding: 0 var(--space-4);
 }
 
 .tutorial {
   display: flex;
   justify-content: flex-start;
   width: 150px;
+
+  position: absolute;
+  left: 1%;
+  top: 1%;
 }
 
 .card {
@@ -24,22 +34,20 @@
   align-items: center;
   gap: 20px;
 
-  position: absolute;
-  left: 50%;
-  top: 25%;
-  translate: -50%;
-
   box-sizing: border-box;
-  width: 350px;
+  width: 100%;
+  max-width: 420px;
   height: 300px;
-  padding: 10px;
+  padding-block: 1rem;
+  padding-inline: 2rem;
 
   border-radius: 10px;
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
 
   img {
-    height: 85px;
-    width: 150px;
+    height: 87px;
+    max-width: 100%;
+    object-fit: contain;
   }
 
   div {
@@ -64,7 +72,8 @@
   button {
     background: var(--main-red, #e55064);
 
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     padding: var(--space-2, 15px) 10px;
     border-radius: 10px;
     box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
