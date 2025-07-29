@@ -65,7 +65,7 @@
       border-radius: 10px;
 
       &:hover {
-        background-color: var(--main-blue);
+        box-shadow: var(--inset-shadow);
       }
     }
 
@@ -74,7 +74,7 @@
       margin-bottom: var(--space-5);
 
       &:hover {
-        background-color: var(--main-blue);
+        box-shadow: var(--inset-shadow);
       }
     }
   }

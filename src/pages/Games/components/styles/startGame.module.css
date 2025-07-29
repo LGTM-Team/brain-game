@@ -73,7 +73,7 @@
     font-weight: 700;
 
     &:hover {
-      background-color: var(--main-yellow);
+      box-shadow: var(--inset-shadow);
     }
   }
 }
