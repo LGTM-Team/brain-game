@@ -20,8 +20,8 @@ function StartGame({
   onOpenTutorial,
 }: Props) {
   return (
-    <div className={S.container} onClick={onOpenTutorial}>
-      <button className={S.tutorial} type="button">
+    <div className={S.container}>
+      <button className={S.tutorial} type="button" onClick={onOpenTutorial}>
         <img src={questionNeuro} alt="게임방법 캐릭터" />
         <img className={S.text} src={bubble} alt="게임방법 말풍선" />
       </button>

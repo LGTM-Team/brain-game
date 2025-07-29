@@ -7,8 +7,14 @@ interface Props {
 }
 
 function Tutorial({ children, onCloseTutorial }: Props) {
+  const onBackGroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onCloseTutorial();
+    }
+  };
+
   return (
-    <div className={S.container}>
+    <div className={S.container} onClick={onBackGroundClick}>
       <div className={S.wrapper}>
         <button type="button" onClick={onCloseTutorial}>
           <img src={cancel} alt="창닫기" />

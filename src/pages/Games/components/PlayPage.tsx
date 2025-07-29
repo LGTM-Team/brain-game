@@ -3,7 +3,6 @@ import StartGame from "./StartGame";
 import StartCountdown from "./StartCountdown";
 import FinishGame from "./FinishGame";
 import GameResult from "./GameResult";
-import TutorialLetterColor from "../LetterColor/components/TutorialLetterColor";
 import Tutorial from "./Tutorial";
 
 export type State = "waiting" | "starting" | "playing" | "finish" | "result";
@@ -71,7 +70,7 @@ function PlayPage({
           onOpenTutorial={() => setShowTutorial(true)}
         />
       )}
-      {showTutorial && (
+      {gameState === "waiting" && showTutorial === true && (
         <Tutorial onCloseTutorial={() => setShowTutorial(false)}>
           {tutorial}
         </Tutorial>
