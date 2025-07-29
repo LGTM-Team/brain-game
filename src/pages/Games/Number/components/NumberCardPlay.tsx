@@ -6,6 +6,7 @@ import StaticTimer from "../../components/StaticTimer";
 import { useNumberStep } from "@/hooks/useNumberStep";
 import { useBonusScore } from "@/hooks/useBonusScore";
 import { useNumberCardTransition } from "@/hooks/useNumberCardTransition";
+import type { CardStatus, GameStep } from "@/types/numberGame.type";
 
 interface Props {
   state: "waiting" | "starting" | "playing" | "finish" | "result";
@@ -24,12 +25,8 @@ function NumberCardPlay({
   const { get, BonusRestart, BonusStart } = useBonusScore(10);
   const [round, setRound] = useState(0);
   const [userRound, setUserRound] = useState(0);
-  const [cardStatus, setCardStatus] = useState<"front" | "back" | "shuffle">(
-    "back"
-  );
-  const [gameStep, setGameStep] = useState<
-    "first" | "second" | "third" | "fourth"
-  >("first");
+  const [cardStatus, setCardStatus] = useState<CardStatus>("back");
+  const [gameStep, setGameStep] = useState<GameStep>("first");
   const [userAnswer, setUserAnswer] = useState<number[]>([]);
   const [isTimerActive, setIsTimerActive] = useState(false);
   const [gameStartCountdown, setGameStartCountdown] = useState<number | null>(

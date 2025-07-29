@@ -1,9 +1,10 @@
+import type { GameStep } from "@/types/numberGame.type";
 import S from "./card.module.css";
 
 interface Props {
   randomNumberList: number[];
   gridSize: number;
-  gameStep: string;
+  gameStep: GameStep;
 }
 
 function CardFront({ randomNumberList, gridSize, gameStep }: Props) {

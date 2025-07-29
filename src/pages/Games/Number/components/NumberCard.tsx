@@ -1,10 +1,11 @@
+import type { CardStatus, GameStep } from "@/types/numberGame.type";
 import CardBack from "./CardBack";
 import CardFront from "./CardFront";
 import ShuffleCard from "./ShuffleCard";
 
 interface Props {
-  cardStatus: string;
-  gameStep: string;
+  cardStatus: CardStatus;
+  gameStep: GameStep;
   randomNumberList: number[] | null;
   gridSize: number;
   round: number;

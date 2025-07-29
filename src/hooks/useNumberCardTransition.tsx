@@ -1,10 +1,11 @@
+import type { CardStatus } from "@/types/numberGame.type";
 import { useEffect } from "react";
 
 interface Props {
   trigger: number | string;
   condition?: boolean;
   setRound?: React.Dispatch<React.SetStateAction<number>>;
-  setCardStatus: (status: "front" | "back" | "shuffle") => void;
+  setCardStatus: (status: CardStatus) => void;
   setIsTimerActive: (active: boolean) => void;
   setGameStartCountdown: (count: number) => void;
   setUserAnswer: (answers: number[]) => void;

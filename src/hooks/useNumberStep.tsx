@@ -1,17 +1,16 @@
+import type { GameStep } from "@/types/numberGame.type";
 import { getRandomPositions } from "@/utils/getRandom";
 import { useEffect, useState } from "react";
 
-export type Step = "first" | "second" | "third" | "fourth";
-
 interface Props {
-  step: Step;
+  step: GameStep;
   round: number; // 0부터 시작
-  setGameStep: React.Dispatch<React.SetStateAction<Step>>;
+  setGameStep: React.Dispatch<React.SetStateAction<GameStep>>;
 }
 
 const stepConfig: Record<
-  Step,
-  { min: number; max: number; boardSize: number; next: Step | null }
+  GameStep,
+  { min: number; max: number; boardSize: number; next: GameStep | null }
 > = {
   first: { min: 3, max: 6, boardSize: 9, next: "second" },
   second: { min: 7, max: 12, boardSize: 16, next: "third" },

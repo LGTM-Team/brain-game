@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import S from "./card.module.css";
+import type { GameStep } from "@/types/numberGame.type";
 
 interface Props {
   randomNumberList: number[] | null;
   gridSize: number;
-  gameStep: string;
+  gameStep: GameStep;
   setUserAnswer: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
