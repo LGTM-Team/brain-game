@@ -1,7 +1,6 @@
-import { useState } from "react";
 import PlayPage from "../components/PlayPage";
 import numberCardImg from "@/assets/images/game/number_game.svg";
-import NumberCardPlay from "./components/NumberPlay";
+import NumberCardPlay from "./components/NumberCardPlay";
 
 function NumberPlayPage() {
   return (

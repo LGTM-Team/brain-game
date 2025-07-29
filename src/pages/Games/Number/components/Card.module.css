@@ -5,7 +5,27 @@
   flex-direction: column;
   align-items: center;
 }
+.gameStartCountdown {
+  margin-top: 2rem;
+  text-align: center;
+  h3 {
+    font-size: var(--font-5);
+    font-weight: bold;
+    color: var(--black);
+  }
+  span {
+    color: var(--main-red);
+  }
+}
 
+.shuffle {
+  text-align: center;
+  p {
+    color: var(--black);
+    font-size: var(--font-5);
+    font-weight: bold;
+  }
+}
 .cardContainer {
   display: flex;
   flex: 1;

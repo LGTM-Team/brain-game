@@ -5,8 +5,18 @@ import neuro4 from "@/assets/images/numberGame/neuro4.svg";
 import neuro5 from "@/assets/images/numberGame/neuro5.svg";
 import neuro6 from "@/assets/images/numberGame/neuro6.svg";
 import neuro7 from "@/assets/images/numberGame/neuro7.svg";
+import neuro8 from "@/assets/images/numberGame/neuro8.svg";
 
-const imgList = [neuro1, neuro2, neuro3, neuro4, neuro5, neuro6, neuro7];
+const imgList = [
+  neuro1,
+  neuro2,
+  neuro3,
+  neuro4,
+  neuro5,
+  neuro6,
+  neuro7,
+  neuro8,
+];
 
 export function getRandom(length: number) {
   return Math.floor(Math.random() * length);

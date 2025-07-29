@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
             element: <LetterColorPlayPage />,
           },
           {
-            handle: { title: "숫자 순서 맞추기" },
+            handle: { title: "숫자를 외워라" },
             path: "numbers",
             element: <NumberPlayPage />,
           },
