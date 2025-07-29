@@ -18,6 +18,7 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
+  box-sizing: border-box;
 
   form{
     display: flex;
@@ -35,7 +36,9 @@
   .findActions{
     display: flex;
     flex-direction: column;
-    gap: 6rem;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: calc(75px + 2rem);
 
     .actionWrap{
       display: flex;
@@ -48,6 +51,10 @@
       align-items: center;
       gap: var(--space-1);
       color: var(--dark-gray);
+    }
+    .actionLinkText{
+      color: var(--dark-gray);
+      text-decoration: underline;
     }
   }
 }
@@ -65,13 +72,6 @@
   color: var(--dark-gray);
   font-weight: bold;
   cursor: pointer;
-}
-
-.divider {
-  color: var(--dark-gray);
-  font-size: var(--font-4);
-  pointer-events: none;
-  user-select: none;
 }
 
 .globalErrorMessage {

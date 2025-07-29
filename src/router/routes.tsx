@@ -12,6 +12,7 @@ import SignUp from "@/pages/SignUp/SignUp";
 import ChoseongPlayPage from "@/pages/Games/Choseong/index";
 import NumberPlayPage from "@/pages/Games/Number/index";
 import NotFoundPage from "@/pages/NotFound/NotFoundPage";
+import FindAccount from "@/pages/FindAccount/FindAccount";
 import Login from "@/pages/Login/Login";
 
 const routes = createBrowserRouter([
@@ -58,6 +59,7 @@ const routes = createBrowserRouter([
       { handle: { title: "마이페이지" }, path: "mypage", element: <MyPage /> },
       { handle: { title: "고객문의" }, path: "/qna", element: <QnaPage /> },
       { handle: { title: "로그인" }, path: "login", element: <Login /> },
+      { handle: { title: "계정찾기" }, path: "find-account", element: <FindAccount /> },
       {
         handle: { title: "이메일 대기" },
         path: "pending-email",

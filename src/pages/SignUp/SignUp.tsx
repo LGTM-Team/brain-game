@@ -94,9 +94,9 @@ function SignUp() {
   return (
     <main className={S.container}>
       <h1 className={S["a11y-hidden"]}>회원가입</h1>
-      <img src={signUpImg} alt="회원가입 안내 이미지" />
+      <img src={signUpImg} alt="회원가입 안내 이미지" className={S.signUpImg}/>
 
-      <form onSubmit={handelSubmitSignUp}>
+      <form onSubmit={handelSubmitSignUp} className={S.signUpForm}>
         <Input
           type={"email"}
           placeholder={"이메일을 입력해주세요. (필수)"}
