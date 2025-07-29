@@ -1,16 +1,42 @@
-.cardContainer {
-  width: 100%;
-  padding: var(--space-1);
+.playContainer {
   display: flex;
+  flex: 1;
+  background-color: var(--white);
+  flex-direction: column;
+  align-items: center;
+}
+.gameStartCountdown {
+  margin-top: 2rem;
+  text-align: center;
+  h3 {
+    font-size: var(--font-5);
+    font-weight: bold;
+    color: var(--black);
+  }
+  span {
+    color: var(--main-red);
+  }
+}
+
+.shuffle {
+  text-align: center;
+  p {
+    color: var(--black);
+    font-size: var(--font-5);
+    font-weight: bold;
+  }
+}
+.cardContainer {
+  display: flex;
+  flex: 1;
   justify-content: center;
   align-items: center;
 }
-
 .grid {
   display: grid;
   justify-content: center;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--space-2);
 }
 
 .card {
@@ -31,6 +57,7 @@
   }
 }
 .noNumber {
+  background-color: var(--light-gray);
   border: 2px solid var(--light-gray);
 }
 
@@ -39,5 +66,45 @@
   border: 2px solid var(--light-gray);
   img {
     width: 200px;
+  }
+}
+
+.first {
+  width: 100px;
+  height: 132px;
+}
+
+.second {
+  width: 74px;
+  height: 98px;
+}
+
+.third {
+  width: 74px;
+  height: 98px;
+}
+
+.fourth {
+  width: 60px;
+  height: 74px;
+}
+
+@media (max-width: 376px) {
+  .third {
+    width: 60px;
+    height: 74px;
+  }
+  .grid {
+    gap: var(--space-0);
+  }
+}
+
+@media (min-width: 641px) {
+  .grid {
+    gap: var(--space-4);
+  }
+  .third {
+    width: 70px;
+    height: 83px;
   }
 }

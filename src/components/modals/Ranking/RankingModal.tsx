@@ -25,8 +25,8 @@ function RankingModal({ gameName, isOpen, onClose, data }: Props) {
   if (!isOpen) return null;
   return (
     <>
-      <div className={S.overlay}>
-        <div className={S.modal}>
+      <div className={S.overlay} onClick={onClose}>
+        <div className={S.modal} onClick={(e) => e.stopPropagation()}>
           <div className={S.close} onClick={onClose}>
             <img src={cancelIcon} alt="닫기" />
           </div>
