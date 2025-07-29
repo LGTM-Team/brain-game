@@ -121,6 +121,7 @@ function NumberCardPlay({
     setIsTimerActive,
     setGameStartCountdown,
     setUserAnswer,
+    setRound,
   });
 
   // round가 바뀔때마다 카드 변경
@@ -150,7 +151,6 @@ function NumberCardPlay({
   return (
     <>
       <CurrentGameScore score={currentScore} />
-
       <main className={S.playContainer}>
         {isTimerActive && (
           <StaticTimer

@@ -1,15 +1,18 @@
 import { getRandomPositions } from "@/utils/getRandom";
 import { useEffect, useState } from "react";
 
+export type Step = "first" | "second" | "third" | "fourth";
+
 interface Props {
-  step: string;
+  step: Step;
   round: number; // 0부터 시작
-  setGameStep: React.Dispatch<
-    React.SetStateAction<"first" | "second" | "third" | "fourth">
-  >;
+  setGameStep: React.Dispatch<React.SetStateAction<Step>>;
 }
 
-const stepConfig = {
+const stepConfig: Record<
+  Step,
+  { min: number; max: number; boardSize: number; next: Step | null }
+> = {
   first: { min: 3, max: 6, boardSize: 9, next: "second" },
   second: { min: 7, max: 12, boardSize: 16, next: "third" },
   third: { min: 13, max: 16, boardSize: 20, next: "fourth" },
@@ -25,12 +28,11 @@ export const useNumberStep = ({ step, round, setGameStep }: Props) => {
   useEffect(() => {
     const config = stepConfig[step as keyof typeof stepConfig];
     if (!config) return;
-
     const targetLength = config.min + round;
 
     if (targetLength > config.max) {
       if (config.next) {
-        setGameStep(config.next as any);
+        setGameStep(config.next);
       }
       return;
     }
