@@ -18,6 +18,7 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
+  box-sizing: border-box;
 
   form {
     display: flex;
@@ -98,4 +99,11 @@
   font-weight: bold;
   font-size: var(--font-2);
   user-select: none;
+}
+
+.signUpForm{
+  margin-bottom: calc(75px + 1rem);
+}
+.signUpImg{
+  width: 170px;
 }

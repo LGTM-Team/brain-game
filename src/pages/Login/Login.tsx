@@ -113,12 +113,8 @@ function Login() {
 
       <div className={S.findActions}>
         <div className={S.actionWrap}>
-          <AppLink to={""} variant={"page"}>
-            <p className={S.actionLinkText}>아이디 찾기</p>
-          </AppLink>
-          <span className={S.divider}>|</span>
-          <AppLink to={""} variant={"page"}>
-            <p className={S.actionLinkText}>비밀번호 찾기</p>
+          <AppLink to={"/find-account"} variant={"page"}>
+            <p className={S.actionLinkText}>혹시 계정을 잊어버리셨나요?</p>
           </AppLink>
         </div>
 

@@ -6,18 +6,14 @@ export function usePasswordReset() {
   const [error, setError] = useState<string | null>(null); // 에러 상태
 
 
-  //1단계: 비밀번호 재설정 이메일 요청
-  const sendResetEmail = async (email: string, redirectTo: string) => {
+  // 1단계: 비밀번호 재설정 이메일 요청
+  const sendResetEmail = async (email: string) => {
     setLoading(true);
     setError(null);
 
     try {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo,
-      });
-
+      const { error } = await supabase.auth.resetPasswordForEmail(email);
       if (error) throw error;
-
       return true; // 성공
     } catch (err: unknown) {
       if (err instanceof Error) {

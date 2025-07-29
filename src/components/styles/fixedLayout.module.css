@@ -3,6 +3,7 @@
   border-bottom: 1px solid var(--light-gray);
   padding-bottom: var(--space-1);
   background-color: var(--white);
+  outline: none;
 
   top: 0;
   display: flex;
@@ -14,6 +15,7 @@
     flex-grow: 1;
     font-size: var(--font-header);
     font-weight: normal;
+    user-select: none;
   }
 
   button {
@@ -23,6 +25,8 @@
     left: 5%;
     top: 50%;
     transform: translate(-50%, -50%);
+    outline: none;
+    user-select: none;
   }
 }
 
@@ -44,6 +48,7 @@
 
     p {
       font-size: var(--font-4);
+      user-select: none;
     }
   }
 

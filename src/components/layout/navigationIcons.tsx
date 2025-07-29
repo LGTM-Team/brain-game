@@ -50,45 +50,45 @@ export const HomeIcon = ({ color }: Props) => {
       <path
         d="M27.5 27.5H2.5"
         stroke={color}
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
       <path
         d="M2.5 13.7498L12.6574 5.62398C14.027 4.52833 15.973 4.52833 17.3426 5.62398L27.5 13.7498"
         stroke={color}
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
       <path
         opacity="0.5"
         d="M19.375 6.875V4.375C19.375 4.02982 19.6549 3.75 20 3.75H23.125C23.4701 3.75 23.75 4.02982 23.75 4.375V10.625"
         stroke={color}
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
       <path
         d="M5 27.5V11.875"
         stroke={color}
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
       <path
         d="M25 27.5V11.875"
         stroke={color}
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
       <path
         opacity="0.5"
         d="M18.75 27.5V21.25C18.75 19.4823 18.75 18.5984 18.2009 18.0491C17.6516 17.5 16.7677 17.5 15 17.5C13.2323 17.5 12.3483 17.5 11.7992 18.0491C11.25 18.5984 11.25 19.4823 11.25 21.25V27.5"
         stroke={color}
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
       <path
         opacity="0.5"
         d="M17.5 11.875C17.5 13.2557 16.3807 14.375 15 14.375C13.6193 14.375 12.5 13.2557 12.5 11.875C12.5 10.4943 13.6193 9.375 15 9.375C16.3807 9.375 17.5 10.4943 17.5 11.875Z"
         stroke={color}
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
     </svg>
   );
@@ -107,19 +107,19 @@ export const AuthIcon = ({ color }: Props) => {
         opacity="0.5"
         d="M15 15C17.0711 15 18.75 13.3211 18.75 11.25C18.75 9.17893 17.0711 7.5 15 7.5C12.9289 7.5 11.25 9.17893 11.25 11.25C11.25 13.3211 12.9289 15 15 15Z"
         stroke={color}
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
       <path
         d="M15 27.5C21.9036 27.5 27.5 21.9036 27.5 15C27.5 8.09644 21.9036 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9036 8.09644 27.5 15 27.5Z"
         stroke={color}
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
       <path
         opacity="0.5"
         d="M22.4613 25C22.2624 21.3856 21.1558 18.75 14.9998 18.75C8.84389 18.75 7.73727 21.3856 7.53833 25"
         stroke={color}
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
     </svg>
   );
