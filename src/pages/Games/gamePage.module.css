@@ -29,6 +29,10 @@
       font-size: var(--font-4);
       font-style: normal;
       font-weight: 700;
+
+      &:hover {
+        box-shadow: var(--inset-shadow);
+      }
     }
   }
 }
