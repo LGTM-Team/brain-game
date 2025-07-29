@@ -26,6 +26,7 @@
     top: 50%;
     translate: -50% -50%;
 
+    box-sizing: border-box;
     width: 350px;
     height: 400px;
 

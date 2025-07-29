@@ -18,4 +18,17 @@
   left: 50%;
   top: 50%;
   translate: -50% -50%;
+
+  box-sizing: border-box;
+  min-width: 350px;
+  height: 426px;
+
+  padding-top: var(--space-5);
+  border-radius: var(--border-3);
+
+  button {
+    position: absolute;
+    right: 1.2%;
+    top: 1%;
+  }
 }
