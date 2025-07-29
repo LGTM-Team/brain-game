@@ -14,7 +14,7 @@
   .inner {
     background-image: url("/src/assets/images/game/result_neuro.svg");
     background-repeat: no-repeat;
-    background-position: 40% 10%;
+    background-position: 40% 30%;
 
     display: flex;
     flex-direction: column;
@@ -64,11 +64,19 @@
       width: 310px;
       background-color: var(--main-orange);
       border-radius: 10px;
+
+      &:hover {
+        box-shadow: var(--inset-shadow);
+      }
     }
 
     button.quit {
       background: var(--main-yellow);
       margin-bottom: var(--space-5);
+
+      &:hover {
+        box-shadow: var(--inset-shadow);
+      }
     }
   }
 }

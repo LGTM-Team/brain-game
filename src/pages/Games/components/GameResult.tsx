@@ -7,12 +7,20 @@ interface Props {
 }
 
 function GameResult({ onRestart, onWait, score }: Props) {
+  const isScoreNull = () => {
+    if (score === null) {
+      return `계산중...`;
+    }
+
+    return `${score.toLocaleString()}점`;
+  };
+
   return (
     <div className={S.container}>
       <div className={S.inner}>
         <div className={S.score}>
           <div>당신의 점수</div>
-          <div className={S.value}>{score ? `${score}점` : "계산중..."}</div>
+          <div className={S.value}>{isScoreNull()}</div>
         </div>
         <div className={S.buttonContainer}>
           <button type="button" onClick={onRestart}>

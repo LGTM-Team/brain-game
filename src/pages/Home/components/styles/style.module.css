@@ -1,15 +1,17 @@
 footer {
   background-color: var(--white);
+  width: 100%;
   color: var(--black);
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   gap: var(--space-1);
+  padding-bottom: 1rem;
 
   .buttonContainer {
     padding-block: var(--space-0);
-    background-color: var(--light-gray);
+    background-color: var(--light-background);
     width: 100%;
     align-items: center;
     span {
@@ -19,7 +21,7 @@ footer {
 
     button {
       cursor: pointer;
-      background-color: var(--light-gray);
+      background-color: var(--light-background);
       font-size: var(--font-3);
       font-weight: bold;
       border-style: none;
@@ -29,18 +31,19 @@ footer {
     display: flex;
     justify-content: center;
     padding: var(--space-0);
-    gap: var(--space-3);
+    gap: 2rem;
     img {
+      transform: scale(1.5);
       cursor: pointer;
     }
   }
 
   h3 {
-    font-size: var(--font-3);
+    font-size: var(--font-4);
     font-weight: bold;
   }
   p {
-    font-size: var(--space-1);
+    font-size: var(--font-2);
   }
 }
 @media (max-width: 430px) {
