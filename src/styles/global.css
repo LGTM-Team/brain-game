@@ -21,6 +21,7 @@ body {
   box-sizing: border-box;
   padding-top: 65px;
   padding-bottom: 75px;
+  overflow-x: hidden;
 }
 
 /* Outlet을 감싸는 영역 (헤더/풋터 제외 공간) */
