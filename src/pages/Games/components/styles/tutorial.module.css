@@ -1,0 +1,21 @@
+.container {
+  background: rgba(0, 0, 0, 0.5);
+
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+
+  height: 100%;
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+.wrapper {
+  background-color: var(--white);
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}

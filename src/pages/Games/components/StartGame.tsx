@@ -8,11 +8,19 @@ interface Props {
   boldText: string;
   text: string;
   onStart: () => void;
+  onOpenTutorial: () => void;
 }
 
-function StartGame({ img, alt, boldText, text, onStart }: Props) {
+function StartGame({
+  img,
+  alt,
+  boldText,
+  text,
+  onStart,
+  onOpenTutorial,
+}: Props) {
   return (
-    <div className={S.container}>
+    <div className={S.container} onClick={onOpenTutorial}>
       <button className={S.tutorial} type="button">
         <img src={questionNeuro} alt="게임방법 캐릭터" />
         <img className={S.text} src={bubble} alt="게임방법 말풍선" />
