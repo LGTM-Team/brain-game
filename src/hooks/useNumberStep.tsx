@@ -3,39 +3,43 @@ import { useEffect, useState } from "react";
 
 interface Props {
   step: string;
+  round: number; // 0부터 시작
+  setGameStep: React.Dispatch<
+    React.SetStateAction<"first" | "second" | "third" | "fourth">
+  >;
 }
 
-export const useNumberStep = (step: string) => {
+const stepConfig = {
+  first: { min: 3, max: 6, boardSize: 9, next: "second" },
+  second: { min: 7, max: 12, boardSize: 16, next: "third" },
+  third: { min: 13, max: 16, boardSize: 20, next: "fourth" },
+  fourth: { min: 17, max: 20, boardSize: 25, next: null },
+};
+
+export const useNumberStep = ({ step, round, setGameStep }: Props) => {
   const [answer, setAnswer] = useState<number[] | null>(null);
   const [randomNumberList, setRandomNumberList] = useState<number[] | null>(
     null
   );
-  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    let answerList: number[] = [];
-    let boardSize = 0;
+    const config = stepConfig[step as keyof typeof stepConfig];
+    if (!config) return;
 
-    if (step === "first") {
-      answerList = [1, 2, 3];
-      boardSize = 9;
-    } else if (step === "second") {
-      answerList = [1, 2, 3, 4, 5, 6, 7];
-      boardSize = 16;
-    } else if (step === "third") {
-      answerList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-      boardSize = 20;
-    } else if (step === "fourth") {
-      answerList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
-      boardSize = 25;
-    } else {
+    const targetLength = config.min + round;
+
+    if (targetLength > config.max) {
+      if (config.next) {
+        setGameStep(config.next as any);
+      }
       return;
     }
 
+    const answerList = Array.from({ length: targetLength }, (_, i) => i + 1);
     setAnswer(answerList);
 
-    const board = Array(boardSize).fill(0);
-    const positions = getRandomPositions(answerList.length, boardSize);
+    const board = Array(config.boardSize).fill(0);
+    const positions = getRandomPositions(answerList.length, config.boardSize);
 
     const filledBoard = [...board];
     answerList.forEach((num, idx) => {
@@ -43,7 +47,7 @@ export const useNumberStep = (step: string) => {
     });
 
     setRandomNumberList(filledBoard);
-  }, [step]);
+  }, [step, round]);
 
   return { answer, randomNumberList };
 };

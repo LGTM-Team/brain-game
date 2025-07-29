@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import S from "./card.module.css";
 
 interface Props {
-  randomNumberList: number[];
+  randomNumberList: number[] | null;
   gridSize: number;
   gameStep: string;
   setUserAnswer: React.Dispatch<React.SetStateAction<number[]>>;
@@ -15,11 +15,10 @@ function CardBack({
   gameStep,
 }: Props) {
   const [clickedCardList, setClickedCardList] = useState<boolean[]>(
-    Array(randomNumberList.length).fill(false)
+    Array(randomNumberList?.length).fill(false)
   );
 
   const handleClick = (item: number, idx: number) => {
-    //이미 클릭된 카드
     if (clickedCardList[idx]) return;
 
     setClickedCardList((prev) => {
@@ -30,6 +29,9 @@ function CardBack({
     setUserAnswer((prev) => [...prev, item]);
   };
 
+  useEffect(() => {
+    setClickedCardList(Array(randomNumberList?.length).fill(false));
+  }, [randomNumberList]);
   return (
     <>
       <div

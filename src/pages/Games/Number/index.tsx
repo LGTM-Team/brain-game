@@ -1,5 +1,4 @@
 import { useState } from "react";
-import S from "./components/card.module.css";
 import PlayPage from "../components/PlayPage";
 import numberCardImg from "@/assets/images/game/number_game.svg";
 import NumberCardPlay from "./components/NumberPlay";

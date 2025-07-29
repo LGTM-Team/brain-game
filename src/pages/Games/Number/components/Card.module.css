@@ -37,6 +37,7 @@
   }
 }
 .noNumber {
+  background-color: var(--light-gray);
   border: 2px solid var(--light-gray);
 }
 
@@ -47,6 +48,7 @@
     width: 200px;
   }
 }
+
 .first {
   width: 100px;
   height: 132px;
