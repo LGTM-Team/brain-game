@@ -31,15 +31,15 @@ footer {
     display: flex;
     justify-content: center;
     padding: var(--space-0);
-    gap: 3rem;
+    gap: 2rem;
     img {
-      transform: scale(2.5);
+      transform: scale(1.5);
       cursor: pointer;
     }
   }
 
   h3 {
-    font-size: var(--font-3);
+    font-size: var(--font-4);
     font-weight: bold;
   }
   p {
