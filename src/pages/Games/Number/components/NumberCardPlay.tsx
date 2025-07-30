@@ -5,40 +5,46 @@ import CurrentGameScore from "../../components/CurrentGameScore";
 import StaticTimer from "../../components/StaticTimer";
 import { useNumberStep } from "@/hooks/useNumberStep";
 import { useBonusScore } from "@/hooks/useBonusScore";
-import { useNumberCardTransition } from "@/hooks/useNumberCardTransition";
 import type { CardStatus, GameStep } from "@/types/numberGame.type";
-
-interface Props {
-  state: "waiting" | "starting" | "playing" | "finish" | "result";
-  onFinish: () => void;
-  onScoreCalculated: (score: number) => void;
-  onGameOver: (message: string) => void;
-}
+import type { PlayGame } from "@/types/game.type";
+import {
+  showBackCard,
+  showFrontCard,
+  showShuffleCard,
+} from "../../../../types/numberCardSetting";
+import {
+  onFailRound,
+  onSuccessRound,
+  validateAnswer,
+} from "@/utils/numberGameProcess";
+import { useCountdownTimer } from "@/hooks/useCountdownTimer";
 
 function NumberCardPlay({
   state,
   onFinish,
   onScoreCalculated,
   onGameOver,
-}: Props) {
+}: PlayGame) {
   const [currentScore, setCurrentScore] = useState(0);
-  const { get, BonusRestart, BonusStart } = useBonusScore(10);
+  const { get, BonusRestart, BonusStart } = useBonusScore(30);
   const [round, setRound] = useState(0);
   const [userRound, setUserRound] = useState(0);
   const [cardStatus, setCardStatus] = useState<CardStatus>("back");
   const [gameStep, setGameStep] = useState<GameStep>("first");
   const [userAnswer, setUserAnswer] = useState<number[]>([]);
   const [isTimerActive, setIsTimerActive] = useState(false);
-  const [gameStartCountdown, setGameStartCountdown] = useState<number | null>(
-    null
-  );
+  const [isStartFirstRound, setIsStartFirstRound] = useState(false);
+  const [gameStartCountdown, setGameStartCountdown] = useState<number>(0);
   const { answer, randomNumberList } = useNumberStep({
     step: gameStep,
     round,
     setGameStep,
+    setRound,
   });
+  useCountdownTimer({ gameStartCountdown, setGameStartCountdown });
   const gridSize = Math.round(Math.sqrt(randomNumberList?.length ?? 1));
 
+  // 게임 시작
   useEffect(() => {
     if (state === "starting") {
       setIsTimerActive(false);
@@ -47,103 +53,65 @@ function NumberCardPlay({
       setUserAnswer([]);
       setUserRound(0);
       setGameStep("first");
+      setIsStartFirstRound(true);
     }
-  }, [state]);
-
-  // 게임 시작
-  useEffect(() => {
     if (state === "playing") {
-      setIsTimerActive(false);
-      setCardStatus("front");
-      setGameStartCountdown(3);
-      const toBack = setTimeout(() => {
-        setIsTimerActive(true);
-        setCardStatus("back");
-      }, 3000);
-      BonusStart();
-      return () => {
-        clearTimeout(toBack);
-      };
+      showFrontCard({ setCardStatus, setGameStartCountdown });
+      showBackCard({
+        setIsTimerActive,
+        setCardStatus,
+        isStartFirstRound,
+        BonusStart,
+      });
     }
   }, [state]);
 
   // 게임 진행
-  const handleGame = (isTimeout = false) => {
-    if (!answer) return;
-    const isCorrect = userAnswer.every((num, idx) => num === answer[idx]);
-    // 게임 종료 처리
-    if (isTimeout) {
-      onScoreCalculated(currentScore);
-      setUserAnswer([]);
-      onGameOver(" 시간 초과!");
-      onFinish();
-      return;
-    }
+  const handleGame = async (isTimeout = false) => {
+    const isCorrect = validateAnswer({ answer, userAnswer });
 
-    if (!isCorrect) {
-      onScoreCalculated(currentScore);
-      onGameOver("잘못된 순서!");
-      setTimeout(() => {
-        setIsTimerActive(false);
-      }, 500);
-      setRound(0);
-      setUserAnswer([]);
-      onFinish();
+    if (!isCorrect || isTimeout) {
+      onFailRound({
+        onScoreCalculated,
+        onFinish,
+        onGameOver,
+        currentScore,
+        setIsTimerActive,
+      });
       return;
     }
 
     //정답 처리
-    if (userAnswer.length === answer.length) {
+    if (userAnswer!.length === answer!.length) {
       const bonus = get();
-      setCurrentScore(currentScore + 100 + bonus);
-      BonusRestart();
-      setTimeout(() => {
-        setRound((prev) => prev + 1);
-        setUserRound((prev) => prev + 1);
-        setIsTimerActive(false);
-      }, 500);
+      await onSuccessRound({
+        bonus,
+        currentScore,
+        setCurrentScore,
+        setRound,
+        setUserRound,
+        setUserAnswer,
+      });
+
+      ///카드세팅
+      await showShuffleCard({
+        setCardStatus,
+        setIsTimerActive,
+        setGameStartCountdown,
+        BonusRestart,
+        isReadyForNextRound: true,
+      });
     }
   };
 
   // 사용자 입력값 변경 시 정답 체크
   useEffect(() => {
-    handleGame();
+    if (userAnswer.length === 0) return;
+    const run = async () => {
+      await handleGame();
+    };
+    run();
   }, [userAnswer]);
-
-  // gameStep이 바뀔때마다 카드 변경
-  useNumberCardTransition({
-    trigger: gameStep,
-    condition: gameStep === "first",
-    setCardStatus,
-    setIsTimerActive,
-    setGameStartCountdown,
-    setUserAnswer,
-    setRound,
-  });
-
-  // round가 바뀔때마다 카드 변경
-  useNumberCardTransition({
-    trigger: round,
-    condition: round === 0,
-    setCardStatus,
-    setIsTimerActive,
-    setGameStartCountdown,
-    setUserAnswer,
-  });
-
-  useEffect(() => {
-    if (gameStartCountdown === null) return;
-    if (gameStartCountdown === 0) {
-      setGameStartCountdown(null);
-      return;
-    }
-
-    const timer = setTimeout(() => {
-      setGameStartCountdown((prev) => (prev !== null ? prev - 1 : null));
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, [gameStartCountdown]);
 
   return (
     <>
@@ -157,7 +125,7 @@ function NumberCardPlay({
             key={round}
           />
         )}
-        {!isTimerActive && gameStartCountdown !== null && (
+        {!isTimerActive && gameStartCountdown !== 0 && (
           <div className={S.gameStartCountdown}>
             <h3>
               <span>{gameStartCountdown}초</span> 뒤 게임 시작!
