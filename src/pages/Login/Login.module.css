@@ -74,11 +74,11 @@
   cursor: pointer;
 }
 
-.globalErrorMessage {
+.errorMessage {
   color: var(--main-red);
   font-size: var(--font-2);
   font-weight: bold;
   text-align: center;
   user-select: none;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }

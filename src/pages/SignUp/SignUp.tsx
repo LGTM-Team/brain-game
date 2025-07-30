@@ -49,47 +49,33 @@ function SignUp() {
 
   // 회원가입 제출 핸들러
   const handelSubmitSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const errors = validateForm();
-    if (errors) {
-      setFieldErrors(errors);
-      return;
-    }
+  const errors = validateForm();
+  if (errors) {
+    setFieldErrors(errors);
+    return;
+  }
 
-    setFieldErrors({}); // 기존 에러 초기화
+  setFieldErrors({}); // 기존 에러 초기화
 
-    const result = await signUp(email, password);
+  const result = await signUp(email, password);
 
-    if (result) {
-      const userId = result.user?.id;
-      if (!userId) {
-        console.error("user ID가 존재하지 않습니다.");
-        setFieldErrors({
-          global: "회원가입은 되었지만 사용자 정보가 없습니다.",
-        });
-        return;
-      }
+  if (result) {
+    // 프로필 데이터 localStorage에 저장
+    const profileData = {
+      nickname,
+      gender,
+      birth,
+    };
+    localStorage.setItem("pending-profile", JSON.stringify(profileData));
 
-      try {
-        await insertProfile({ //db에 넣기
-          id: userId,
-          nickname,
-          gender: gender ?? undefined,
-          birth: birth ?? undefined,
-        });
-
-        navigate("/", { replace: true }); //홈으로 라우팅하는데 히스토리도 지움.
-      } catch (profileErr) {
-        console.error("프로필 저장 실패:", profileErr);
-        setFieldErrors({
-          global: "회원가입은 되었지만 프로필 저장에 실패했습니다.",
-        });
-      }
-    } else {
-      setFieldErrors({ global: error ?? "회원가입 실패" });
-    }
-  };
+    // 팬딩 안내 페이지로 이동
+    navigate("/pending-email", {replace: true, state: { email }});
+  } else {
+    setFieldErrors({ global: error ?? "회원가입 실패" });
+  }
+};
 
   return (
     <main className={S.container}>
