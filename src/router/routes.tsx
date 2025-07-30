@@ -59,14 +59,22 @@ const routes = createBrowserRouter([
       { handle: { title: "마이페이지" }, path: "mypage", element: <MyPage /> },
       { handle: { title: "고객문의" }, path: "/qna", element: <QnaPage /> },
       { handle: { title: "로그인" }, path: "login", element: <Login /> },
-      { handle: { title: "계정찾기" }, path: "find-account", element: <FindAccount /> },
+      {
+        handle: { title: "계정찾기" },
+        path: "find-account",
+        element: <FindAccount />,
+      },
       {
         handle: { title: "이메일 대기" },
         path: "pending-email",
         element: <PendingEmail />,
       },
       { handle: { title: "회원가입" }, path: "sign-up", element: <SignUp /> },
-      { handle: { title: "ERROR" }, path: "*", element: <NotFoundPage /> },
+      {
+        handle: { title: "ERROR" },
+        path: "*",
+        element: <NotFoundPage errorMessage="페이지를 찾을 수 없습니다." />,
+      },
     ],
   },
 ]);
