@@ -14,6 +14,7 @@ import NumberPlayPage from "@/pages/Games/Number/index";
 import NotFoundPage from "@/pages/NotFound/NotFoundPage";
 import FindAccount from "@/pages/FindAccount/FindAccount";
 import Login from "@/pages/Login/Login";
+import PostSignUp from "@/pages/SignUp/PostSignUp";
 
 const routes = createBrowserRouter([
   {
@@ -66,6 +67,7 @@ const routes = createBrowserRouter([
         element: <PendingEmail />,
       },
       { handle: { title: "회원가입" }, path: "sign-up", element: <SignUp /> },
+      { handle: { title: "계정활성화" }, path: "post-sign-up", element: <PostSignUp /> },
       { handle: { title: "ERROR" }, path: "*", element: <NotFoundPage /> },
     ],
   },
