@@ -1,0 +1,45 @@
+.profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  img {
+    border-radius: 100px;
+    background-color: var(--main-yellow);
+    width: 100px;
+  }
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+
+    width: 50%;
+    background-color: var(--white);
+  }
+  .nameGenderWrapper {
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--space-2);
+  }
+
+  .userName {
+    color: var(--black, #2b2b2b);
+    font-size: var(--font-4);
+    font-weight: 700;
+  }
+  .gender {
+    color: var(--dark-gray, #8c8c8c);
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .birth {
+    color: var(--black, #2b2b2b);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .email {
+    color: var(--black, #2b2b2b);
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
