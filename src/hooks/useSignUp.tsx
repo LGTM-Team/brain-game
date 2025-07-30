@@ -14,7 +14,7 @@ export function useSignUp() {
         email,
         password,
         options: {
-          emailRedirectTo: "http://localhost:3000", // 이메일 인증 후 리디렉션 주소
+          emailRedirectTo: "http://localhost:3000/post-sign-up", // 이메일 인증 후 리디렉션 주소
         },
       });
 

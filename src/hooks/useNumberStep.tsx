@@ -6,6 +6,7 @@ interface Props {
   step: GameStep;
   round: number; // 0부터 시작
   setGameStep: React.Dispatch<React.SetStateAction<GameStep>>;
+  setRound: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const stepConfig: Record<
@@ -18,7 +19,12 @@ const stepConfig: Record<
   fourth: { min: 17, max: 20, boardSize: 25, next: null },
 };
 
-export const useNumberStep = ({ step, round, setGameStep }: Props) => {
+export const useNumberStep = ({
+  step,
+  round,
+  setGameStep,
+  setRound,
+}: Props) => {
   const [answer, setAnswer] = useState<number[] | null>(null);
   const [randomNumberList, setRandomNumberList] = useState<number[] | null>(
     null
@@ -32,6 +38,7 @@ export const useNumberStep = ({ step, round, setGameStep }: Props) => {
     if (targetLength > config.max) {
       if (config.next) {
         setGameStep(config.next);
+        setRound(0);
       }
       return;
     }

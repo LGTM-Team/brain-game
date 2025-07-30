@@ -2,35 +2,29 @@ import { supabase } from "@/services/supabase";
 import { useState } from "react";
 
 export function useLogin() {
-  const [loading, setLoading] = useState<boolean>(false); // 로딩 상태
-  const [error, setError] = useState<string | null>(null); // 에러 상태
+  const [loading, setLoading] = useState<boolean>(false);
 
   const login = async (email: string, password: string) => {
     setLoading(true);
-    setError(null);
-
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({ // supabase 로그인 시도.
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
-      if (error) throw error;
-
-      return data;
-    } catch (err: unknown) {
-      
-      if (err instanceof Error) { // 타입 가드. 에러가 정말 존재 하는지.
-        setError(err.message);
-      } else {
-        setError("로그인 시도중 알 수 없는 오류가 발생했습니다.");
+      if (error?.message === "Email not confirmed") {
+        // 실패지만 특별한 경우, error 대신 데이터 전달
+        return { user: null, session: null, emailNotConfirmed: true };
       }
 
-      return null;
+      if (error) throw new Error(error.message);
+
+      return { ...data, emailNotConfirmed: false };
     } finally {
       setLoading(false);
     }
   };
-  return { login, loading, error };
+
+  return { login, loading };
 }
 export default useLogin;
