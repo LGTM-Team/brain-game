@@ -9,7 +9,7 @@ import { getUserProfile } from "./components/getUserProfile";
 import NotFoundPage from "../NotFound/NotFoundPage";
 import { supabase } from "@/services/supabase";
 import Swal from "sweetalert2";
-import { Navigate, useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 function Mypage() {
   const navigate = useNavigate();
