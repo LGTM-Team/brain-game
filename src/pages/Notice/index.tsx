@@ -6,11 +6,11 @@ import qnaIcon from "@/assets/icons/qna.svg";
 function NoticePage() {
   const handleToggle = () => {};
   return (
-    <div className={S.container}>
-      <PostCard isContact={false} />
-      <PostCard isContact={false} />
-      <PostCard isContact={false} />
-
+    <div className={S.wrapper}>
+      <div className={S.container}>
+        <PostCard isContact={false} />
+      </div>
+      <div className={S.spacer}></div>
       <div className={S.iconBox}>
         <AppLink to="/qna" variant="page">
           <img src={qnaIcon} alt="고객문의로 이동" />
