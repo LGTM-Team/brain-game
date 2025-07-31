@@ -1,4 +1,5 @@
 import { useState } from "react";
+import S from "./styles/playPage.module.css";
 import StartGame from "./StartGame";
 import StartCountdown from "./StartCountdown";
 import FinishGame from "./FinishGame";
@@ -33,6 +34,8 @@ function PlayPage({
   const [score, setScore] = useState<number | null>(null);
   const [gameOverMessage, setGameOverMessage] = useState<string | null>(null);
   const [showTutorial, setShowTutorial] = useState(false);
+  //리마운트를 위한 gameKey
+  const [gameKey, setGameKey] = useState(0);
 
   const finishGame = () => {
     setGameState("finish");
@@ -50,16 +53,18 @@ function PlayPage({
     setGameState("starting");
     setScore(null);
     setGameOverMessage(null);
+    setGameKey((prev) => prev + 1);
   };
 
   const handleReWait = () => {
     setGameState("waiting");
     setScore(null);
     setGameOverMessage(null);
+    setGameKey((prev) => prev + 1);
   };
 
   return (
-    <>
+    <div key={gameKey} className={S.gameWrapper}>
       {gameState === "waiting" && (
         <StartGame
           img={gameImg}
@@ -97,7 +102,7 @@ function PlayPage({
           score={score}
         />
       )}
-    </>
+    </div>
   );
 }
 export default PlayPage;
