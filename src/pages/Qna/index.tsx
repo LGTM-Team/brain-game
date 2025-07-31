@@ -6,10 +6,11 @@ import postIcon from "@/assets/icons/post.svg";
 
 function QnaPage() {
   return (
-    <div className={S.container}>
-      <PostCard isContact={true} />
-      <PostCard isContact={true} />
-      <PostCard isContact={true} />
+    <div className={S.wrapper}>
+      <div className={S.container}>
+        <PostCard isContact={true} />
+      </div>
+      <div className={S.spacer}></div>
       <div className={S.iconBox}>
         <AppLink to="/notice" variant="page">
           <img src={postIcon} alt="고객문의로 이동" />
