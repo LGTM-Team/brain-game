@@ -1,9 +1,24 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import S from "./writeQna.module.css";
+import { useAuth } from "@/contexts/AuthContext";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function QnaWritePage() {
   const titleRef = useRef<HTMLInputElement>(null);
   const contentsRef = useRef<HTMLTextAreaElement>(null);
+  const navigate = useNavigate();
+
+  //세션 없으면 로그인 페이지로 이동
+  const { user } = useAuth();
+  if (!user) {
+    Swal.fire({
+      icon: "error",
+      text: "로그인이 필요합니다",
+    }).then(async () => {
+      navigate("/login", { replace: true });
+    });
+  }
 
   const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,6 +29,8 @@ export default function QnaWritePage() {
     if (titleRef.current) titleRef.current.value = "";
     if (contentsRef.current) contentsRef.current.value = "";
   };
+
+  useEffect(() => {}, []);
 
   return (
     <form className={S.container} onSubmit={handleForm}>
