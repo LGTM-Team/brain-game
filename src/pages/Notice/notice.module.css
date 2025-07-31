@@ -4,28 +4,15 @@
   flex-direction: column;
   flex: 1;
   color: var(--black);
-  padding: var(--space-3);
-}
+  padding-inline: var(--space-3);
+  padding-top: var(--space-3);
+  padding-bottom: 4rem;
+  position: relative;
 
-.noticeContainer {
-  background-color: var(--white);
-  border-radius: var(--border-2);
-  padding: var(--space-2);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
-  h3 {
-    font-size: var(--font-3);
-  }
-  .dateWithIcon {
-    display: flex;
-    justify-content: space-between;
-    p {
-      font-size: var(--font-2);
-    }
-    span {
-      font-size: var(--font-2);
-    }
+  .iconBox {
+    position: sticky;
+    bottom: 5rem;
+    z-index: 100;
+    align-self: flex-end;
   }
 }
