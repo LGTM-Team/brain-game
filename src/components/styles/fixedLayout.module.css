@@ -17,6 +17,7 @@
     font-weight: normal;
     user-select: none;
     font-family: var(--header-font);
+    letter-spacing: 5px;
   }
 
   button {
