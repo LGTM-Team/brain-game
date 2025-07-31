@@ -10,6 +10,7 @@ import NotFoundPage from "../NotFound/NotFoundPage";
 import { supabase } from "@/services/supabase";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router";
+import Spinner from "@/common/layout/Spinner";
 
 interface UserProfileData {
   id: string | null;
@@ -22,8 +23,8 @@ interface UserProfileData {
 
 function Mypage() {
   const navigate = useNavigate();
-  const { user } = useAuth();
 
+  const { user } = useAuth();
   const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
 
   const location = useLocation();
@@ -62,8 +63,9 @@ function Mypage() {
     });
   };
 
-  if (!userProfile)
+  if (!user)
     return <NotFoundPage errorMessage={"유저 정보를 찾을 수 없습니다."} />;
+  if (!userProfile) return <Spinner />;
   return (
     <div className={S.container}>
       <AppLink variant={"page"} to={"/notice"} className={S.notice}>
