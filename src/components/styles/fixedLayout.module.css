@@ -16,6 +16,7 @@
     font-size: var(--font-header);
     font-weight: normal;
     user-select: none;
+    font-family: var(--header-font);
   }
 
   button {
