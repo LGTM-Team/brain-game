@@ -1,15 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import S from "./writeQna.module.css";
 import { useAuth } from "@/contexts/AuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { insertQna } from "@/api/service/qna/insertQna";
 
 export default function QnaWritePage() {
   const titleRef = useRef<HTMLInputElement>(null);
   const contentsRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
 
-  //세션 없으면 로그인 페이지로 이동
+  //로그인 유저인지 확인
   const { user } = useAuth();
   if (!user) {
     Swal.fire({
@@ -20,17 +21,19 @@ export default function QnaWritePage() {
     });
   }
 
-  const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const titleValue = titleRef.current?.value;
     const contentsValue = contentsRef.current?.value;
-    console.log("제목:", titleValue);
-    console.log("내용:", contentsValue);
-    if (titleRef.current) titleRef.current.value = "";
-    if (contentsRef.current) contentsRef.current.value = "";
+    const response = await insertQna({
+      user_id: user?.id!,
+      title: titleValue!,
+      content: contentsValue!,
+    });
+    if (response === 201) {
+      navigate("/qna", { replace: true });
+    }
   };
-
-  useEffect(() => {}, []);
 
   return (
     <form className={S.container} onSubmit={handleForm}>
