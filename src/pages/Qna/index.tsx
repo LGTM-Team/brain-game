@@ -1,6 +1,5 @@
 import { AppLink } from "@/router/AppLink";
 import PostCard from "@/common/post/PostCard";
-import Question from "./components/Question";
 import S from "./qna.module.css";
 import postIcon from "@/assets/icons/post.svg";
 import { useEffect, useState } from "react";
@@ -23,7 +22,7 @@ function QnaPage() {
       </div>
       <div className={S.spacer}></div>
       <div className={S.iconBox}>
-        <AppLink to="/notice" variant="page">
+        <AppLink to="/qna/write" variant="page">
           <img src={postIcon} alt="고객문의로 이동" />
         </AppLink>
       </div>

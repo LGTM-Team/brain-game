@@ -15,6 +15,8 @@ import NotFoundPage from "@/pages/NotFound/NotFoundPage";
 import FindAccount from "@/pages/FindAccount/FindAccount";
 import Login from "@/pages/Login/Login";
 import PostSignUp from "@/pages/SignUp/PostSignUp";
+import QnaLayout from "@/pages/Qna/QnaLayout";
+import QnaWritePage from "@/pages/Qna/write";
 
 const routes = createBrowserRouter([
   {
@@ -54,11 +56,22 @@ const routes = createBrowserRouter([
       },
       {
         handle: { title: "공지사항" },
-        path: "/notice",
+        path: "notice",
         element: <NoticePage />,
       },
       { handle: { title: "마이페이지" }, path: "mypage", element: <MyPage /> },
-      { handle: { title: "고객문의" }, path: "/qna", element: <QnaPage /> },
+      {
+        path: "qna",
+        element: <QnaLayout />,
+        children: [
+          { handle: { title: "고객문의" }, path: "", element: <QnaPage /> },
+          {
+            handle: { title: "문의작성" },
+            path: "write",
+            element: <QnaWritePage />,
+          },
+        ],
+      },
       { handle: { title: "로그인" }, path: "login", element: <Login /> },
       {
         handle: { title: "계정찾기" },
