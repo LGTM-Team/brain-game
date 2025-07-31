@@ -1,5 +1,4 @@
 import RankingModal from "@/components/modals/Ranking/RankingModal";
-import S from "./myRanking.module.css";
 import { useState } from "react";
 import { rankingData } from "@/components/modals/Ranking/RankData";
 
