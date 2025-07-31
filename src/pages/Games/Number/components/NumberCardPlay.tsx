@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import S from "./card.module.css";
 import NumberCard from "./NumberCard";
-import CurrentGameScore from "../../components/CurrentGameScore";
-import StaticTimer from "../../components/StaticTimer";
+import CurrentGameScore from "../../common/CurrentGameScore";
+import StaticTimer from "../../common/StaticTimer";
 import { useNumberStep } from "@/hooks/useNumberStep";
 import { useBonusScore } from "@/hooks/useBonusScore";
 import type { CardStatus, GameStep } from "@/types/numberGame.type";

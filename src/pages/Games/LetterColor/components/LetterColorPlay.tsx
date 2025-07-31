@@ -1,11 +1,11 @@
 import { getRandom } from "@/utils/getRandom";
-import type { State } from "../../components/PlayPage";
+import type { State } from "../../common/PlayPage";
 import S from "./LetterColorPlay.module.css";
 import { useEffect, useState } from "react";
 import letterColorData from "@/data/letterColorData.json";
-import DynamicTimer from "../../components/DynamicTimer";
-import CurrentGameScore from "../../components/CurrentGameScore";
-import SubmitAnswer from "../../components/SubmitAnswer";
+import DynamicTimer from "../../common/DynamicTimer";
+import CurrentGameScore from "../../common/CurrentGameScore";
+import SubmitAnswer from "../../common/SubmitAnswer";
 import { useBonusScore } from "@/hooks/useBonusScore";
 import { motion } from "framer-motion";
 

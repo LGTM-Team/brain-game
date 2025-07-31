@@ -1,6 +1,6 @@
-import RankingModal from "@/components/modals/Ranking/RankingModal";
+import RankingModal from "@/common/modals/Ranking/RankingModal";
 import { useState } from "react";
-import { rankingData } from "@/components/modals/Ranking/RankData";
+import { rankingData } from "@/common/modals/Ranking/RankData";
 
 interface Props {
   userId: string | null;

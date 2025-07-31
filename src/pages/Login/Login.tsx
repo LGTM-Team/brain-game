@@ -1,7 +1,7 @@
-import Input from "@/components/form/Input";
+import Input from "@/common/form/Input";
 import S from "./Login.module.css";
 import loginImg from "@/assets/images/login_img.svg";
-import SubmitButton from "@/components/form/SubmitButton";
+import SubmitButton from "@/common/form/SubmitButton";
 import { useState } from "react";
 import useLogin from "@/hooks/useLogin";
 import { AppLink } from "@/router/AppLink";
@@ -9,7 +9,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  const { login, loading} = useLogin();
+  const { login, loading } = useLogin();
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -31,45 +31,45 @@ function Login() {
   };
 
   const handleSubmitLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const errors = validateForm();
-  if (errors) {
-    setFieldErrors(errors);
-    return;
-  }
-
-  setFieldErrors({});
-
-  try {
-    const result = await login(email, password);
-
-    if (result.emailNotConfirmed) {
-      // 인증 미완료 시 라우팅
-      navigate("/pending-email", {replace: true, state: { email }});
+    const errors = validateForm();
+    if (errors) {
+      setFieldErrors(errors);
       return;
     }
 
-    if (!result || !result.user || !result.session) {
-      setFieldErrors({ global: "로그인에 실패했습니다. 다시 시도해주세요." });
-      return;
-    }
+    setFieldErrors({});
 
-    navigate(from, { replace: true });
-  } catch (err: unknown) {
-    let message = "로그인 중 오류가 발생했습니다.";
+    try {
+      const result = await login(email, password);
 
-    if (err instanceof Error) {
-      if (err.message.includes("Invalid login credentials")) {
-        message = "존재하지 않는 계정이거나 비밀번호가 틀렸습니다.";
-      } else {
-        message = err.message;
+      if (result.emailNotConfirmed) {
+        // 인증 미완료 시 라우팅
+        navigate("/pending-email", { replace: true, state: { email } });
+        return;
       }
-    }
 
-    setFieldErrors({ global: message });
-  }
-};
+      if (!result || !result.user || !result.session) {
+        setFieldErrors({ global: "로그인에 실패했습니다. 다시 시도해주세요." });
+        return;
+      }
+
+      navigate(from, { replace: true });
+    } catch (err: unknown) {
+      let message = "로그인 중 오류가 발생했습니다.";
+
+      if (err instanceof Error) {
+        if (err.message.includes("Invalid login credentials")) {
+          message = "존재하지 않는 계정이거나 비밀번호가 틀렸습니다.";
+        } else {
+          message = err.message;
+        }
+      }
+
+      setFieldErrors({ global: message });
+    }
+  };
 
   return (
     <main className={S.container}>

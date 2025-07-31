@@ -23,69 +23,68 @@ export function GameCard({
     <div className={S.card}>
       <button className={S.iconButton} onClick={onIconClick} aria-label="옵션">
         <svg
-  width="25"
-  height="26"
-  viewBox="0 0 25 26"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <g clipPath="url(#clip0_467_4826)">
-    <path
-      d="M12.9687 17.6875H12.0313C8.8383 17.6875 6.25 14.7758 6.25 11.1836V1.28125H18.75V11.1836C18.75 14.7758 16.1609 17.6875 12.9687 17.6875Z"
-      fill="#FFED78"
-      stroke="#2B2B2B"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M5.46875 4.40625H19.2586"
-      stroke="#2B2B2B"
-      strokeWidth="1.5"
-      strokeMiterlimit="10"
-    />
-    <path
-      d="M12.5 17.6875V24.7188"
-      stroke="#2B2B2B"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M18.8118 24.7188H6.53601L8.5938 22.375H16.4063L18.8118 24.7188Z"
-      fill="#FFED78"
-      stroke="#2B2B2B"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M6.25 10.6562C5.0068 10.6562 3.81453 10.1624 2.93546 9.28332C2.05638 8.40424 1.5625 7.21195 1.5625 5.96875C1.5625 4.72555 2.05638 3.53326 2.93546 2.65418C3.81453 1.77511 5.0068 1.28125 6.25 1.28125"
-      stroke="#2B2B2B"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M18.75 10.6562C19.9932 10.6562 21.1855 10.1624 22.0645 9.28332C22.9436 8.40424 23.4375 7.21195 23.4375 5.96875C23.4375 4.72555 22.9436 3.53326 22.0645 2.65418C21.1855 1.77511 19.9932 1.28125 18.75 1.28125"
-      stroke="#2B2B2B"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </g>
-  <defs>
-    <clipPath id="clip0_467_4826">
-      <rect
-        width="25"
-        height="25"
-        fill="white"
-        transform="translate(0 0.5)"
-      />
-    </clipPath>
-  </defs>
-</svg>
-
+          width="25"
+          height="26"
+          viewBox="0 0 25 26"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clipPath="url(#clip0_467_4826)">
+            <path
+              d="M12.9687 17.6875H12.0313C8.8383 17.6875 6.25 14.7758 6.25 11.1836V1.28125H18.75V11.1836C18.75 14.7758 16.1609 17.6875 12.9687 17.6875Z"
+              fill="#FFED78"
+              stroke="#2B2B2B"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M5.46875 4.40625H19.2586"
+              stroke="#2B2B2B"
+              strokeWidth="1.5"
+              strokeMiterlimit="10"
+            />
+            <path
+              d="M12.5 17.6875V24.7188"
+              stroke="#2B2B2B"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M18.8118 24.7188H6.53601L8.5938 22.375H16.4063L18.8118 24.7188Z"
+              fill="#FFED78"
+              stroke="#2B2B2B"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M6.25 10.6562C5.0068 10.6562 3.81453 10.1624 2.93546 9.28332C2.05638 8.40424 1.5625 7.21195 1.5625 5.96875C1.5625 4.72555 2.05638 3.53326 2.93546 2.65418C3.81453 1.77511 5.0068 1.28125 6.25 1.28125"
+              stroke="#2B2B2B"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M18.75 10.6562C19.9932 10.6562 21.1855 10.1624 22.0645 9.28332C22.9436 8.40424 23.4375 7.21195 23.4375 5.96875C23.4375 4.72555 22.9436 3.53326 22.0645 2.65418C21.1855 1.77511 19.9932 1.28125 18.75 1.28125"
+              stroke="#2B2B2B"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_467_4826">
+              <rect
+                width="25"
+                height="25"
+                fill="white"
+                transform="translate(0 0.5)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
       </button>
       <img src={imageSrc} alt={title} />
       <p className={S.gameTitle}>{title}</p>

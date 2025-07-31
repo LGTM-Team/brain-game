@@ -1,4 +1,4 @@
-import PlayPage from "../components/PlayPage";
+import PlayPage from "../common/PlayPage";
 import LetterColorPlay from "./components/LetterColorPlay";
 import letterColor from "@/assets/images/game/letterColor_game.svg";
 import TutorialLetterColor from "./components/TutorialLetterColor";

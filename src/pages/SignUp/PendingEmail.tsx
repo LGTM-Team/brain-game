@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import S from "./PendingEmail.module.css";
 import { AppLink } from "@/router/AppLink";
 import img from "@/assets/images/pending_img.svg";
-import SubmitButton from "@/components/form/SubmitButton";
+import SubmitButton from "@/common/form/SubmitButton";
 
 function PendingEmail() {
   const location = useLocation();
@@ -40,7 +40,7 @@ function PendingEmail() {
       type: "signup",
       email,
       options: {
-        emailRedirectTo: "http://localhost:3000/post-sign-up", 
+        emailRedirectTo: "http://localhost:3000/post-sign-up",
       },
     });
 

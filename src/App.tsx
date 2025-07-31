@@ -1,6 +1,6 @@
 import { Outlet, useMatches } from "react-router-dom";
-import Header from "./components/layout/Header";
-import Navigation from "./components/layout/Navigation";
+import Header from "./common/layout/Header";
+import Navigation from "./common/layout/Navigation";
 
 interface RouteHandle {
   title?: string;

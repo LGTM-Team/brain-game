@@ -1,7 +1,7 @@
 import Footer from "./components/Footer";
-import RankingModal from "@/components/modals/Ranking/RankingModal";
+import RankingModal from "@/common/modals/Ranking/RankingModal";
 import { useEffect, useState } from "react";
-import { rankingData } from "@/components/modals/Ranking/RankData";
+import { rankingData } from "@/common/modals/Ranking/RankData";
 import S from "./homePage.module.css";
 import img from "@/assets/images/home_img.svg";
 import numberCardImg from "@/assets/images/game/number_game.svg";

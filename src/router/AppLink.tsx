@@ -1,5 +1,5 @@
 import { NavLink, useNavigate, Link, useLocation } from "react-router-dom";
-import S from "../components/styles/fixedLayout.module.css";
+import S from "../common/styles/fixedLayout.module.css";
 
 interface AppLinkProps {
   to?: string;
