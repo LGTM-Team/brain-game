@@ -1,4 +1,4 @@
-import PlayPage from "../components/PlayPage";
+import PlayPage from "../common/PlayPage";
 import numberCardImg from "@/assets/images/game/number_game.svg";
 import NumberCardPlay from "./components/NumberCardPlay";
 

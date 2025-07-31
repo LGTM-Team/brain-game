@@ -1,7 +1,7 @@
 import S from "./SignUp.module.css";
 import signUpImg from "@/assets/images/signUp_neuro.svg"; // 회원가입 뉴로 이미지.
-import Input from "@/components/form/Input";
-import SubmitButton from "@/components/form/SubmitButton";
+import Input from "@/common/form/Input";
+import SubmitButton from "@/common/form/SubmitButton";
 import useSignUp from "@/hooks/useSignUp";
 import { useState } from "react";
 import { insertProfile } from "@/utils/insertProfile";
@@ -26,7 +26,7 @@ function SignUp() {
     confirmPassword?: string;
     nickname?: string;
     agreeToPrivacy?: string;
-    global?: string
+    global?: string;
   }>({});
 
   // 입력 필드 유효성 검사 함수.
@@ -49,38 +49,38 @@ function SignUp() {
 
   // 회원가입 제출 핸들러
   const handelSubmitSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const errors = validateForm();
-  if (errors) {
-    setFieldErrors(errors);
-    return;
-  }
+    const errors = validateForm();
+    if (errors) {
+      setFieldErrors(errors);
+      return;
+    }
 
-  setFieldErrors({}); // 기존 에러 초기화
+    setFieldErrors({}); // 기존 에러 초기화
 
-  const result = await signUp(email, password);
+    const result = await signUp(email, password);
 
-  if (result) {
-    // 프로필 데이터 localStorage에 저장
-    const profileData = {
-      nickname,
-      gender,
-      birth,
-    };
-    localStorage.setItem("pending-profile", JSON.stringify(profileData));
+    if (result) {
+      // 프로필 데이터 localStorage에 저장
+      const profileData = {
+        nickname,
+        gender,
+        birth,
+      };
+      localStorage.setItem("pending-profile", JSON.stringify(profileData));
 
-    // 팬딩 안내 페이지로 이동
-    navigate("/pending-email", {replace: true, state: { email }});
-  } else {
-    setFieldErrors({ global: error ?? "회원가입 실패" });
-  }
-};
+      // 팬딩 안내 페이지로 이동
+      navigate("/pending-email", { replace: true, state: { email } });
+    } else {
+      setFieldErrors({ global: error ?? "회원가입 실패" });
+    }
+  };
 
   return (
     <main className={S.container}>
       <h1 className={S["a11y-hidden"]}>회원가입</h1>
-      <img src={signUpImg} alt="회원가입 안내 이미지" className={S.signUpImg}/>
+      <img src={signUpImg} alt="회원가입 안내 이미지" className={S.signUpImg} />
 
       <form onSubmit={handelSubmitSignUp} className={S.signUpForm}>
         <Input
@@ -168,11 +168,15 @@ function SignUp() {
           <label htmlFor="agree">개인정보 동의하시겠습니까?</label>
         </fieldset>
 
-
         <p className={S.errorMessage}>
-          {(fieldErrors.agreeToPrivacy || fieldErrors.global) ? (
+          {fieldErrors.agreeToPrivacy || fieldErrors.global ? (
             <>
-              {fieldErrors.agreeToPrivacy && <>{fieldErrors.agreeToPrivacy}<br /></>}
+              {fieldErrors.agreeToPrivacy && (
+                <>
+                  {fieldErrors.agreeToPrivacy}
+                  <br />
+                </>
+              )}
               {fieldErrors.global && <>{fieldErrors.global}</>}
             </>
           ) : (

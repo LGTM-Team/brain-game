@@ -1,7 +1,7 @@
-import Input from "@/components/form/Input";
+import Input from "@/common/form/Input";
 import S from "./findAccount.module.css";
 import findAccountImg from "@/assets/images/find-account.svg";
-import SubmitButton from "@/components/form/SubmitButton";
+import SubmitButton from "@/common/form/SubmitButton";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import usePasswordReset from "@/hooks/usePasswordReset";
@@ -89,7 +89,7 @@ function FindAccount() {
 
   return (
     <main className={S.container}>
-      <img src={findAccountImg} className={S.img}/>
+      <img src={findAccountImg} className={S.img} />
       <form className={S.fieldWrap} onSubmit={handleSubmit}>
         <Input
           type="email"
@@ -121,7 +121,6 @@ function FindAccount() {
               error={fieldErrors.password}
             />
 
-
             <Input
               type="password"
               placeholder="다시 새로운 비밀번호를 입력해 주세요."
@@ -130,7 +129,6 @@ function FindAccount() {
               onChange={(e) => setConfirmPassword(e.target.value)}
               error={fieldErrors.confirmPassword}
             />
-
 
             <p className={S.errorMessage}>{fieldErrors.global || "\u00A0"}</p>
 

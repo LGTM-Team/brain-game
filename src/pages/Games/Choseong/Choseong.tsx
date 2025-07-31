@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import S from "../Choseong/choseong.module.css";
-import SubmitAnswer from "../components/SubmitAnswer";
-import CurrentGameScore from "../components/CurrentGameScore";
+import SubmitAnswer from "../common/SubmitAnswer";
+import CurrentGameScore from "../common/CurrentGameScore";
 import isExistWord from "@/utils/isExistWord";
 import { makeRandomChoseong } from "@/utils/makeRandomChoseong";
 import { getChoseong } from "es-hangul";
 import { useBonusScore } from "@/hooks/useBonusScore";
 import { motion } from "framer-motion";
-// import StaticTimer from '../components/StaticTimer';
-import DynamicTimer from "../components/DynamicTimer";
+// import StaticTimer from '../common/StaticTimer';
+import DynamicTimer from "../common/DynamicTimer";
 
 interface Props {
   state: "waiting" | "starting" | "playing" | "finish" | "result";

@@ -1,4 +1,4 @@
-import PlayPage from "../components/PlayPage";
+import PlayPage from "../common/PlayPage";
 import Choseong from "./Choseong";
 import word_img from "@/assets/images/game/word_game.svg";
 

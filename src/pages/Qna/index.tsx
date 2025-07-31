@@ -1,5 +1,5 @@
 import { AppLink } from "@/router/AppLink";
-import PostCard from "../../components/post/PostCard";
+import PostCard from "@/common/post/PostCard";
 import Question from "./components/Question";
 import S from "./qna.module.css";
 import postIcon from "@/assets/icons/post.svg";
