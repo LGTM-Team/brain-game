@@ -1,19 +1,21 @@
 .container {
-  background-color: var(--main-red);
+  background-color: var(--white);
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: var(--space-1) var(--space-4);
 }
 .notice {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
+  margin: var(--space-3) auto;
+
   img {
     width: 50px;
+    position: relative;
   }
   div {
     display: flex;
@@ -22,12 +24,22 @@
     padding: var(--space-0) 0;
     padding-left: var(--space-3);
 
-    width: 80%;
+    width: 70%;
     height: 40px;
     border-radius: 10px;
     background: var(--white);
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
   }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-5);
+
+  width: 100%;
 }
 
 .rankingContainer {
@@ -39,7 +51,6 @@
 
   width: 100%;
 
-  background-color: var(--main-blue);
   button {
     background-color: var(--main-yellow);
 
@@ -69,10 +80,13 @@
   border-radius: 10px;
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
 
+  position: relative;
+  bottom: 0;
+
   color: var(--black, #2b2b2b);
   text-align: center;
   font-size: var(--font-4);
   font-weight: 700;
 
-  margin-bottom: 100px;
+  margin: 50px 0 100px;
 }

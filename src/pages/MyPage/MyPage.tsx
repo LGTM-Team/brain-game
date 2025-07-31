@@ -78,7 +78,6 @@ function Mypage() {
           <div className={S.rankingContainer}>
             <MyRanking userId={userId} gameName={"초성 퀴즈"} />
             <MyRanking userId={userId} gameName={"초성 퀴즈"} />
-
             <MyRanking userId={userId} gameName={"초성 퀴즈"} />
           </div>
 
