@@ -1,51 +1,54 @@
-
 .container{
-  background-color: var(--white);
   flex: 1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  padding-bottom: 2rem;
-  padding-inline: 2rem;
-
-  h1{
-    font-size: var(--space-4);
-    margin-bottom: 2rem;
-  }
-  p{
-    font-size: var(--font-3);
-  }
+  flex-direction: column;
+  padding: 1rem;
 }
 
-.actionRow{
-  width: 328px;
-  min-width: 300px;
+.cardWrap{
+  width: 100%;
+  min-width: 350px;
+
+  background-color: var(--white);
+  border-radius: 10px;
+
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-content: center;
-  gap:2rem;
+  align-items: center;
+  flex-direction: column;
 
-  .resendButton, .loginLink{
-    flex: 1;
-    background-color: var(--main-yellow);
-    padding: 1rem;
-    /* margin-top: 2rem; */
-    border-radius: 10px;
+  padding-bottom: 1rem;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cardWrap h1{
+  font-weight: bold;
+  font-size: var(--font-5);
+  margin-bottom: 2rem;
+}
 
+.pendingText{
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+}
+
+.resendButton{
     font-size: var(--font-4);
+    line-height: 1; 
     font-weight: bold;
-
-    &:hover {
-      box-shadow: 9px 9px 20px 0 rgba(0, 0, 0, 0.15) inset;
-    }
+    text-decoration: underline;
   }
+
+.resendWrap{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .errorMessage {
@@ -58,7 +61,7 @@
 }
 
 .successMessage {
-  color: rgb(33, 37, 255);
+  color: #0f13fa; 
   font-size: var(--font-2);
   font-weight: bold;
   text-align: center;
@@ -66,4 +69,6 @@
   margin-bottom: 0.5rem;
 }
 
-
+.actionRow{
+  margin-bottom: 1rem;
+}
