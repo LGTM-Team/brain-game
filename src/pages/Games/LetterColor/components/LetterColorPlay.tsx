@@ -139,7 +139,9 @@ function LetterColorPlay({
               id="quiz"
               style={{ color: `${quizColor}` }}
             >
-              {quizLetter}
+              {quizLetter.split("").map((text, idx) => (
+                <p key={idx}>{text}</p>
+              ))}
             </div>
           ) : (
             ""
