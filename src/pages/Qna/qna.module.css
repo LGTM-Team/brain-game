@@ -1,0 +1,18 @@
+.container {
+  background-color: var(--light-background);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  color: var(--black);
+  padding-inline: var(--space-3);
+  padding-top: var(--space-3);
+  padding-bottom: 4rem;
+  position: relative;
+
+  .iconBox {
+    position: sticky;
+    bottom: 5rem;
+    z-index: 100;
+    align-self: flex-end;
+  }
+}
