@@ -11,10 +11,10 @@ function Login() {
   const navigate = useNavigate();
   const { login, loading} = useLogin();
 
-  const [id, setId] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [fieldErrors, setFieldErrors] = useState<{
-    id?: string;
+    email?: string;
     password?: string;
     global?: string;
   }>({});
@@ -24,8 +24,8 @@ function Login() {
   const validateForm = () => {
     const errors: typeof fieldErrors = {};
 
-    if (!id) errors.id = "이메일을 입력해주세요.";
-    if (!id) errors.password = "비밀번호를 입력해주세요.";
+    if (!email) errors.email = "이메일을 입력해주세요.";
+    if (!password) errors.password = "비밀번호를 입력해주세요.";
 
     return Object.keys(errors).length > 0 ? errors : null; // 에러가 하나라도 있으면 errors 객체 반환.
   };
@@ -42,11 +42,11 @@ function Login() {
   setFieldErrors({});
 
   try {
-    const result = await login(id, password);
+    const result = await login(email, password);
 
     if (result.emailNotConfirmed) {
       // 인증 미완료 시 라우팅
-      navigate("/pending-email", {replace: true, state: { id }});
+      navigate("/pending-email", {replace: true, state: { email }});
       return;
     }
 
@@ -83,8 +83,8 @@ function Login() {
             placeholder={"이메일을 입력해주세요."}
             id={"id"}
             label={"ID"}
-            onChange={(e) => setId(e.target.value)}
-            error={fieldErrors.id}
+            onChange={(e) => setEmail(e.target.value)}
+            error={fieldErrors.email}
             disabled={loading}
           />
 
