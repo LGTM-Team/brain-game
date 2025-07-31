@@ -4,7 +4,7 @@ import profileImg from "@/assets/images/SignUp_neuro.svg";
 interface Props {
   userAvatarUrl?: string | null;
   userName: string | null;
-  userGender?: "여자" | "남자" | "기타" | " - " | null;
+  userGender?: "male" | "female" | "other" | null;
   userBirth?: string | null;
   userEmail: string | null;
 }
@@ -16,6 +16,26 @@ function UserProfile({
   userBirth,
   userEmail,
 }: Props) {
+  let userGenderKo;
+
+  switch (userGender) {
+    case "male":
+      userGenderKo = "남자";
+      break;
+
+    case "female":
+      userGenderKo = "여자";
+      break;
+
+    case "other":
+      userGenderKo = "기타";
+      break;
+
+    default:
+      userGenderKo = " - ";
+      break;
+  }
+
   return (
     <div className={S.profile}>
       <img
@@ -25,9 +45,9 @@ function UserProfile({
       <div className={S.userInfo}>
         <div className={S.nameGenderWrapper}>
           <div className={S.userName}>{userName}</div>
-          <div className={S.gender}>{userGender}</div>
+          <div className={S.gender}>{userGenderKo}</div>
         </div>
-        <div className={S.birth}>{userBirth}</div>
+        <div className={S.birth}>{userBirth ?? " - "}</div>
         <div className={S.email}>{userEmail}</div>
       </div>
     </div>

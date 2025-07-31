@@ -11,17 +11,20 @@ import { supabase } from "@/services/supabase";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router";
 
+interface UserProfileData {
+  id: string | null;
+  avatarUrl: string | null;
+  nickname: string | null;
+  gender: "male" | "female" | "other" | null;
+  birth: string | null;
+  email: string | null;
+}
+
 function Mypage() {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  //userProfile
-  const [userId, setUserId] = useState(null);
-  const [userNickname, setUserNickname] = useState(null);
-  const [userAvatarUrl, setUserAvatarUrl] = useState(null);
-  const [userEmail, setUserEmail] = useState(null);
-  const [userGender, setUserGender] = useState(null);
-  const [userBirth, setUserBirth] = useState(null);
+  const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
 
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -31,12 +34,14 @@ function Mypage() {
       if (!user) return;
       const { id, nickname, gender, birth, avatar_url, email } =
         await getUserProfile(user);
-      setUserId(id);
-      setUserNickname(nickname);
-      setUserAvatarUrl(avatar_url);
-      setUserEmail(email);
-      setUserGender(gender);
-      setUserBirth(birth);
+      setUserProfile({
+        id,
+        nickname,
+        gender,
+        birth,
+        avatarUrl: avatar_url,
+        email,
+      });
     };
     fetchUserProfile();
   }, [user]);
@@ -57,36 +62,34 @@ function Mypage() {
     });
   };
 
-  if (!user)
+  if (!userProfile)
     return <NotFoundPage errorMessage={"유저 정보를 찾을 수 없습니다."} />;
   return (
-    <>
-      <div className={S.container}>
-        <AppLink variant={"page"} to={"/notice"} className={S.notice}>
-          <img src={noticeNeuro} alt="공지사항" />
-          <div>최상단 공지 어쩌구저쩌구</div>
-        </AppLink>
-        <section>
-          <UserProfile
-            userAvatarUrl={userAvatarUrl}
-            userName={userNickname}
-            userEmail={userEmail}
-            userGender={userGender ?? " - "}
-            userBirth={userBirth ?? " - "}
-          />
+    <div className={S.container}>
+      <AppLink variant={"page"} to={"/notice"} className={S.notice}>
+        <img src={noticeNeuro} alt="공지사항" />
+        <div>최상단 공지 어쩌구저쩌구</div>
+      </AppLink>
+      <section>
+        <UserProfile
+          userAvatarUrl={userProfile.avatarUrl}
+          userName={userProfile.nickname}
+          userEmail={userProfile.email}
+          userGender={userProfile.gender}
+          userBirth={userProfile.birth}
+        />
 
-          <div className={S.rankingContainer}>
-            <MyRanking userId={userId} gameName={"초성 퀴즈"} />
-            <MyRanking userId={userId} gameName={"초성 퀴즈"} />
-            <MyRanking userId={userId} gameName={"초성 퀴즈"} />
-          </div>
+        <div className={S.rankingContainer}>
+          <MyRanking userId={userProfile.id} gameName={"초성 퀴즈"} />
+          <MyRanking userId={userProfile.id} gameName={"초성 퀴즈"} />
+          <MyRanking userId={userProfile.id} gameName={"초성 퀴즈"} />
+        </div>
 
-          <button type="button" id={S.logout} onClick={handleLogout}>
-            로그아웃
-          </button>
-        </section>
-      </div>
-    </>
+        <button type="button" id={S.logout} onClick={handleLogout}>
+          로그아웃
+        </button>
+      </section>
+    </div>
   );
 }
 export default Mypage;
