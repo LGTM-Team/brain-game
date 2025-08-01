@@ -31,6 +31,9 @@
   }
   .detailInformation {
     border-top: 1px solid var(--light-gray);
+    line-height: 1.5;
+    word-break: keep-all; /* 단어 단위로 줄바꿈 */
+    white-space: pre-line; /* 줄바꿈 문자(\n)를 인식 */
     p {
       font-size: var(--font-3);
       line-height: 150%;

@@ -3,22 +3,38 @@ import PostCard from "../../common/post/PostCard";
 import S from "./notice.module.css";
 import qnaIcon from "@/assets/icons/qna.svg";
 import { useEffect, useState } from "react";
+import {
+  getNoticeList,
+  type NoticeList,
+} from "@/api/service/notice/getNoticeData";
 
 function NoticePage() {
-  const [isOpenCard, setIsOpenCard] = useState(false);
-
-  const onChangeToggle = () => {
-    isOpenCard ? setIsOpenCard(false) : setIsOpenCard(true);
+  const [openCardId, setOpenCardId] = useState<number | null>(null);
+  const [noticeList, setNoticeList] = useState<NoticeList | null>(null);
+  const onChangeToggle = (id: number) => {
+    setOpenCardId((prevId) => (prevId === id ? null : id));
   };
-  useEffect(() => {}, [isOpenCard]);
+  useEffect(() => {
+    const fetchNoticeData = async () => {
+      const data = await getNoticeList();
+      setNoticeList(data);
+    };
+
+    fetchNoticeData();
+  }, []);
+
+  useEffect(() => {}, [openCardId]);
   return (
     <div className={S.wrapper}>
       <div className={S.container}>
-        <PostCard
-          isContact={false}
-          onChangeToggle={onChangeToggle}
-          isOpenCard={isOpenCard}
-        />
+        {noticeList?.map((item) => (
+          <PostCard
+            key={item.id}
+            noticeData={item}
+            onChangeToggle={() => onChangeToggle(item.id)}
+            isOpenCard={openCardId === item.id}
+          />
+        ))}
       </div>
       <div className={S.spacer}></div>
       <div className={S.iconBox}>
