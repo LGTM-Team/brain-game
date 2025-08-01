@@ -12,13 +12,13 @@ interface Props {
 
 function PostCard({ QnaData, onChangeToggle, isOpenCard }: Props) {
   if (QnaData) {
-    const { id, title, is_answer, answer, created_at, profiles } = QnaData;
+    const { id, title, is_answered, answer, created_at, profiles } = QnaData;
     const date = formatDate(created_at);
     return (
       <article className={S.postCardContainer} key={id}>
         <div className={`${S.category}`}>
-          <span className={is_answer ? S.finish : ""}>
-            {is_answer ? "답변 완료" : "답변 미완료"}
+          <span className={is_answered ? S.finish : ""}>
+            {is_answered ? "답변 완료" : "답변 미완료"}
           </span>
         </div>
         <h3>{title}</h3>
@@ -34,7 +34,7 @@ function PostCard({ QnaData, onChangeToggle, isOpenCard }: Props) {
         </div>
         {isOpenCard && (
           <div className={S.detailInformation}>
-            <p>{is_answer ? answer : "등록된 답변이 없습니다"}</p>
+            <p>{is_answered ? answer : "등록된 답변이 없습니다"}</p>
           </div>
         )}
       </article>

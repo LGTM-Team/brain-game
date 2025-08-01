@@ -6,7 +6,7 @@ export interface Qna {
   title: string;
   content: string;
   created_at: string;
-  is_answer: boolean;
+  is_answered: boolean;
   answer: string;
   answer_at: string;
   profiles: {
