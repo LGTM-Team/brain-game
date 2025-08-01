@@ -48,7 +48,7 @@ function PostCard({ qnaData, onChangeToggle, isOpenCard, noticeData }: Props) {
     const created_date = formatDate(created_at);
 
     return (
-      <article className={S.postCardContainer}>
+      <article className={S.postCardContainer} key={id}>
         <h3>{title}</h3>
         <div className={S.dateWithIcon}>
           <span>{created_date}</span>
