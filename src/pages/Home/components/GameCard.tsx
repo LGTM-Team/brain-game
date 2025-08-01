@@ -1,6 +1,5 @@
 import { AppLink } from "@/router/AppLink";
 import S from "./styles/gameCard.module.css";
-import rankIcon from "@/assets/icons/prize.svg";
 
 interface Props {
   imageSrc: string;
@@ -21,7 +20,7 @@ export function GameCard({
 
   return (
     <div className={S.card}>
-      <button className={S.iconButton} onClick={onIconClick} aria-label="옵션">
+      <button className={S.iconButton} onClick={onIconClick}>
         <svg
           width="25"
           height="26"

@@ -2,6 +2,7 @@ import Footer from "./components/Footer";
 import RankingModal from "@/common/modals/Ranking/RankingModal";
 import { useState } from "react";
 import { useAllGames } from "@/hooks/useAllGames";
+import { useAllRankingData } from "@/hooks/useAllRankingData";
 import S from "./homePage.module.css";
 import img from "@/assets/images/home_img.svg";
 import GameCard from "./components/GameCard";
@@ -24,9 +25,15 @@ const gameMetaMap: Record<string, { image: string; path: string }> = {
 
 function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
-  const handleModal = () => setIsOpen((prev) => !prev);
+  const [selectedGame, setSelectedGame] = useState<{ id: number; name: string } | null>(null);
 
   const { games, loading, error } = useAllGames();
+  const { rankings, loading: rankingLoading } = useAllRankingData(selectedGame?.id ?? 0);
+
+  const handleOpenRanking = (gameId: number, name: string) => {
+    setSelectedGame({ id: gameId, name });
+    setIsOpen(true);
+  };
 
   return (
     <div className={S.container}>
@@ -38,7 +45,6 @@ function HomePage() {
 
         {games?.map((game) => {
           const meta = gameMetaMap[game.name];
-
           return (
             <GameCard
               key={game.game_id}
@@ -46,14 +52,14 @@ function HomePage() {
               title={game.name}
               description={game.description}
               linkTo={meta?.path ?? "/games"}
-              onIconClick={handleModal}
+              onIconClick={() => handleOpenRanking(game.game_id, game.name)}
             />
           );
         })}
 
         <RankingModal
-          data={[]}
-          gameName="숫자 순서 기억"
+          data={rankings ?? []}
+          gameName={selectedGame?.name ?? ""}
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
         />

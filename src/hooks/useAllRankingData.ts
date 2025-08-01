@@ -6,6 +6,7 @@ export interface AllRankingEntry {
   id: number;
   user_id: string;
   score: number;
+  rank: number;
   profiles?: {
     nickname: string;
   };
@@ -35,10 +36,11 @@ export function useAllRankingData(gameId: number) {
         setError(error.message);
         setRankings(null);
       } else if (Array.isArray(data)) {
-        const normalized: AllRankingEntry[] = data.map((r: any) => ({
+        const normalized: AllRankingEntry[] = data.map((r: any, index: number) => ({
           id: r.id,
           user_id: r.user_id,
           score: r.score,
+          rank: index + 1,
           profiles: Array.isArray(r.profiles) ? r.profiles[0] : r.profiles,
         }));
 
