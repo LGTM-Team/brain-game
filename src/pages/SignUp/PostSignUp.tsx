@@ -27,7 +27,6 @@ function PostSignUp() {
         return;
       }
 
-      console.log("✅ User Metadata 확인:", { nickname, gender, birth });
 
       // 3. 기존 프로필 존재 여부 확인
       const { data: existingProfile, error: checkError } = await supabase

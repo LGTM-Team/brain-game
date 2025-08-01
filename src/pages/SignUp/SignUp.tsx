@@ -58,13 +58,9 @@ function SignUp() {
 
     setFieldErrors({}); // 기존 에러 초기화
 
-    // 🔥 User Metadata와 함께 회원가입
     const result = await signUp(email, password, nickname, gender, birth);
 
-    if (result) {
-      // 🎉 localStorage 저장 제거 - User Metadata로 처리!
-      console.log("✅ 회원가입 성공 - 메타데이터와 함께 저장됨");
-      
+    if (result) {   
       // 팬딩 안내 페이지로 이동
       navigate("/pending-email", { replace: true, state: { email } });
     } else {
