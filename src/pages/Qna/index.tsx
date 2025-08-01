@@ -28,7 +28,7 @@ function QnaPage() {
         {qnaList?.map((item) => (
           <PostCard
             key={item.id}
-            QnaData={item}
+            qnaData={item}
             onChangeToggle={() => onChangeToggle(item.id)}
             isOpenCard={openCardId === item.id}
           />
