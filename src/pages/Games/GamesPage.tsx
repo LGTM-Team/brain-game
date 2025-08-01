@@ -9,13 +9,13 @@ function GamesPage() {
         <img src={runNeuro} alt="" />
         <div className={S.anchors}>
           <AppLink variant={"page"} to={"numbers"} className={S.link}>
-            숫자 맞추기 게임 시작하기
+            숫자를 외워라!
           </AppLink>
           <AppLink variant={"page"} to={"choseong"} className={S.link}>
-            단어 완성 게임 시작하기
+            초성 퀴즈
           </AppLink>
           <AppLink variant={"page"} to={"letter-color"} className={S.link}>
-            글자색 맞추기 게임 시작하기
+            색깔을 맞춰라!
           </AppLink>
         </div>
       </div>

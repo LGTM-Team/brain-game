@@ -6,6 +6,7 @@ import TutorialLetterColor from "./components/TutorialLetterColor";
 function LetterColorGamePage() {
   return (
     <PlayPage
+      gameId={3}
       gameImg={letterColor}
       imgAlt={"글자 색 맞추기 게임"}
       boldDescription={"중요한건 색깔!"}

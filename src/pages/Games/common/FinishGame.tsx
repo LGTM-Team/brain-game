@@ -1,22 +1,11 @@
-import { useEffect } from "react";
 import S from "./styles/finishGame.module.css";
 import cryingNeuro from "@/assets/images/game/crying_neuro.svg";
-import type { State } from "./PlayPage";
 
 interface Props {
-  state: State;
-  onShowResult: () => void;
   gameOverMessage: string | null;
 }
 
-function FinishGame({ state, onShowResult, gameOverMessage }: Props) {
-  useEffect(() => {
-    if (state !== "finish") return;
-    setTimeout(() => {
-      onShowResult();
-    }, 3000);
-  }, []);
-
+function FinishGame({ gameOverMessage }: Props) {
   return (
     <div className={S.container}>
       <div className={S.inner}>
