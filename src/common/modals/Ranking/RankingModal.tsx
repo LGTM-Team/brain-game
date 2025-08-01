@@ -3,13 +3,17 @@ import RankingItem from "./RankingItem";
 import prizeIcon from "@/assets/icons/prize.svg";
 import cancelIcon from "@/assets/icons/cancel.svg";
 import { type AllRankingEntry } from "@/hooks/useAllRankingData";
+import { type MyRankingEntry } from "@/hooks/useMyRankingData";
 import { useEffect, useState } from "react";
+
+// 유니온 타입으로 두 타입 모두 받을 수 있도록
+type RankingEntry = AllRankingEntry | MyRankingEntry;
 
 interface Props {
   gameName: string;
   isOpen: boolean;
   onClose: () => void;
-  data: AllRankingEntry[];
+  data: RankingEntry[];
 }
 
 function RankingModal({ gameName, isOpen, onClose, data }: Props) {

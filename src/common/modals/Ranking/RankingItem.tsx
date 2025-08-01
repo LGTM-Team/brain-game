@@ -1,17 +1,28 @@
 import { useEffect, useState } from "react";
 import { type AllRankingEntry } from "@/hooks/useAllRankingData";
+import { type MyRankingEntry } from "@/hooks/useMyRankingData";
 import S from "../style/ranking.module.css";
 
+// 유니온 타입으로 두 타입 모두 받을 수 있도록
+type RankingEntry = AllRankingEntry | MyRankingEntry;
+
 interface Props {
-  data: AllRankingEntry;
+  data: RankingEntry;
   maxScore: number;
+}
+
+// 타입 가드: MyRankingEntry인지 확인하는 함수
+function isMyRankingEntry(data: RankingEntry): data is MyRankingEntry {
+  return 'isMine' in data;
 }
 
 export default function RankingItem({ data, maxScore }: Props) {
   const { score, rank, profiles, user_id } = data;
+  
+  // isMine 필드가 있으면 사용, 없으면 false
+  const isMine = isMyRankingEntry(data) ? data.isMine : false;
 
   const [rankClass, setClass] = useState("");
-  const [isMine, setIsMine] = useState(false);
   const [scorePercentage, setScorePercentage] = useState(0);
 
   useEffect(() => {
