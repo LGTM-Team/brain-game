@@ -3,23 +3,38 @@ import PostCard from "@/common/post/PostCard";
 import S from "./qna.module.css";
 import postIcon from "@/assets/icons/post.svg";
 import { useEffect, useState } from "react";
+import { getQnaList, type QnaList } from "@/api/service/qna/getQnaList";
 
 function QnaPage() {
-  const [isOpenCard, setIsOpenCard] = useState(false);
-
-  const onChangeToggle = () => {
-    isOpenCard ? setIsOpenCard(false) : setIsOpenCard(true);
+  const [openCardId, setOpenCardId] = useState<number | null>(null);
+  const [qnaList, setQnaList] = useState<QnaList | null>(null);
+  const onChangeToggle = (id: number) => {
+    setOpenCardId((prevId) => (prevId === id ? null : id));
   };
-  useEffect(() => {}, [isOpenCard]);
+  useEffect(() => {
+    const fetchQnaData = async () => {
+      const data = await getQnaList();
+
+      setQnaList(data);
+    };
+
+    fetchQnaData();
+  }, []);
+
+  useEffect(() => {}, [openCardId]);
   return (
     <div className={S.wrapper}>
       <div className={S.container}>
-        <PostCard
-          isContact={true}
-          onChangeToggle={onChangeToggle}
-          isOpenCard={isOpenCard}
-        />
+        {qnaList?.map((item) => (
+          <PostCard
+            key={item.id}
+            QnaData={item}
+            onChangeToggle={() => onChangeToggle(item.id)}
+            isOpenCard={openCardId === item.id}
+          />
+        ))}
       </div>
+
       <div className={S.spacer}></div>
       <div className={S.iconBox}>
         <AppLink to="/qna/write" variant="page">
