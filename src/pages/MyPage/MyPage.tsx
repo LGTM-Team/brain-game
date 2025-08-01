@@ -11,6 +11,11 @@ import { supabase } from "@/services/supabase";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router";
 import Spinner from "@/common/layout/Spinner";
+import {
+  getNoticeList,
+  type Notice,
+  type NoticeList,
+} from "@/api/service/notice/getNoticeData";
 
 export interface UserProfileData {
   id: string | null;
@@ -26,6 +31,7 @@ function Mypage() {
 
   const { user } = useAuth();
   const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
+  const [noticeList, setNoticeListe] = useState<NoticeList | null>(null);
 
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -44,6 +50,14 @@ function Mypage() {
         email,
       });
     };
+
+    const fetchNoticeData = async () => {
+      const data = await getNoticeList();
+      const notice = data?.filter((item, index) => index === 0);
+      setNoticeListe(notice!);
+    };
+
+    fetchNoticeData();
     fetchUserProfile();
   }, [user]);
 
@@ -65,13 +79,15 @@ function Mypage() {
 
   if (!user)
     return <NotFoundPage errorMessage={"유저 정보를 찾을 수 없습니다."} />;
-  if (!userProfile) return <Spinner />;
+  if (!userProfile || !noticeList) return <Spinner />;
   return (
     <div className={S.container}>
-      <AppLink variant={"page"} to={"/notice"} className={S.notice}>
-        <img src={noticeNeuro} alt="공지사항" />
-        <div>최상단 공지 어쩌구저쩌구</div>
-      </AppLink>
+      {noticeList?.map((item) => (
+        <AppLink variant={"page"} to={"/notice"} className={S.notice}>
+          <img src={noticeNeuro} alt="공지사항" />
+          <div>{item.title}</div>
+        </AppLink>
+      ))}
       <section>
         <UserProfile
           userAvatarUrl={userProfile.avatarUrl}
