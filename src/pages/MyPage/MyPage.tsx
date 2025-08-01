@@ -83,7 +83,12 @@ function Mypage() {
   return (
     <div className={S.container}>
       {noticeList?.map((item) => (
-        <AppLink variant={"page"} to={"/notice"} className={S.notice}>
+        <AppLink
+          variant={"page"}
+          to={"/notice"}
+          className={S.notice}
+          key={item.id}
+        >
           <img src={noticeNeuro} alt="공지사항" />
           <div>{item.title}</div>
         </AppLink>
