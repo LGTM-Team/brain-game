@@ -7,10 +7,12 @@ import {
   getNoticeList,
   type NoticeList,
 } from "@/api/service/notice/getNoticeData";
+import Spinner from "@/common/layout/Spinner";
 
 function NoticePage() {
   const [openCardId, setOpenCardId] = useState<number | null>(null);
   const [noticeList, setNoticeList] = useState<NoticeList | null>(null);
+
   const onChangeToggle = (id: number) => {
     setOpenCardId((prevId) => (prevId === id ? null : id));
   };
@@ -27,6 +29,7 @@ function NoticePage() {
   return (
     <div className={S.wrapper}>
       <div className={S.container}>
+        {!noticeList && <Spinner />}
         {noticeList?.map((item) => (
           <PostCard
             key={item.id}
