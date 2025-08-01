@@ -5,7 +5,13 @@ export function useSignUp() {
   const [loading, setLoading] = useState<boolean>(false); // 로딩 상태
   const [error, setError] = useState<string | null>(null); // 에러 상태
 
-  const signUp = async (email: string, password: string) => {
+  const signUp = async (
+    email: string, 
+    password: string,
+    nickname: string,
+    gender?: "male" | "female" | "other" | null,
+    birth?: string | null
+  ) => {
     setLoading(true);
     setError(null);
 
@@ -15,6 +21,11 @@ export function useSignUp() {
         password,
         options: {
           emailRedirectTo: "http://localhost:3000/post-sign-up", // 이메일 인증 후 리디렉션 주소
+          data: {
+            nickname,
+            gender,
+            birth
+          }
         },
       });
 
@@ -36,4 +47,5 @@ export function useSignUp() {
   };
   return { signUp, loading, error };
 }
+
 export default useSignUp;

@@ -4,7 +4,6 @@ import Input from "@/common/form/Input";
 import SubmitButton from "@/common/form/SubmitButton";
 import useSignUp from "@/hooks/useSignUp";
 import { useState } from "react";
-import { insertProfile } from "@/utils/insertProfile";
 import { useNavigate } from "react-router-dom";
 
 function SignUp() {
@@ -59,17 +58,13 @@ function SignUp() {
 
     setFieldErrors({}); // 기존 에러 초기화
 
-    const result = await signUp(email, password);
+    // 🔥 User Metadata와 함께 회원가입
+    const result = await signUp(email, password, nickname, gender, birth);
 
     if (result) {
-      // 프로필 데이터 localStorage에 저장
-      const profileData = {
-        nickname,
-        gender,
-        birth,
-      };
-      localStorage.setItem("pending-profile", JSON.stringify(profileData));
-
+      // 🎉 localStorage 저장 제거 - User Metadata로 처리!
+      console.log("✅ 회원가입 성공 - 메타데이터와 함께 저장됨");
+      
       // 팬딩 안내 페이지로 이동
       navigate("/pending-email", { replace: true, state: { email } });
     } else {
