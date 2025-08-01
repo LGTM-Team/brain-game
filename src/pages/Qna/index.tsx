@@ -4,6 +4,7 @@ import S from "./qna.module.css";
 import postIcon from "@/assets/icons/post.svg";
 import { useEffect, useState } from "react";
 import { getQnaList, type QnaList } from "@/api/service/qna/getQnaListData";
+import Spinner from "@/common/layout/Spinner";
 
 function QnaPage() {
   const [openCardId, setOpenCardId] = useState<number | null>(null);
@@ -25,6 +26,7 @@ function QnaPage() {
   return (
     <div className={S.wrapper}>
       <div className={S.container}>
+        {!qnaList && <Spinner />}
         {qnaList?.map((item) => (
           <PostCard
             key={item.id}
