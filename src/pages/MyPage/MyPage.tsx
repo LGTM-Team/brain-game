@@ -11,13 +11,14 @@ import { supabase } from "@/services/supabase";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router";
 import Spinner from "@/common/layout/Spinner";
+import { useAllGames } from "@/hooks/useAllGames"; // 추가
 import {
   getNoticeList,
   type Notice,
   type NoticeList,
 } from "@/api/service/notice/getNoticeData";
 
-export interface UserProfileData {
+interface UserProfileData {
   id: string | null;
   avatarUrl: string | null;
   nickname: string | null;
@@ -31,7 +32,9 @@ function Mypage() {
 
   const { user } = useAuth();
   const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
-  const [noticeList, setNoticeListe] = useState<NoticeList | null>(null);
+  const [noticeList, setNoticeList] = useState<NoticeList | null>(null);
+  // 동적으로 게임 목록 가져오기
+  const { games, loading: gamesLoading, error: gamesError } = useAllGames();
 
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -50,11 +53,10 @@ function Mypage() {
         email,
       });
     };
-
     const fetchNoticeData = async () => {
       const data = await getNoticeList();
       const notice = data?.filter((item, index) => index === 0);
-      setNoticeListe(notice!);
+      setNoticeList(notice!);
     };
 
     fetchNoticeData();
@@ -77,9 +79,22 @@ function Mypage() {
     });
   };
 
-  if (!user)
+  if (!user) {
     return <NotFoundPage errorMessage={"유저 정보를 찾을 수 없습니다."} />;
-  if (!userProfile || !noticeList) return <Spinner />;
+  }
+
+  if (!userProfile || !noticeList || gamesLoading) {
+    return <Spinner />;
+  }
+
+  if (gamesError) {
+    return (
+      <NotFoundPage
+        errorMessage={`게임 정보를 불러오는데 실패했습니다: ${gamesError}`}
+      />
+    );
+  }
+
   return (
     <div className={S.container}>
       {noticeList?.map((item) => (
@@ -103,9 +118,14 @@ function Mypage() {
         />
 
         <div className={S.rankingContainer}>
-          <MyRanking userId={userProfile.id} gameName={"초성 퀴즈"} />
-          <MyRanking userId={userProfile.id} gameName={"초성 퀴즈"} />
-          <MyRanking userId={userProfile.id} gameName={"초성 퀴즈"} />
+          {games?.map((game) => (
+            <MyRanking
+              key={game.game_id}
+              userId={userProfile.id}
+              gameId={game.game_id}
+              gameName={game.name}
+            />
+          ))}
         </div>
 
         <button type="button" id={S.logout} onClick={handleLogout}>
