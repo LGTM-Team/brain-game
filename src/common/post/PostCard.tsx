@@ -1,4 +1,4 @@
-import type { Qna } from "@/api/service/qna/getQnaList";
+import type { Qna } from "@/api/service/qna/getQnaListData";
 import S from "./postCard.module.css";
 import closeIcon from "@/assets/icons/postCardClose.svg";
 import openIcon from "@/assets/icons/postCardOpen.svg";
@@ -12,7 +12,7 @@ interface Props {
 
 function PostCard({ QnaData, onChangeToggle, isOpenCard }: Props) {
   if (QnaData) {
-    const { id, title, is_answer, answer, created_at } = QnaData;
+    const { id, title, is_answer, answer, created_at, profiles } = QnaData;
     const date = formatDate(created_at);
     return (
       <article className={S.postCardContainer} key={id}>
@@ -24,7 +24,7 @@ function PostCard({ QnaData, onChangeToggle, isOpenCard }: Props) {
         <h3>{title}</h3>
         <div className={S.dateWithIcon}>
           <span>{date}</span>
-          <p>작성자</p>
+          <p>{profiles.nickname}</p>
 
           {isOpenCard ? (
             <img src={openIcon} alt="펼치는 아이콘" onClick={onChangeToggle} />

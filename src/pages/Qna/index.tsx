@@ -3,7 +3,7 @@ import PostCard from "@/common/post/PostCard";
 import S from "./qna.module.css";
 import postIcon from "@/assets/icons/post.svg";
 import { useEffect, useState } from "react";
-import { getQnaList, type QnaList } from "@/api/service/qna/getQnaList";
+import { getQnaList, type QnaList } from "@/api/service/qna/getQnaListData";
 
 function QnaPage() {
   const [openCardId, setOpenCardId] = useState<number | null>(null);
@@ -11,10 +11,10 @@ function QnaPage() {
   const onChangeToggle = (id: number) => {
     setOpenCardId((prevId) => (prevId === id ? null : id));
   };
+
   useEffect(() => {
     const fetchQnaData = async () => {
       const data = await getQnaList();
-
       setQnaList(data);
     };
 

@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router";
 import Spinner from "@/common/layout/Spinner";
 
-interface UserProfileData {
+export interface UserProfileData {
   id: string | null;
   avatarUrl: string | null;
   nickname: string | null;
