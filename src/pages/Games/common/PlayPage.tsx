@@ -67,12 +67,12 @@ function PlayPage({
     setGameKey((prev) => prev + 1);
   };
 
-  // ✅ 저장 로직: finish → result 넘어가기 전에 수행
+  // 저장 로직: finish → result 넘어가기 전에 수행
   useEffect(() => {
     if (gameState !== "finish") return;
 
     const save = async () => {
-      console.log("[🏁] 게임 종료. 결과 저장 시도...");
+      
       if (score === null) {
         console.warn("[❗] 점수 정보 없음. 저장 생략.");
         return;
@@ -80,13 +80,13 @@ function PlayPage({
 
       try {
         await saveScore(gameId, score);
-        console.log("[✅] 점수 저장 완료 또는 무시됨 (트리거)");
+        
       } catch (err) {
         console.error("[🚨] 점수 저장 실패:", err);
       } finally {
         // 3초 후 결과로 이동 (성공 여부 관계없이)
         setTimeout(() => {
-          console.log("[➡️] 결과 화면으로 이동");
+          
           setGameState("result");
         }, 3000);
       }
