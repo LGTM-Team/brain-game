@@ -6,6 +6,7 @@ function NumberPlayPage() {
   return (
     <>
       <PlayPage
+        gameId={1}
         gameImg={numberCardImg}
         imgAlt={"숫자 맞추기"}
         boldDescription={"중요한건 순서!"}

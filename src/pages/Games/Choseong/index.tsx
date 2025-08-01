@@ -5,6 +5,7 @@ import word_img from "@/assets/images/game/word_game.svg";
 function ChoseongPlayPage() {
   return (
     <PlayPage
+      gameId={2}
       gameImg={word_img}
       imgAlt={"초성 퀴즈"}
       boldDescription={"중요한건 스피드!"}
