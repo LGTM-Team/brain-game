@@ -4,7 +4,6 @@ import Input from "@/common/form/Input";
 import SubmitButton from "@/common/form/SubmitButton";
 import useSignUp from "@/hooks/useSignUp";
 import { useState } from "react";
-import { insertProfile } from "@/utils/insertProfile";
 import { useNavigate } from "react-router-dom";
 
 function SignUp() {
@@ -59,17 +58,9 @@ function SignUp() {
 
     setFieldErrors({}); // 기존 에러 초기화
 
-    const result = await signUp(email, password);
+    const result = await signUp(email, password, nickname, gender, birth);
 
-    if (result) {
-      // 프로필 데이터 localStorage에 저장
-      const profileData = {
-        nickname,
-        gender,
-        birth,
-      };
-      localStorage.setItem("pending-profile", JSON.stringify(profileData));
-
+    if (result) {   
       // 팬딩 안내 페이지로 이동
       navigate("/pending-email", { replace: true, state: { email } });
     } else {
