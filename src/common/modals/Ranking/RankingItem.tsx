@@ -44,8 +44,9 @@ export default function RankingItem({ data, maxScore }: Props) {
       }
 
       if (maxScore > 0) {
-        const padding = Math.pow(10, String(maxScore).length - 1);
-        const percentage = Math.trunc((score / (maxScore + padding)) * 100);
+        // 최고점을 90%로 설정하고, 나머지는 비례적으로 계산
+        const maxPercentage = 95;
+        const percentage = Math.trunc((score / maxScore) * maxPercentage);
         setScorePercentage(percentage);
         setIsAnimated(true);
       }
