@@ -13,7 +13,7 @@
 .container {
   background-color: var(--white);
   display: flex;
-  flex:1;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -91,6 +91,9 @@
       transform: scale(2);
       accent-color: var(--main-yellow);
     }
+    label {
+      padding-top: 3px;
+    }
   }
 }
 
@@ -101,9 +104,9 @@
   user-select: none;
 }
 
-.signUpForm{
+.signUpForm {
   margin-bottom: calc(75px + 1rem);
 }
-.signUpImg{
+.signUpImg {
   width: 170px;
 }
