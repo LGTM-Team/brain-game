@@ -1,6 +1,6 @@
 import { getRandom } from "@/utils/getRandom";
 import type { State } from "../../common/PlayPage";
-import S from "./LetterColorPlay.module.css";
+import S from "./styles/letterColorPlay.module.css";
 import { useEffect, useState } from "react";
 import letterColorData from "@/data/letterColorData.json";
 import DynamicTimer from "../../common/DynamicTimer";
