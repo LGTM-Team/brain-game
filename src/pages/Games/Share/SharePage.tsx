@@ -1,5 +1,5 @@
 import neuro from "@/assets/images/numberGame/neuro7.svg";
-import S from "./sharePage.module.css";
+import S from "./styles/sharePage.module.css";
 import { useEffect, useState } from "react";
 import { supabase } from "@/services/supabase";
 import { useParams } from "react-router-dom";

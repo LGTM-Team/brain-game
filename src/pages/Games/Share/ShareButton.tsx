@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import S from "./sharePage.module.css";
+import S from "./styles/shareButton.module.css";
 import { Slide, ToastContainer, toast } from "react-toastify";
+import linkIcon from "@/assets/icons/link.svg";
+import cancel from "@/assets/icons/cancel.svg";
 
 interface Props {
   rankingId?: number | null;
@@ -44,34 +46,52 @@ function Share({ rankingId, userNickname, userHighestScore }: Props) {
         rankingId,
       },
     });
-    console.log(rankingId);
-    console.log(userNickname);
-    console.log(userHighestScore);
   }, [isOpenModal]);
 
   return (
     <>
-      <button type="button" onClick={() => setIsOpenModal(true)}>
+      <button
+        type="button"
+        className={S.shareButton}
+        onClick={() => setIsOpenModal(true)}
+      >
         내 최고 점수 자랑하기
       </button>
       {isOpenModal && (
         <div className={S.modal}>
-          <h4>공유하기</h4>
-          <button type="button" onClick={handleCopy}>
-            copy
-          </button>
-          <ToastContainer limit={1} />
-          <button type="button" ref={kakaoBtnRef} id="kakaotalk-sharing-btn">
-            <img
-              src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
-              alt="카카오톡 공유 보내기 버튼"
-            />
-          </button>
-          <button type="button" onClick={() => setIsOpenModal(false)}>
-            닫기
-          </button>
+          <header>
+            <h4>공유하기</h4>
+            <button
+              type="button"
+              className={S.closed}
+              onClick={() => setIsOpenModal(false)}
+            >
+              <img src={cancel} alt="닫기" />
+            </button>
+          </header>
+          <div className={S.modalShareButtonContainer}>
+            <button
+              type="button"
+              className={S.modalShareButton}
+              onClick={handleCopy}
+            >
+              <img src={linkIcon} alt="링크 복사하기" />
+            </button>
+            <button
+              type="button"
+              className={S.modalShareButton}
+              ref={kakaoBtnRef}
+              id="kakaotalk-sharing-btn"
+            >
+              <img
+                src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                alt="카카오톡 공유 보내기 버튼"
+              />
+            </button>
+          </div>
         </div>
       )}
+      <ToastContainer limit={1} />
     </>
   );
 }

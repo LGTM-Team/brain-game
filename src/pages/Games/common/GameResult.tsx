@@ -52,9 +52,16 @@ function GameResult({ onRestart, onWait, score, gameId }: Props) {
     <div className={S.container}>
       <div className={S.inner}>
         <div className={S.score}>
-          <div>당신의 점수</div>
-          <div className={S.value}>{isScoreNull()}</div>
-          <div>최고점수 :{rankingData ? rankingData.score : "로딩중..."}</div>
+          <div className={S.scoreBox}>
+            <div className={S.currentScore}>현재점수</div>
+            <div className={S.value}>{isScoreNull()}</div>
+          </div>
+          <div className={S.scoreBox}>
+            <div className={S.highestScore}>최고점수</div>
+            <div className={S.value}>
+              {rankingData ? `${rankingData.score.toLocaleString()}점` : " - "}
+            </div>
+          </div>
         </div>
         <div className={S.buttonContainer}>
           <button type="button" onClick={onRestart} className={S.reStart}>
