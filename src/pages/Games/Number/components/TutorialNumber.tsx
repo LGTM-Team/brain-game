@@ -1,8 +1,8 @@
 import S from "./styles/tutorialNumber.module.css";
-import cardImg from "@/assets/images/numberGame/tutorialCard.svg";
+import cardImg from "@/assets/images/game/tutorial/numberCard.svg";
 import leftArrow from "@/assets/icons/leftArrow.svg";
 import rightArrow from "@/assets/icons/rightArrow.svg";
-import cardGrid from "@/assets/images/numberGame/tutoriaclCardGrid.svg";
+import cardGrid from "@/assets/images/game/tutorial/numberCardGrid.svg";
 import { useState } from "react";
 
 function TutorialNumber() {

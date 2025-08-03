@@ -1,6 +1,6 @@
 import S from "./styles/startGame.module.css";
-import questionNeuro from "@/assets/images/game/question_neuro.svg";
-import bubble from "@/assets/images/game/tutorial_bubble.svg";
+import questionNeuro from "@/assets/images/game/tutorial/question_neuro.svg";
+import bubble from "@/assets/images/game/tutorial/speechBubble.svg";
 
 interface Props {
   img: string;
