@@ -37,7 +37,7 @@ const routes = createBrowserRouter([
           },
           {
             handle: {
-              title: "글자색 맞추기",
+              title: "색깔을 맞춰라",
             },
             path: "letter-color",
             element: <LetterColorPlayPage />,
