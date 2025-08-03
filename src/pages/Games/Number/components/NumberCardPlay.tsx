@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import S from "./card.module.css";
+import S from "./styles/card.module.css";
 import NumberCard from "./NumberCard";
 import CurrentGameScore from "../../common/CurrentGameScore";
 import StaticTimer from "../../common/StaticTimer";

@@ -1,6 +1,5 @@
 import type { GameStep } from "@/types/numberGame.type";
-import S from "./card.module.css";
-
+import S from "./styles/card.module.css";
 interface Props {
   randomNumberList: number[];
   gridSize: number;

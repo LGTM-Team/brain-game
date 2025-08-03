@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import S from "./card.module.css";
+import S from "./styles/card.module.css";
 import type { GameStep } from "@/types/numberGame.type";
 
 interface Props {

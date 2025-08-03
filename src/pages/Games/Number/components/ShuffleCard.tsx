@@ -1,4 +1,4 @@
-import S from "./card.module.css";
+import S from "./styles/card.module.css";
 import { getRandomImage } from "@/utils/getRandom";
 import neuro from "@/assets/images/run_neuro_cloud.svg";
 
