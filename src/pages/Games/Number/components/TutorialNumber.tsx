@@ -18,7 +18,7 @@ function TutorialNumber() {
         <img src={rightArrow} alt="오른쪽 화살표" onClick={handleIcon} />
       </div>
       <h3>숫자를 외워라</h3>
-      {isClicked && (
+      {!isClicked && (
         <>
           <div className={S.cardImgBox}>
             <img src={cardImg} alt="카드" />
@@ -29,7 +29,7 @@ function TutorialNumber() {
         </>
       )}
 
-      {!isClicked && (
+      {isClicked && (
         <>
           <div className={S.cardImgBox}>
             <img src={cardGrid} alt="카드 단계" />
