@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import UserProfile from "./components/UserProfile";
 import MyRanking from "./components/MyRanking";
 import { useAuth } from "@/contexts/AuthContext";
-import { getUserProfile } from "./components/getUserProfile";
 import NotFoundPage from "../NotFound/NotFoundPage";
 import { supabase } from "@/services/supabase";
 import Swal from "sweetalert2";
@@ -18,20 +17,11 @@ import {
   type NoticeList,
 } from "@/api/service/notice/getNoticeData";
 
-interface UserProfileData {
-  id: string | null;
-  avatarUrl: string | null;
-  nickname: string | null;
-  gender: "male" | "female" | "other" | null;
-  birth: string | null;
-  email: string | null;
-}
-
 function Mypage() {
   const navigate = useNavigate();
 
-  const { user } = useAuth();
-  const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
+  const { user, userProfile } = useAuth();
+
   const [noticeList, setNoticeList] = useState<NoticeList | null>(null);
   // 동적으로 게임 목록 가져오기
   const { games, loading: gamesLoading, error: gamesError } = useAllGames();
@@ -40,19 +30,6 @@ function Mypage() {
   const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    const fetchUserProfile = async () => {
-      if (!user) return;
-      const { id, nickname, gender, birth, avatar_url, email } =
-        await getUserProfile(user);
-      setUserProfile({
-        id,
-        nickname,
-        gender,
-        birth,
-        avatarUrl: avatar_url,
-        email,
-      });
-    };
     const fetchNoticeData = async () => {
       const data = await getNoticeList();
       const notice = data?.filter((item, index) => index === 0);
@@ -60,7 +37,6 @@ function Mypage() {
     };
 
     fetchNoticeData();
-    fetchUserProfile();
   }, [user]);
 
   const handleLogout = () => {
