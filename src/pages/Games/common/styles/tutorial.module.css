@@ -24,9 +24,9 @@
   box-sizing: border-box;
   width: 100%;
   max-width: 420px;
-  height: 426px;
 
   padding-top: var(--space-5);
+  padding-bottom: var(--space-5);
   border-radius: var(--border-3);
 
   button {
