@@ -1,6 +1,6 @@
 import { useState } from "react";
 import S from "./styles/tutorialChoseong.module.css";
-import choseongImg from "@/assets/images/choseongGame/tutorialCard.svg";
+import choseongImg from "@/assets/images/game/tutorial/choseongCard.svg";
 import leftArrow from "@/assets/icons/leftArrow.svg";
 import rightArrow from "@/assets/icons/rightArrow.svg";
 
