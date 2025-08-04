@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "@/services/supabase";
+import { supabase } from "@/api/service/supabase/supabase";
 
 // 타입: 전체 랭킹 항목
 export interface AllRankingEntry {

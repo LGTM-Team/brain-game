@@ -1,6 +1,6 @@
 import Input from "@/common/form/Input";
 import S from "./findAccount.module.css";
-import findAccountImg from "@/assets/images/find-account.svg";
+import findAccountImg from "@/assets/images/account/find-account.svg";
 import SubmitButton from "@/common/form/SubmitButton";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";

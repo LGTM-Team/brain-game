@@ -1,5 +1,5 @@
 import PlayPage from "../common/PlayPage";
-import numberCardImg from "@/assets/images/game/number_game.svg";
+import numberCardImg from "@/assets/images/pages/game/number_game.svg";
 import NumberCardPlay from "./components/NumberCardPlay";
 import TutorialNumber from "./components/TutorialNumber";
 

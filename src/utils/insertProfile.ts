@@ -1,4 +1,4 @@
-import { supabase } from "@/services/supabase";
+import { supabase } from "@/api/service/supabase/supabase";
 
 export interface Payload {
   id: string; // auth.users.id

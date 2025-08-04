@@ -1,23 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "@/App";
-import HomePage from "@/pages/Home/HomePage";
+import HomePage from "@/pages/Home";
 import GamesLayout from "@/pages/Games/GamesLayout";
-import GamesPage from "@/pages/Games/GamesPage";
+import GamesPage from "@/pages/Games";
 import LetterColorPlayPage from "@/pages/Games/LetterColor/index";
 import NoticePage from "@/pages/Notice/index";
 import QnaPage from "@/pages/Qna/index";
-import MyPage from "@/pages/MyPage/MyPage";
-import PendingEmail from "@/pages/SignUp/PendingEmail";
-import SignUp from "@/pages/SignUp/SignUp";
+import MyPage from "@/pages/MyPage";
+import PendingEmail from "@/pages/SignUp/components/PendingEmail";
+import SignUp from "@/pages/SignUp";
 import ChoseongPlayPage from "@/pages/Games/Choseong/index";
 import NumberPlayPage from "@/pages/Games/Number/index";
-import NotFoundPage from "@/pages/NotFound/NotFoundPage";
-import FindAccount from "@/pages/FindAccount/FindAccount";
-import Login from "@/pages/Login/Login";
-import PostSignUp from "@/pages/SignUp/PostSignUp";
+import NotFoundPage from "@/pages/NotFound";
+import FindAccount from "@/pages/FindAccount";
+import Login from "@/pages/Login";
+import PostSignUp from "@/pages/SignUp/components/PostSignUp";
 import QnaLayout from "@/pages/Qna/QnaLayout";
 import QnaWritePage from "@/pages/Qna/write";
-import SharePage from "@/pages/Games/Share/SharePage";
+import SharePage from "@/pages/Games/Share";
 
 const routes = createBrowserRouter([
   {

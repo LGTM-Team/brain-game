@@ -4,22 +4,21 @@ import { useEffect, useState } from "react"; // useEffect 추가
 import { useAllGames } from "@/hooks/useAllGames";
 import { useAllRankingData } from "@/hooks/useAllRankingData";
 import S from "./homePage.module.css";
-import img from "@/assets/images/home_img.svg";
+import img from "@/assets/images/pages/home/home_img.svg";
 import GameCard from "./components/GameCard";
-import Spinner from "@/common/layout/Spinner"; // 로딩 스피너 컴포넌트 추가
 
 // 이미지 & 라우팅 경로 하드 코딩 => 추후에 스토리지 추가하면 변경 예정.
 const gameMetaMap: Record<string, { image: string; path: string }> = {
   "숫자를 외워라!": {
-    image: "/src/assets/images/game/number_game.svg",
+    image: "/src/assets/images/pages/game/number_game.svg",
     path: "/games/numbers",
   },
   "초성 퀴즈": {
-    image: "/src/assets/images/game/word_game.svg",
+    image: "/src/assets/images/pages/game/word_game.svg",
     path: "/games/choseong",
   },
   "색깔을 맞춰라!": {
-    image: "/src/assets/images/game/letterColor_game.svg",
+    image: "/src/assets/images/pages/game/letterColor_game.svg",
     path: "/games/letter-color",
   },
 };

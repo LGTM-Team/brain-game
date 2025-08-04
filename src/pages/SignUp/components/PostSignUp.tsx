@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/services/supabase";
+import { supabase } from "@/api/service/supabase/supabase";
 import { insertProfile } from "@/utils/insertProfile";
 
 function PostSignUp() {

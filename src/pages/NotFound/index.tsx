@@ -1,4 +1,4 @@
-import errorImg from "@/assets/images/error_neuro.svg";
+import errorImg from "@/assets/images/pages/error/error_neuro.svg";
 import S from "./NotFoundPage.module.css";
 
 interface Props {

@@ -1,5 +1,5 @@
 import S from "./styles/finishGame.module.css";
-import cryingNeuro from "@/assets/images/game/crying_neuro.svg";
+import cryingNeuro from "@/assets/images/pages/game/crying_neuro.svg";
 
 interface Props {
   gameOverMessage: string | null;

@@ -1,5 +1,5 @@
 import S from "./userProfile.module.css";
-import profileImg from "@/assets/images/SignUp_neuro.svg";
+import profileImg from "@/assets/images/account/SignUp_neuro.svg";
 
 interface Props {
   userAvatarUrl?: string | null;
