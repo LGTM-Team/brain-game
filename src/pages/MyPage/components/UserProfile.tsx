@@ -19,7 +19,6 @@ function UserProfile({
   userGender,
   userBirth,
   userEmail,
-  onNicknameUpdate,
 }: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [currentNickname, setCurrentNickname] = useState(userName || "");
@@ -63,7 +62,7 @@ function UserProfile({
 
   const handleSaveNickname = async () => {
     const success = await updateNickname(newNickname);
-    
+
     if (success) {
       // 저장 성공 시 페이지 새로고침
       window.location.reload();
@@ -71,9 +70,9 @@ function UserProfile({
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleSaveNickname();
-    } else if (e.key === 'Escape') {
+    } else if (e.key === "Escape") {
       handleCancelEdit();
     }
   };
@@ -121,16 +120,20 @@ function UserProfile({
               <div className={S.userNameWrapper}>
                 <div className={S.userName}>{currentNickname}</div>
                 <button onClick={handleEditClick} className={S.editButton}>
-                  <img src={editIcon} className={S.editIcon} alt="닉네임 수정" />
+                  <img
+                    src={editIcon}
+                    className={S.editIcon}
+                    alt="닉네임 수정"
+                  />
                 </button>
               </div>
               <div className={S.gender}>{userGenderKo}</div>
             </>
           )}
         </div>
-        
+
         {error && <div className={S.error}>{error}</div>}
-        
+
         {!isEditing && (
           <>
             <div className={S.birth}>{userBirth ?? ""}</div>

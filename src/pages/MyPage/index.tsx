@@ -13,7 +13,6 @@ import Spinner from "@/common/layout/Spinner";
 import { useAllGames } from "@/hooks/useAllGames"; // 추가
 import {
   getNoticeList,
-  type Notice,
   type NoticeList,
 } from "@/api/service/notice/getNoticeData";
 
@@ -32,7 +31,7 @@ function Mypage() {
   useEffect(() => {
     const fetchNoticeData = async () => {
       const data = await getNoticeList();
-      const notice = data?.filter((item, index) => index === 0);
+      const notice = data?.filter((_, index) => index === 0);
       setNoticeList(notice!);
     };
 
