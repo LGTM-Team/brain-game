@@ -1,5 +1,5 @@
 import S from "./styles/tutorialLetterColor.module.css";
-import letterCard from "@/assets/images/game/tutorial/letterColorCard.svg";
+import letterCard from "@/assets/images/pages/game/tutorial/letterColorCard.svg";
 
 function TutorialLetterColor() {
   return (

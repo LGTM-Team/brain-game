@@ -1,6 +1,6 @@
 import Input from "@/common/form/Input";
 import S from "./Login.module.css";
-import loginImg from "@/assets/images/login_img.svg";
+import loginImg from "@/assets/images/account/login_img.svg";
 import SubmitButton from "@/common/form/SubmitButton";
 import { useState } from "react";
 import useLogin from "@/hooks/useLogin";

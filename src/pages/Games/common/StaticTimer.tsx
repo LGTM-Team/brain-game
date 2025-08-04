@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import S from "./styles/staticTimer.module.css";
-import Img from "@/assets/images/timer_img.svg";
+import Img from "@/assets/images/pages/game/timer_img.svg";
 
 interface Props {
   duration: number;

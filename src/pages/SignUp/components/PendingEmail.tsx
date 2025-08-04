@@ -1,9 +1,8 @@
-import { supabase } from "@/services/supabase";
+import { supabase } from "@/api/service/supabase/supabase";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import S from "./PendingEmail.module.css";
-import { AppLink } from "@/router/AppLink";
-import img from "@/assets/images/pending_img.svg";
+import S from "./styles/PendingEmail.module.css";
+import img from "@/assets/images/account/pending_img.svg";
 import SubmitButton from "@/common/form/SubmitButton";
 
 function PendingEmail() {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "@/services/supabase";
+import { supabase } from "@/api/service/supabase/supabase";
 import type { Session, User } from "@supabase/supabase-js";
 
 interface UseCurrentSessionResult {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "@/services/supabase";
+import { supabase } from "@/api/service/supabase/supabase";
 
 // 타입: 내 랭킹 기준 랭킹 항목 (isMine 필드 추가)
 export interface MyRankingEntry {

@@ -1,4 +1,4 @@
-import { supabase } from "@/services/supabase";
+import { supabase } from "@/api/service/supabase/supabase";
 import { useState } from "react";
 
 export function useLogin() {

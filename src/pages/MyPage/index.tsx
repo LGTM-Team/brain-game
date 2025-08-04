@@ -1,12 +1,12 @@
 import { AppLink } from "@/router/AppLink";
 import S from "./myPage.module.css";
-import noticeNeuro from "@/assets/images/notice_neuro.svg";
+import noticeNeuro from "@/assets/images/pages/notice/notice_neuro.svg";
 import { useEffect, useState } from "react";
 import UserProfile from "./components/UserProfile";
 import MyRanking from "./components/MyRanking";
 import { useAuth } from "@/contexts/AuthContext";
-import NotFoundPage from "../NotFound/NotFoundPage";
-import { supabase } from "@/services/supabase";
+import NotFoundPage from "../NotFound";
+import { supabase } from "@/api/service/supabase/supabase";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router";
 import Spinner from "@/common/layout/Spinner";

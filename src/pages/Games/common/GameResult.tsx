@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Share from "../Share/ShareButton";
+import Share from "../Share/components/ShareButton";
 import S from "./styles/gameResult.module.css";
 import { useAuth } from "@/contexts/AuthContext";
-import { supabase } from "@/services/supabase";
+import { supabase } from "@/api/service/supabase/supabase";
 
 interface Props {
   onRestart: () => void;

@@ -1,11 +1,11 @@
-import neuro1 from "@/assets/images/numberGame/neuro1.svg";
-import neuro2 from "@/assets/images/numberGame/neuro2.svg";
-import neuro3 from "@/assets/images/numberGame/neuro3.svg";
-import neuro4 from "@/assets/images/numberGame/neuro4.svg";
-import neuro5 from "@/assets/images/numberGame/neuro5.svg";
-import neuro6 from "@/assets/images/numberGame/neuro6.svg";
-import neuro7 from "@/assets/images/numberGame/neuro7.svg";
-import neuro8 from "@/assets/images/numberGame/neuro8.svg";
+import neuro1 from "@/assets/images/pages/game/numberGame/neuro1.svg"
+import neuro2 from "@/assets/images/pages/game/numberGame/neuro2.svg"
+import neuro3 from "@/assets/images/pages/game/numberGame/neuro3.svg"
+import neuro4 from "@/assets/images/pages/game/numberGame/neuro4.svg"
+import neuro5 from "@/assets/images/pages/game/numberGame/neuro5.svg"
+import neuro6 from "@/assets/images/pages/game/numberGame/neuro6.svg"
+import neuro7 from "@/assets/images/pages/game/numberGame/neuro7.svg"
+import neuro8 from "@/assets/images/pages/game/numberGame/neuro8.svg"
 
 const imgList = [
   neuro1,
