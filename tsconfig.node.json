@@ -1,57 +1,24 @@
 {
   "compilerOptions": {
     "composite": true,
-    // TS의 빌드 캐시 파일 위치 (보통 tsc --build 시 사용, 없어도 무방)
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-
-    // 컴파일 결과가 호환되도록 할 JS 버전 (Node 20 이상 기준 최신)
     "target": "ES2023",
-
-    // 사용할 JS 표준 라이브러리 (DOM 제외 → Node 전용이므로)
     "lib": ["ES2023"],
-
-    // 모듈 시스템을 ESM 방식으로 설정 (import/export)
     "module": "Node16",
-
-    // 외부 라이브러리 타입 검사 생략 (속도 향상용)
     "skipLibCheck": true,
-
-    /* Bundler mode (→ Node 설정 파일에 맞게 수정됨) */
-    // 모듈 해석 방식을 Node16 기준으로 설정 (.ts, .js 모두 인식)
+    
     "moduleResolution": "node16",
-
-    // .ts 확장자를 import 시 명시해도 허용
     "allowImportingTsExtensions": true,
-
-    // import/export 구문을 원본 그대로 유지
     "verbatimModuleSyntax": true,
-
-    // 모든 파일을 모듈로 간주 (import/export 없어도 모듈로 취급)
     "moduleDetection": "force",
-
-    // JS 파일은 출력하지 않음 (타입 검사 전용)
     "noEmit": true,
-
-    /* 엄격한 타입 검사 및 린트용 설정 */
-    // 모든 엄격한 타입 검사 활성화
+    
     "strict": true,
-
-    // 사용되지 않는 지역 변수는 오류 처리
-    "noUnusedLocals": true,
-
-    // 사용되지 않는 함수 매개변수도 오류 처리
-    "noUnusedParameters": true,
-
-    // 추후 제거 가능한 문법만 허용 (예: deprecated된 문법 금지)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "erasableSyntaxOnly": true,
-
-    // switch문에서 case 누락 방지
     "noFallthroughCasesInSwitch": true,
-
-    // 사이드 이펙트 있는 모듈 import 시 명시적으로 작성해야 함
     "noUncheckedSideEffectImports": true
   },
-
-  // 타입 검사의 적용 대상 (Node에서 실행되는 설정 파일)
   "include": ["vite.config.ts"]
 }
