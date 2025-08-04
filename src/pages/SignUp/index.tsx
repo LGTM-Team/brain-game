@@ -87,7 +87,7 @@ function SignUp() {
         <Input
           type={"password"}
           placeholder={"비밀번호를 입력해주세요. (필수)"}
-          id={"password"}
+          id={"sign-up-password"}
           label={"PW"}
           onChange={(e) => setPassword(e.target.value)}
           error={fieldErrors.password}
@@ -140,6 +140,7 @@ function SignUp() {
             <input
               type="date"
               id="birth"
+              max={new Date().toISOString().split('T')[0]}
               name="birth"
               onChange={(e) => setBirth(e.target.value)}
               disabled={loading}
