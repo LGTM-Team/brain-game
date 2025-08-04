@@ -18,7 +18,7 @@
   padding: 0 var(--space-4);
 
   .inner {
-    background-image: url("/src/assets/images/game/result_neuro.svg");
+    background-image: url("@/assets/images/pages/game/result_neuro.svg");
     background-repeat: no-repeat;
     background-position: 40% 8%;
 

@@ -19,7 +19,7 @@ interface RankingData {
 }
 
 function GameResult({ onRestart, onWait, score, gameId }: Props) {
-  const { userProfile } = useAuth();
+  const { user, userProfile } = useAuth();
   const [rankingData, setRankingData] = useState<RankingData | null>(null);
   const isScoreNull = () => {
     if (score === null) {
@@ -29,6 +29,8 @@ function GameResult({ onRestart, onWait, score, gameId }: Props) {
     return `${score.toLocaleString()}점`;
   };
   useEffect(() => {
+    if (!user) return;
+
     const fetchRankingData = async () => {
       const { data, error } = await supabase
         .from("rankings")
@@ -46,7 +48,7 @@ function GameResult({ onRestart, onWait, score, gameId }: Props) {
     };
 
     fetchRankingData();
-  }, [score]);
+  }, [score, user]);
 
   return (
     <div className={S.container}>
@@ -71,9 +73,9 @@ function GameResult({ onRestart, onWait, score, gameId }: Props) {
             그만하기
           </button>
           <Share
-            rankingId={rankingData?.id}
-            userNickname={userProfile?.nickname}
-            userHighestScore={rankingData?.score.toLocaleString()}
+            rankingId={rankingData && rankingData.id}
+            userNickname={userProfile && userProfile.nickname}
+            userHighestScore={rankingData && rankingData.score.toLocaleString()}
           />
         </div>
       </div>
