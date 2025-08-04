@@ -32,7 +32,7 @@ function UserProfile({
       break;
 
     default:
-      userGenderKo = " - ";
+      userGenderKo = "";
       break;
   }
 
@@ -47,7 +47,7 @@ function UserProfile({
           <div className={S.userName}>{userName}</div>
           <div className={S.gender}>{userGenderKo}</div>
         </div>
-        <div className={S.birth}>{userBirth ?? " - "}</div>
+        <div className={S.birth}>{userBirth ?? ""}</div>
         <div className={S.email}>{userEmail}</div>
       </div>
     </div>
