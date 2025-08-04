@@ -45,3 +45,10 @@
   margin-top: var(--space-0);
   user-select: none;
 }
+.helperText {
+  color: var(--dark-gray); 
+  font-weight: bold;  
+  font-size: var(--font-2) !important;
+  margin-top: var(--space-0);
+  user-select: none;
+}
