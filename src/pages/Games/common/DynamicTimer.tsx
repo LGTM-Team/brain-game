@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import S from "./styles/dynamicTimer.module.css";
-import MarkerImg from "@/assets/images/timer_img.svg";
+import MarkerImg from "@/assets/images/pages/game/timer_img.svg";
 
 interface Props {
   duration: number;         // 초기 최대 시간 (초)

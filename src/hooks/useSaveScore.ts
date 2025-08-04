@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { supabase } from "@/services/supabase"; 
+import { supabase } from "@/api/service/supabase/supabase"; 
 
 export function useSaveScore() {
   const [loading, setLoading] = useState(false);

@@ -1,5 +1,5 @@
 import S from "./SignUp.module.css";
-import signUpImg from "@/assets/images/signUp_neuro.svg"; // 회원가입 뉴로 이미지.
+import signUpImg from "@/assets/images/account/SignUp_neuro.svg"; // 회원가입 뉴로 이미지.
 import Input from "@/common/form/Input";
 import SubmitButton from "@/common/form/SubmitButton";
 import useSignUp from "@/hooks/useSignUp";

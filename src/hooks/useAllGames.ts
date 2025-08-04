@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "@/services/supabase";
+import { supabase } from "@/api/service/supabase/supabase";
 
 // 타입 정의: games 테이블 전체 컬럼
 export interface GameEntry {

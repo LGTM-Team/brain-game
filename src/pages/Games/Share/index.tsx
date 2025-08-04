@@ -1,9 +1,9 @@
-import neuro from "@/assets/images/numberGame/neuro7.svg";
-import S from "./styles/sharePage.module.css";
+import neuro from "@/assets/images/pages/game/numberGame/neuro7.svg";
+import S from "./sharePage.module.css";
 import { useEffect, useState } from "react";
-import { supabase } from "@/services/supabase";
+import { supabase } from "@/api/service/supabase/supabase";
 import { useParams } from "react-router-dom";
-import NotFoundPage from "@/pages/NotFound/NotFoundPage";
+import NotFoundPage from "@/pages/NotFound";
 import Spinner from "@/common/layout/Spinner";
 import type { PostgrestSingleResponse } from "@supabase/supabase-js";
 import { AppLink } from "@/router/AppLink";

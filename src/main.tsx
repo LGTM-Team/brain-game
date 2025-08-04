@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./styles/global.css";
 import { RouterProvider } from "react-router-dom";
 import routes from "./router/routes";
-import { AuthProvider } from "./contexts/AuthContext"; // ← 경로 확인 필요
+import { AuthProvider } from "./contexts/AuthContext"; 
 
 const KAKAO_JAVASCRIPT_KEY = import.meta.env.VITE_KAKAO_JAVASCRIPT_KEY;
 

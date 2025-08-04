@@ -1,6 +1,6 @@
 import PlayPage from "../common/PlayPage";
 import Choseong from "./components/Choseong";
-import word_img from "@/assets/images/game/word_game.svg";
+import word_img from "@/assets/images/pages/game/word_game.svg";
 import TutorialChoseong from "./components/TutorialChoseong";
 
 function ChoseongPlayPage() {

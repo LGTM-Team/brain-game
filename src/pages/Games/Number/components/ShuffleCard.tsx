@@ -1,6 +1,6 @@
 import S from "./styles/card.module.css";
 import { getRandomImage } from "@/utils/getRandom";
-import neuro from "@/assets/images/run_neuro_cloud.svg";
+import neuro from "@/assets/images/pages/game/run_neuro_cloud.svg";
 
 interface Props {
   userRound: number;

@@ -3,8 +3,8 @@ import S from "./styles/card.module.css";
 import NumberCard from "./NumberCard";
 import CurrentGameScore from "../../common/CurrentGameScore";
 import StaticTimer from "../../common/StaticTimer";
-import { useNumberStep } from "@/hooks/useNumberStep";
-import { useBonusScore } from "@/hooks/useBonusScore";
+import {useNumberStep} from "@/hooks/useNumberStep";
+import {useBonusScore} from "@/hooks/useBonusScore";
 import type { CardStatus, GameStep } from "@/types/numberGame.type";
 import type { PlayGame } from "@/types/game.type";
 import {

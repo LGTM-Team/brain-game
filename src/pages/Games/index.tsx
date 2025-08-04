@@ -1,6 +1,6 @@
 import S from "./gamePage.module.css";
 import { AppLink } from "@/router/AppLink";
-import runNeuro from "@/assets/images/run_neuro_cloud.svg";
+import runNeuro from "@/assets/images/pages/game/run_neuro_cloud.svg";
 
 function GamesPage() {
   return (

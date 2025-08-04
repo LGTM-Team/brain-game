@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { supabase } from "@/services/supabase";
+import { supabase } from "@/api/service/supabase/supabase";
 
 interface UserProfile {
   id: string | null;
