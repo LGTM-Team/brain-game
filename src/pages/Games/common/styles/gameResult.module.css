@@ -33,6 +33,7 @@
     max-width: 350px;
 
     padding-top: var(--space-5);
+    padding-bottom: var(--space-2);
     padding-inline: 2rem;
 
     background-color: var(--white);
@@ -96,6 +97,7 @@
       padding: var(--space-2, 15px) 60px;
       width: 100%;
 
+      font-size: 1rem;
       &:hover {
         box-shadow: var(--inset-shadow);
       }
@@ -107,6 +109,8 @@
       font-weight: 700;
       padding: var(--space-2, 15px) 60px;
       width: 100%;
+
+      font-size: 1rem;
 
       &:hover {
         box-shadow: var(--inset-shadow);

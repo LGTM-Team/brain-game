@@ -35,6 +35,9 @@ function StartGame({
         <button type="button" onClick={onStart}>
           바로 시작!
         </button>
+        <div className={S.caution}>
+          점수 저장, 공유 기능은 로그인 유저만 쓸 수 있어요!
+        </div>
       </div>
     </div>
   );

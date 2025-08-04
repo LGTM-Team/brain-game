@@ -49,50 +49,35 @@ function Share({ rankingId, userNickname, userHighestScore }: Props) {
   }, [isOpenModal]);
 
   return (
-    <>
-      <button
-        type="button"
-        className={S.shareButton}
-        onClick={() => setIsOpenModal(true)}
-      >
+    <div className={S.container}>
+      <div className={S.share} onClick={() => setIsOpenModal(true)}>
         내 최고 점수 자랑하기
-      </button>
-      {isOpenModal && (
-        <div className={S.modal}>
-          <header>
-            <h4>공유하기</h4>
-            <button
-              type="button"
-              className={S.closed}
-              onClick={() => setIsOpenModal(false)}
-            >
-              <img src={cancel} alt="닫기" />
-            </button>
-          </header>
-          <div className={S.modalShareButtonContainer}>
-            <button
-              type="button"
-              className={S.modalShareButton}
-              onClick={handleCopy}
-            >
-              <img src={linkIcon} alt="링크 복사하기" />
-            </button>
-            <button
-              type="button"
-              className={S.modalShareButton}
-              ref={kakaoBtnRef}
-              id="kakaotalk-sharing-btn"
-            >
-              <img
-                src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
-                alt="카카오톡 공유 보내기 버튼"
-              />
-            </button>
-          </div>
-        </div>
-      )}
+      </div>
+
+      <div className={S.modalShareButtonContainer}>
+        <button
+          type="button"
+          className={S.modalShareButton}
+          onClick={handleCopy}
+        >
+          <img src={linkIcon} alt="링크 복사하기" />
+          <div className={S.buttonText}>URL복사</div>
+        </button>
+        <button
+          type="button"
+          className={S.modalShareButton}
+          ref={kakaoBtnRef}
+          id="kakaotalk-sharing-btn"
+        >
+          <img
+            src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+            alt="카카오톡 공유 보내기 버튼"
+          />
+          <div className={S.buttonText}>카카오톡</div>
+        </button>
+      </div>
       <ToastContainer limit={1} />
-    </>
+    </div>
   );
 }
 export default Share;
