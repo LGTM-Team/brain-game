@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
 import S from "./styles/shareButton.module.css";
 import { Slide, ToastContainer, toast } from "react-toastify";
 import linkIcon from "@/assets/icons/link.svg";
-import cancel from "@/assets/icons/cancel.svg";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface Props {
   rankingId?: number | null;
@@ -11,88 +10,91 @@ interface Props {
 }
 
 function Share({ rankingId, userNickname, userHighestScore }: Props) {
-  const [isOpenModal, setIsOpenModal] = useState(false);
-
+  const { user } = useAuth();
   const sharePath = `/games/share/${rankingId}`;
   const shareUrl = `${window.location.origin}${sharePath}`;
-
-  const kakaoBtnRef = useRef<HTMLButtonElement>(null);
+  const shareArgs = {
+    templateId: 123072,
+    templateArgs: { userNickname, gameScore: userHighestScore, rankingId },
+  };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(shareUrl);
-    toast("복사되었습니다.", {
-      position: "bottom-center",
-      autoClose: 700,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Slide,
+    if (!user) {
+      toast.error("로그인이 필요한 서비스 입니다.", {
+        position: "top-center",
+        autoClose: 700,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Slide,
+      });
+      return;
+    }
+
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      toast("복사되었습니다.", {
+        position: "top-center",
+        autoClose: 700,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Slide,
+      });
     });
   };
 
-  useEffect(() => {
-    if (!isOpenModal) return;
-    if (!kakaoBtnRef.current) return;
+  const handleKakaoShare = () => {
+    if (!user) {
+      toast.error("로그인이 필요한 서비스 입니다.", {
+        position: "top-center",
+        autoClose: 700,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Slide,
+      });
+      return;
+    }
 
-    window.Kakao.Share.createCustomButton({
-      container: kakaoBtnRef.current,
-      templateId: 123072,
-      templateArgs: {
-        userNickname,
-        gameScore: userHighestScore,
-        rankingId,
-      },
-    });
-  }, [isOpenModal]);
+    window.Kakao.Share.sendCustom(shareArgs);
+  };
 
   return (
-    <>
-      <button
-        type="button"
-        className={S.shareButton}
-        onClick={() => setIsOpenModal(true)}
-      >
-        내 최고 점수 자랑하기
-      </button>
-      {isOpenModal && (
-        <div className={S.modal}>
-          <header>
-            <h4>공유하기</h4>
-            <button
-              type="button"
-              className={S.closed}
-              onClick={() => setIsOpenModal(false)}
-            >
-              <img src={cancel} alt="닫기" />
-            </button>
-          </header>
-          <div className={S.modalShareButtonContainer}>
-            <button
-              type="button"
-              className={S.modalShareButton}
-              onClick={handleCopy}
-            >
-              <img src={linkIcon} alt="링크 복사하기" />
-            </button>
-            <button
-              type="button"
-              className={S.modalShareButton}
-              ref={kakaoBtnRef}
-              id="kakaotalk-sharing-btn"
-            >
-              <img
-                src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
-                alt="카카오톡 공유 보내기 버튼"
-              />
-            </button>
-          </div>
-        </div>
-      )}
+    <div className={S.container}>
+      <div className={S.share}>내 최고 점수 자랑하기</div>
+
+      <div className={S.modalShareButtonContainer}>
+        <button
+          type="button"
+          className={S.modalShareButton}
+          onClick={handleCopy}
+        >
+          <img src={linkIcon} alt="링크 복사하기" />
+          <div className={S.buttonText}>URL복사</div>
+        </button>
+        <button
+          type="button"
+          className={S.modalShareButton}
+          onClick={handleKakaoShare}
+        >
+          <img
+            src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+            alt="카카오톡 공유 보내기 버튼"
+          />
+          <div className={S.buttonText}>카카오톡</div>
+        </button>
+      </div>
       <ToastContainer limit={1} />
-    </>
+    </div>
   );
 }
 export default Share;
