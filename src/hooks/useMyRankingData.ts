@@ -40,13 +40,13 @@ export function useMyRankingData(gameId: number, userId: string) {
         const myIndex = allRankings?.findIndex(r => r.user_id === userId) ?? -1;
         
         if (myIndex === -1) {
-          // 내 기록이 없으면 상위 9명만 반환
+          // 내 기록이 없으면 상위 10명만 반환
           const { data: topRankings, error: topError } = await supabase
             .from("rankings")
             .select("id, user_id, score, profiles!inner(nickname)")
             .eq("game_id", gameId)
             .order("score", { ascending: false })
-            .limit(9);
+            .limit(10);
 
           if (topError) throw topError;
 
@@ -64,30 +64,38 @@ export function useMyRankingData(gameId: number, userId: string) {
           return;
         }
 
-        // 3. 내 랭킹이 있으면 상위 6명 + 내 앞뒤 포함해서 9명 선택
+        // 3. 내 랭킹 계산
         const myRank = myIndex + 1;
         const totalRankings = allRankings?.length || 0;
         
         let selectedIndices: number[] = [];
         
-        // 상위 6명 인덱스 추가
-        for (let i = 0; i < Math.min(6, totalRankings); i++) {
-          selectedIndices.push(i);
-        }
-        
-        // 내 앞뒤 포함 (중복 제거)
-        const around = [myIndex - 1, myIndex, myIndex + 1].filter(i => 
-          i >= 0 && i < totalRankings && !selectedIndices.includes(i)
-        );
-        selectedIndices.push(...around);
-        
-        // 9명이 안 되면 상위권에서 더 추가
-        while (selectedIndices.length < 9 && selectedIndices.length < totalRankings) {
-          const nextIndex = Math.max(...selectedIndices) + 1;
-          if (nextIndex < totalRankings) {
-            selectedIndices.push(nextIndex);
-          } else {
-            break;
+        if (myRank <= 10) {
+          // 내가 10등 안에 있으면 1~10등만 표시
+          for (let i = 0; i < Math.min(10, totalRankings); i++) {
+            selectedIndices.push(i);
+          }
+        } else {
+          // 내가 10등 밖에 있으면 상위 6명 + 내 앞뒤 포함해서 선택
+          // 상위 6명 인덱스 추가
+          for (let i = 0; i < Math.min(6, totalRankings); i++) {
+            selectedIndices.push(i);
+          }
+          
+          // 내 앞뒤 포함 (중복 제거)
+          const around = [myIndex - 1, myIndex, myIndex + 1].filter(i => 
+            i >= 0 && i < totalRankings && !selectedIndices.includes(i)
+          );
+          selectedIndices.push(...around);
+          
+          // 9명이 안 되면 상위권에서 더 추가
+          while (selectedIndices.length < 9 && selectedIndices.length < totalRankings) {
+            const nextIndex = Math.max(...selectedIndices) + 1;
+            if (nextIndex < totalRankings && !selectedIndices.includes(nextIndex)) {
+              selectedIndices.push(nextIndex);
+            } else {
+              break;
+            }
           }
         }
         
