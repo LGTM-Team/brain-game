@@ -128,3 +128,31 @@
     height: 83px;
   }
 }
+
+@media (max-height: 666px) {
+  .grid {
+    gap: var(--space-2);
+  }
+  .first {
+    width: 74px;
+    height: 98px;
+  }
+  .second {
+    width: 60px;
+    height: 74px;
+  }
+  .third {
+    width: 55px;
+    height: 68px;
+  }
+
+  .fourth {
+    width: 50px;
+    height: 62px;
+  }
+  .frontSide {
+    p {
+      font-size: var(--font-game-inform);
+    }
+  }
+}
