@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding-bottom: 75px;
 
   img {
     margin-top: 4rem;
@@ -16,6 +17,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-5);
+    margin-bottom: var(--space-1);
 
     .link {
       background: var(--main-yellow, #ffc260);

@@ -1,0 +1,66 @@
+.shareButton {
+  background: var(--main-blue);
+  border-radius: 10px;
+  font-weight: 700;
+  padding: var(--space-2, 15px) 60px;
+  width: 100%;
+  &:hover {
+    box-shadow: var(--inset-shadow);
+  }
+}
+
+.modal {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  left: 50%;
+  bottom: 70px;
+  transform: translateX(-50%);
+
+  width: 80%;
+  padding: var(--space-0) var(--space-1) var(--space-1) var(--space-1);
+  border-radius: 10px;
+  border: 1px solid var(--dark-gray);
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    border-bottom: 1px solid var(--dark-gray);
+    img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .modalShareButtonContainer {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-1);
+  }
+}
+
+.modalShareButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: 1px solid var(--dark-gray);
+  overflow: hidden;
+  img {
+    width: 3.1rem;
+  }
+}

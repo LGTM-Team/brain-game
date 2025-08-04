@@ -72,7 +72,6 @@ function PlayPage({
     if (gameState !== "finish") return;
 
     const save = async () => {
-      
       if (score === null) {
         console.warn("[❗] 점수 정보 없음. 저장 생략.");
         return;
@@ -80,13 +79,11 @@ function PlayPage({
 
       try {
         await saveScore(gameId, score);
-        
       } catch (err) {
         console.error("[🚨] 점수 저장 실패:", err);
       } finally {
         // 3초 후 결과로 이동 (성공 여부 관계없이)
         setTimeout(() => {
-          
           setGameState("result");
         }, 3000);
       }
@@ -128,6 +125,7 @@ function PlayPage({
           onRestart={handleReStart}
           onWait={handleReWait}
           score={score}
+          gameId={gameId}
         />
       )}
     </div>

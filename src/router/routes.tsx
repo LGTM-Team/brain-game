@@ -17,6 +17,7 @@ import Login from "@/pages/Login/Login";
 import PostSignUp from "@/pages/SignUp/PostSignUp";
 import QnaLayout from "@/pages/Qna/QnaLayout";
 import QnaWritePage from "@/pages/Qna/write";
+import SharePage from "@/pages/Games/Share/SharePage";
 
 const routes = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const routes = createBrowserRouter([
             handle: { title: "초성 퀴즈" },
             path: "Choseong",
             element: <ChoseongPlayPage />,
+          },
+          {
+            handle: { title: "게임 결과 공유" },
+            path: "share/:rankingId",
+            element: <SharePage />,
           },
         ].filter(Boolean),
       },
