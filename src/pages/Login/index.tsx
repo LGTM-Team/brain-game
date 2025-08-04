@@ -1,5 +1,5 @@
 import Input from "@/common/form/Input";
-import S from "./Login.module.css";
+import S from "./login.module.css";
 import loginImg from "@/assets/images/account/login_img.svg";
 import SubmitButton from "@/common/form/SubmitButton";
 import { useState } from "react";
