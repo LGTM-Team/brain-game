@@ -1,4 +1,4 @@
-import S from "./SignUp.module.css";
+import S from "./signUp.module.css";
 import signUpImg from "@/assets/images/account/SignUp_neuro.svg"; // 회원가입 뉴로 이미지.
 import Input from "@/common/form/Input";
 import SubmitButton from "@/common/form/SubmitButton";

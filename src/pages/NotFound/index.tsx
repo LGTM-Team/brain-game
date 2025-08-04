@@ -1,5 +1,5 @@
 import errorImg from "@/assets/images/pages/error/error_neuro.svg";
-import S from "./NotFoundPage.module.css";
+import S from "./notFoundPage.module.css";
 
 interface Props {
   errorMessage: string;
