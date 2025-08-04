@@ -13,12 +13,12 @@ interface Props {
 
 // 타입 가드: MyRankingEntry인지 확인하는 함수
 function isMyRankingEntry(data: RankingEntry): data is MyRankingEntry {
-  return 'isMine' in data;
+  return "isMine" in data;
 }
 
 export default function RankingItem({ data, maxScore }: Props) {
-  const { score, rank, profiles, user_id } = data;
-  
+  const { score, rank, profiles } = data;
+
   // isMine 필드가 있으면 사용, 없으면 false
   const isMine = isMyRankingEntry(data) ? data.isMine : false;
 
@@ -69,7 +69,7 @@ export default function RankingItem({ data, maxScore }: Props) {
             </div>
             <div className={S.totalScore}>
               <div
-                className={`${S.userScore} ${isAnimated ? S.animated : ''}`}
+                className={`${S.userScore} ${isAnimated ? S.animated : ""}`}
                 style={{ width: `${scorePercentage}%` }}
               ></div>
             </div>
