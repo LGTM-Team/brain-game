@@ -13,7 +13,6 @@ function App() {
   const currentMatch = matches[matches.length - 1];
   if (!currentMatch.handle) return;
   const currentTitle = (currentMatch.handle as RouteHandle).title || "뇌하수체";
-  console.log(isKeyboardOpen);
 
   return (
     <>
