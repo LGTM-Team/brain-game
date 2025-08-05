@@ -5,14 +5,15 @@ export function usePasswordReset() {
   const [loading, setLoading] = useState<boolean>(false); // 로딩 상태
   const [error, setError] = useState<string | null>(null); // 에러 상태
 
-
   // 1단계: 비밀번호 재설정 이메일 요청
   const sendResetEmail = async (email: string) => {
     setLoading(true);
     setError(null);
 
     try {
-      const { error } = await supabase.auth.resetPasswordForEmail(email);
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: 'https://brain-game-dyyc.vercel.app/find-account?mode=reset'
+      });
       if (error) throw error;
       return true; // 성공
     } catch (err: unknown) {

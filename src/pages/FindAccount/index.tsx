@@ -2,9 +2,10 @@ import Input from "@/common/form/Input";
 import S from "./findAccount.module.css";
 import findAccountImg from "@/assets/images/account/find-account.svg";
 import SubmitButton from "@/common/form/SubmitButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import usePasswordReset from "@/hooks/usePasswordReset";
+import { supabase } from "@/api/service/supabase/supabase";
 
 function FindAccount() {
   const navigate = useNavigate();
@@ -22,6 +23,41 @@ function FindAccount() {
     confirmPassword?: string;
     global?: string;
   }>({});
+
+  // URL 파라미터로 이메일 인증 완료 상태 체크
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    if (urlParams.get('mode') === 'reset') {
+      setIsValidEmail(true); // 이메일 인증 완료된 상태로 설정
+      
+      // Supabase 세션에서 이메일 정보 가져오기
+      const getEmailFromSession = async () => {
+        try {
+          const { data: { session }} = await supabase.auth.getSession();
+
+          
+          if (session?.user?.email) {
+
+            setEmail(session.user.email);
+          } else {
+            setIsValidEmail(false);
+            setFieldErrors({ 
+              global: "이메일 정보를 가져올 수 없습니다. 이메일을 다시 입력해주세요." 
+            });
+          }
+        } catch (error) {
+          console.error('세션에서 이메일을 가져오는데 실패했습니다:', error);
+
+          setIsValidEmail(false);
+          setFieldErrors({ 
+            global: "세션 오류가 발생했습니다. 이메일을 다시 입력해주세요." 
+          });
+        }
+      };
+      
+      getEmailFromSession();
+    }
+  }, [location.search]);
 
   const validateForm = () => {
     const errors: typeof fieldErrors = {};
@@ -46,8 +82,6 @@ function FindAccount() {
   };
 
   const handleCheckEmail = async () => {
-    setIsValidEmail(false);
-
     const errors = validateForm();
     if (errors) {
       setFieldErrors(errors);
@@ -58,7 +92,11 @@ function FindAccount() {
     const emailResult = await sendResetEmail(email);
 
     if (emailResult) {
-      setIsValidEmail(true);
+      // 이메일 발송 성공 시 대기 페이지로 이동
+      navigate('/reset-password-pending', { 
+        state: { email },
+        replace: true 
+      });
     } else {
       setFieldErrors({ global: error ?? "메일 전송에 실패했습니다." });
     }
@@ -78,7 +116,7 @@ function FindAccount() {
 
     if (result) {
       if (url === "/find-account") {
-        navigate("/login", { replace: true });
+        navigate("/", { replace: true });
       } else {
         alert("비밀번호가 성공적으로 변경되었습니다.");
       }
@@ -96,6 +134,7 @@ function FindAccount() {
           placeholder="이메일을 입력해 주세요."
           label="ID"
           id="id"
+          value={email} 
           onChange={(e) => setEmail(e.target.value)}
           disabled={isValidEmail}
           error={fieldErrors.id}

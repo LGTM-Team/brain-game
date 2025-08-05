@@ -18,6 +18,7 @@ import PostSignUp from "@/pages/SignUp/components/PostSignUp";
 import QnaLayout from "@/pages/Qna/QnaLayout";
 import QnaWritePage from "@/pages/Qna/write";
 import SharePage from "@/pages/Games/Share";
+import ResetPasswordPending from "@/pages/FindAccount/components/ResetPasswordPending";
 
 const routes = createBrowserRouter([
   {
@@ -96,12 +97,17 @@ const routes = createBrowserRouter([
         element: <PostSignUp />,
       },
       {
+        handle: { title: "계정찾기 대기" },
+        path: "reset-password-pending",
+        element: <ResetPasswordPending />,
+      },
+      {
         handle: { title: "ERROR" },
         path: "*",
         element: <NotFoundPage errorMessage="페이지를 찾을 수 없습니다." />,
       },
     ],
-  },
+  }
 ]);
 
 export default routes;
