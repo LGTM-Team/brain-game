@@ -5,12 +5,13 @@ interface Props {
   placeholder: string;
   label: string;
   id: string;
+  value?: string; 
   onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   error?: string;
   disabled?: boolean;
 }
 
-function Input({ type, placeholder, id, label, onChange, error, disabled }: Props) {
+function Input({ type, placeholder, id, label, value, onChange, error, disabled }: Props) {
   
   // 비밀번호 조건 메시지
   const getHelperText = () => {
@@ -28,8 +29,10 @@ function Input({ type, placeholder, id, label, onChange, error, disabled }: Prop
       <p>{label}</p>
       <input 
         type={type} 
-        placeholder={placeholder} 
-        onChange={onChange} 
+        id={id}
+        placeholder={placeholder}
+        value={value} // ✅ 추가
+        onChange={onChange}
         disabled={disabled}
       />
       <p className={error ? S.errorMessage : (id === "sign-up-password" ? S.helperText : S.errorMessage)}>
