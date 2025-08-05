@@ -4,6 +4,7 @@ import closeIcon from "@/assets/icons/postCardClose.svg";
 import openIcon from "@/assets/icons/postCardOpen.svg";
 import { formatDate } from "@/utils/getFormatDate";
 import type { Notice } from "@/api/service/notice/getNoticeData";
+import { p } from "framer-motion/client";
 
 interface Props {
   onChangeToggle: () => void;
@@ -14,7 +15,8 @@ interface Props {
 
 function PostCard({ qnaData, onChangeToggle, isOpenCard, noticeData }: Props) {
   if (qnaData) {
-    const { id, title, is_answered, answer, created_at, profiles } = qnaData;
+    const { id, title, is_answered, answer, created_at, profiles, content } =
+      qnaData;
     const created_date = formatDate(created_at);
     return (
       <article className={S.postCardContainer} key={id}>
@@ -27,17 +29,25 @@ function PostCard({ qnaData, onChangeToggle, isOpenCard, noticeData }: Props) {
         <div className={S.dateWithIcon}>
           <span>{created_date}</span>
           <p>{profiles.nickname}</p>
-
           {isOpenCard ? (
             <img src={openIcon} alt="펼치는 아이콘" onClick={onChangeToggle} />
           ) : (
             <img src={closeIcon} alt="접는 아이콘" onClick={onChangeToggle} />
           )}
         </div>
+
         {isOpenCard && (
-          <div className={S.detailInformation}>
-            <p>{is_answered ? answer : "등록된 답변이 없습니다"}</p>
-          </div>
+          <>
+            <div className={S.detailInformation}>
+              <p>{content}</p>
+
+              {is_answered ? (
+                <p className={S.answer}> {answer}</p>
+              ) : (
+                <p className={S.noAnswer}>등록된 답변이 없습니다.</p>
+              )}
+            </div>
+          </>
         )}
       </article>
     );
