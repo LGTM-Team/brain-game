@@ -3,6 +3,7 @@ import Share from "../Share/components/ShareButton";
 import S from "./styles/gameResult.module.css";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/api/service/supabase/supabase";
+import { starConfetti } from "@/utils/confetti";
 
 interface Props {
   onRestart: () => void;
@@ -21,6 +22,8 @@ interface RankingData {
 function GameResult({ onRestart, onWait, score, gameId }: Props) {
   const { user, userProfile } = useAuth();
   const [rankingData, setRankingData] = useState<RankingData | null>(null);
+  const [confettiPlayed, setConfettiPlayed] = useState(false);
+
   const isScoreNull = () => {
     if (score === null) {
       return `계산중...`;
@@ -28,6 +31,7 @@ function GameResult({ onRestart, onWait, score, gameId }: Props) {
 
     return `${score.toLocaleString()}점`;
   };
+
   useEffect(() => {
     if (!user) return;
 
@@ -48,7 +52,18 @@ function GameResult({ onRestart, onWait, score, gameId }: Props) {
     };
 
     fetchRankingData();
-  }, [score, user]);
+  }, [score, user, userProfile?.id, gameId]);
+
+  useEffect(() => {
+    if (!confettiPlayed) {
+      const timer = setTimeout(() => {
+        starConfetti();
+        setConfettiPlayed(true);
+      }, 200);
+
+      return () => clearTimeout(timer);
+    }
+  }, [confettiPlayed, score]);
 
   return (
     <div className={S.container}>
@@ -82,4 +97,5 @@ function GameResult({ onRestart, onWait, score, gameId }: Props) {
     </div>
   );
 }
+
 export default GameResult;
