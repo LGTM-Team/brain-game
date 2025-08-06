@@ -164,81 +164,69 @@ src/
 ## 🖥️ 기술 스택
 
 ### Front-end
-<div align="center" style="display: flex; flex-wrap: wrap; gap: 16px;">
-
-  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+<div style="text-align: start;">
+  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
     <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/typescript.svg" width="40" />
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/typescript.svg" width="40">
     </div>
-    <div>TypeScript</div>
+    <strong>TypeScript</strong>
   </div>
-
-  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
     <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/reactjs.svg" width="45" />
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/reactjs.svg" width="45">
     </div>
-    <div>React</div>
+    <strong>React</strong>
   </div>
-
-  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
     <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/vitejs.svg" width="42" />
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/vitejs.svg" width="42">
     </div>
-    <div>Vite</div>
+    <strong>Vite</strong>
   </div>
-
 </div>
 
 ### Deployment & Backend
-<div align="center" style="display: flex; flex-wrap: wrap; gap: 16px;">
-
-  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+<div style="text-align: start;">
+  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
     <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/vercel-dark-wordmark.svg" width="90" />
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/vercel-dark-wordmark.svg" width="90">
     </div>
-    <div>Vercel</div>
+    <strong>Vercel</strong>
   </div>
-
-  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
     <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/supabase.svg" width="36" />
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/supabase.svg" width="36">
     </div>
-    <div>Supabase</div>
+    <strong>Supabase</strong>
   </div>
-
-  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
     <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/resend.svg" width="100" />
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/resend.svg" width="100">
     </div>
-    <div>Resend</div>
+    <strong>Resend</strong>
   </div>
-
 </div>
 
 ### Tools
-<div align="center" style="display: flex; flex-wrap: wrap; gap: 16px;">
-
-  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+<div style="text-align: start;">
+  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
     <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/github-dark.svg" width="40" />
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/github-dark.svg" width="40">
     </div>
-    <div>GitHub</div>
+    <strong>GitHub</strong>
   </div>
-
-  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
     <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/notion.svg" width="36" />
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/notion.svg" width="36">
     </div>
-    <div>Notion</div>
+    <strong>Notion</strong>
   </div>
-
-  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
     <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/figma.svg" width="40" />
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/figma.svg" width="40">
     </div>
-    <div>Figma</div>
+    <strong>Figma</strong>
   </div>
-
 </div>
 
 ---
