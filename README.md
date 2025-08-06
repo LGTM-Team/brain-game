@@ -11,9 +11,9 @@
 </div>
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/-README.md-000000?style=flat&logo=github&logoColor=white" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/Project%20Period-2025.07.22~2025.08.06-fab2ac?style=flat" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/Release-v1.0.0-4caf50?style=flat" /></a>
+  <a href="https://github.com/LGTM-Team"><img src="https://img.shields.io/badge/-Github-000000?style=flat&logo=github&logoColor=white" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Project%20Period-2025.07.22~2025.08.06-E55064?style=flat" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Release-v1.0.0-3AE540?style=flat" /></a>
 </p>
 
 ---
