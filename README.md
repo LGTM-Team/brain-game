@@ -1,89 +1,269 @@
-# 🧠 뇌하수체 – 체계적으로 즐기는 두뇌 피트니스
+<div align="center">
 
-> **뇌** 깨울 시간! **하**루 10분! **수** 많은 게임! **체**계적 두뇌 트레이닝!
+<!-- logo -->
+<img src="./src/assets/images/readme/readme_img.png" width="700"/>
+
+### 🧠 뇌하수체 – 체계적으로 즐기는 두뇌 피트니스
+
+**뇌** 깨울 시간! **하**루 10분! **수** 많은 게임! **체**계적 두뇌 트레이닝!
+
+
+</div>
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/-README.md-000000?style=flat&logo=github&logoColor=white" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Project%20Period-2025.07.22~2025.08.06-fab2ac?style=flat" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Release-v1.0.0-4caf50?style=flat" /></a>
+</p>
 
 ---
 
-## 📌 소개
+## 📌 서비스 소개
 
-**뇌하수체**는 집중력 저하와 기억력 감퇴를 경험하는 20~40대를 위한 **두뇌 훈련 웹 서비스**입니다. 짧고 재미있는 게임을 통해 **두뇌 활성화**, **자기계발 습관화**, **성과 시각화**까지 제공합니다.
+**뇌하수체**는 집중력 저하, 기억력 감퇴를 겪는 20~40대 직장인 및 수강생을 위한 **웹 기반 두뇌 트레이닝 플랫폼**입니다.  
+짧고 재미있는 게임을 통해 집중력을 향상시키고 두뇌를 활성화하는 것을 목표로 합니다.
+
+---
+
+
+
+## ✨배포된 서비스 링크
+➡️ https://brain-game-dyyc.vercel.app/
 
 ---
 
 ## 🎯 주요 타겟
 
-- 반복 업무와 피로에 지친 **직장인**
-- 집중력이 흐려지는 **프로그래밍 수강생**
-- 두뇌도 체계적으로 관리하고 싶은 **자기계발 지향 유저**
-- 지루하지 않고 **재미있는 뇌게임**을 찾는 사람
+- 🧑‍💻 반복 업무에 지친 **직장인**
+- 👩‍🎓 집중력 향상이 필요한 **개발자 취준생**
+- 🧠 두뇌도 체계적으로 관리하고 싶은 **자기계발 지향 유저**
+- 🎮 지루하지 않은 **재미있는 뇌게임**을 찾는 사람
 
 ---
 
 ## 🔧 주요 기능
 
 ### 🎮 1. 두뇌 훈련 게임
+- **숫자를 외워라!**: 숫자의 위치와 순서를 기억해 순서대로 클릭하세요!
 
-- **숫자 순서 기억 게임**
-  - 3×3 카드에서 시작해 점차 카드 수와 색상 증가
-- **초성 기반 단어 완성 게임**
-  - 주어진 초성으로 가능한 많은 단어 입력
-- **글자색 바르게 말하기 (스트룹 테스트)**
-  - 글자 내용과 색상이 다를 때 ‘색상’만 맞히기
+- **초성 퀴즈**: 주어진 초성으로 단어를 떠올려 빠르게 입력하세요!
 
-
----
+- **색깔을 맞춰라!**: 글자 의미에 속지 말고, 색깔만 보고 정답을 맞춰주세요!
 
 ### 📊 2. 랭킹 시스템
+- 게임 결과 기반 **랭킹 집계**
 
-- 게임 결과 기반 **월간 랭킹 집계**
-- **바 차트 + 점수 변화 그래프** 시각화
-- 최대 10명까지 표시, 내 순위 강조 표시
+- **점수 변화 시각화 그래프**, 내 순위 강조
+
+### 🧑‍💼 3. 회원 기능
+- **회원가입** / **로그인** / **로그아웃** / **계정찾기** 지원
+
+- **이메일 인증** 기반 보안 강화된 계정 관리
+
+### 📢 4. 공지사항
+- 새로운 게임, 이벤트, 업데이트 등 중요 **안내사항 제공**
+
+
+### 📤 5. 게임 결과 공유
+- 게임 종료 후 결과를 공유(**URL복사**, **카카오톡 공유**) 가능
+
+- 친구들과 **랭킹 경쟁** 유도
+
+### 📞 6. 고객센터
+- 유저의 **피드백** 및 **버그 제보** 접수
+
+- **관리자 응답** 및 **처리 내역** 확인 가능
+
+---
+## 📂 프로젝트 디렉토리 구조
+<details>
+<summary>📁 구조 펼쳐보기</summary>
+
+```plaintext
+src/
+│
+├── 🎨 assets/                      # 정적 자산 (이미지, 아이콘 등)
+│   ├── icons/
+│   └── images/
+│       ├── account/
+│       └── pages/
+│           ├── error/
+│           ├── game/
+│           │   ├── numberGame/
+│           │   └── tutorial/
+│           ├── home/
+│           └── notice/
+│
+├── 🧩 components/                  # 범용 UI 컴포넌트 (재사용 가능)
+│   └── Button/
+│       ├── Button.tsx
+│       └── Button.module.css
+│
+├── 🪝 hooks/                       # 커스텀 훅
+│   ├── useAllGames.ts
+│   ├── useAllRankingData.ts
+│   ├── useBonusScore.ts
+│   ├── useCountdownTimer.ts
+│   ├── useCurrentSession.ts
+│   ├── useLogin.ts
+│   ├── useMyRankingData.ts
+│   ├── useNumberCardTransition.ts
+│   ├── useNumberStep.ts
+│   ├── usePasswordReset.ts
+│   ├── useSaveScore.ts
+│   ├── useSignUp.ts
+│   └── useUpdateNickname.ts
+│
+├── 🧠 contexts/                    # React Context 모음
+│   ├── AuthContext.tsx
+│   └── KeyboardContext.tsx
+│
+├── 🧱 common/                      # 공통 컴포넌트
+│   ├── form/
+│   ├── layout/
+│   ├── modals/
+│   ├── post/
+│   └── styles/
+│
+├── 📦 data/                        # 정적 JSON 데이터
+│
+├── 📂 pages/                      # 라우트 단위 페이지 구성
+│   ├── Home/
+│   ├── Games/
+│   ├── Login/
+│   ├── MyPage/
+│   ├── FindAccount/
+│   ├── NotFound/
+│   ├── Notice/
+│   └── Qna/
+│
+├── 🔌 api/                         # API 통신 모듈
+│   └── service/
+│       ├── notice/
+│       ├── qna/
+│       ├── auth/
+│       ├── game/
+│       └── supabase/
+│
+├── 🛠️ utils/                       # 공통 유틸 함수
+│
+├── 🗺️ router/                      # React Router 설정
+│
+├── 🎨 styles/                      # 전역 스타일 및 CSS 변수
+│
+├── 📐 types/                       # TypeScript 타입 정의
+│
+├── 🧮 App.tsx                      # 메인 앱 컴포넌트
+├── 🚀 main.tsx                     # 앱 진입점
+└── ⚙️ vite-env.d.ts                # Vite 환경 타입
+```
+</details>
 
 ---
 
-### 🛠️ 3. 관리자 페이지
+## 🖥️ 기술 스택
 
-- 유저 정보 **조회/수정/삭제 (CRUD)**
-- **비정상 행위 탐지 및 제재**
-- 랭킹 조작 확인 및 제어 가능
+### Front-end
+<div align="center" style="display: flex; flex-wrap: wrap; gap: 16px;">
+
+  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/typescript.svg" width="40" />
+    </div>
+    <div>TypeScript</div>
+  </div>
+
+  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/reactjs.svg" width="45" />
+    </div>
+    <div>React</div>
+  </div>
+
+  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/vitejs.svg" width="42" />
+    </div>
+    <div>Vite</div>
+  </div>
+
+</div>
+
+### Deployment & Backend
+<div align="center" style="display: flex; flex-wrap: wrap; gap: 16px;">
+
+  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/vercel-dark-wordmark.svg" width="90" />
+    </div>
+    <div>Vercel</div>
+  </div>
+
+  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/supabase.svg" width="36" />
+    </div>
+    <div>Supabase</div>
+  </div>
+
+  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/resend.svg" width="100" />
+    </div>
+    <div>Resend</div>
+  </div>
+
+</div>
+
+### Tools
+<div align="center" style="display: flex; flex-wrap: wrap; gap: 16px;">
+
+  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/github-dark.svg" width="40" />
+    </div>
+    <div>GitHub</div>
+  </div>
+
+  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/notion.svg" width="36" />
+    </div>
+    <div>Notion</div>
+  </div>
+
+  <div style="border: 1px solid #ccc; border-radius: 8px; width: 100px; padding: 12px; text-align: center;">
+    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/figma.svg" width="40" />
+    </div>
+    <div>Figma</div>
+  </div>
+
+</div>
+
+---
+## 🎞️ 시연 영상
+[![시연 영상 바로가기](https://img.youtube.com/vi/_o4AmS7OlCA/0.jpg)](https://www.youtube.com/watch?v=_o4AmS7OlCA)
 
 ---
 
-### 📞 4. 고객센터
+## 🤔 기술적 이슈 & 해결 과정
 
-- 유저의 피드백/버그 제보 접수
-- 관리자 피드백 확인 및 처리 시스템 제공
+- **사전 데이터 확보**  
+  [[초성 퀴즈] 단어 필터링 스크립트 만들기 (출처: Notion)](https://www.notion.so/230a46ddb60c80ee9b61cc25ef97417d)
 
----
+- **한글 초성 추출 및 유효성 검사**  
+  [[초성 퀴즈] 한글 초성 추출하기 (출처: Notion)](https://www.notion.so/23aa46ddb60c805ea651d327d4a218fb)
 
-### 🔔 5. 알림 기능
 
-- 마이페이지 내 **랭킹 변화/공지사항/미접속 리마인더** 제공  
-  - ex) “○○님이 당신의 랭킹을 추월했습니다.”
-  - ex) “30일간 미접속 중입니다. 오늘도 뇌 깨우기 도전해보세요!”
 
 ---
 
-## 🔍 유사 서비스 비교
+## 🧑‍🤝‍🧑 프로젝트 팀원
 
-| 서비스 | 장점 | 한계점 |
-|--------|------|--------|
-| 실비아 | 생활습관/기억력 테스트 제공 | 게임 다양성 부족, 반복적 |
-| 뉴로네이션 | 다양한 게임 + 반응 시각화 | 고객센터 없음, 자동 결제 이슈, 랭킹 없음 |
-
----
-
-## ✅ 목표
-
-- **단기 기억력**, **집중력**, **인지 기능**을 간단한 게임으로 트레이닝
-- **게임-랭킹-피드백 루프**로 사용자의 지속 참여 유도
-- **재미와 자기계발의 교차점**을 제공하는 두뇌 피트니스 플랫폼
-
----
-
-## 📎 참고자료
-
-- https://news.hidoc.co.kr/news/articleView.html?idxno=26214  
-- https://www.dailytw.kr/news/articleView.html?idxno=31010
+| Frontend | Frontend | Frontend |
+|--------|----------|----------|
+| ![](https://github.com/HyoYoung0829.png?size=120) | ![](https://github.com/KimJJRoSY.png?size=120) | ![](https://github.com/Young-mang.png?size=120) |
+| [백효영](https://github.com/HyoYoung0829) | [김정주](https://github.com/KimJJRoSY) |[정소영](https://github.com/Young-mang) |
 
 ---
