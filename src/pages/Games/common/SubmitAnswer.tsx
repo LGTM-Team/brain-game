@@ -20,6 +20,7 @@ function SubmitAnswer({ placeholder, onSubmit }: Props) {
     if (value) {
       onSubmit(value); // 부모로 전달
       inputRef.current!.value = ""; // 입력 초기화
+      inputRef.current!.focus(); //입력 후 자동 포커스
     }
   };
 

@@ -1,6 +1,7 @@
 import { Outlet, useMatches } from "react-router-dom";
 import Header from "./common/layout/Header";
 import Navigation from "./common/layout/Navigation";
+import { useKeyBoard } from "./contexts/KeyboardContext";
 
 interface RouteHandle {
   title?: string;
@@ -8,9 +9,11 @@ interface RouteHandle {
 
 function App() {
   const matches = useMatches();
+  const { isKeyboardOpen } = useKeyBoard();
   const currentMatch = matches[matches.length - 1];
   if (!currentMatch.handle) return;
   const currentTitle = (currentMatch.handle as RouteHandle).title || "뇌하수체";
+
   return (
     <>
       <main className="global-container">
@@ -18,7 +21,7 @@ function App() {
         <div className="outlet-wrapper">
           <Outlet />
         </div>
-        <Navigation />
+        {!isKeyboardOpen && <Navigation />}
       </main>
     </>
   );

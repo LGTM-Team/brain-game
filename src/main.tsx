@@ -3,7 +3,8 @@ import { createRoot } from "react-dom/client";
 import "./styles/global.css";
 import { RouterProvider } from "react-router-dom";
 import routes from "./router/routes";
-import { AuthProvider } from "./contexts/AuthContext"; 
+import { AuthProvider } from "./contexts/AuthContext";
+import { KeyboardProvider } from "./contexts/KeyboardContext";
 
 const KAKAO_JAVASCRIPT_KEY = import.meta.env.VITE_KAKAO_JAVASCRIPT_KEY;
 
@@ -16,7 +17,9 @@ if (window.Kakao && !window.Kakao.isInitialized()) {
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={routes} />
+      <KeyboardProvider>
+        <RouterProvider router={routes} />
+      </KeyboardProvider>
     </AuthProvider>
   </StrictMode>
 );
