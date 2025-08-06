@@ -207,6 +207,11 @@ src/
 
 ---
 
+## 🎞️ 시연 영상
+[![시연 영상 바로가기](https://img.youtube.com/vi/_o4AmS7OlCA/0.jpg)](https://www.youtube.com/watch?v=_o4AmS7OlCA)
+
+---
+
 ## 🤔 기술적 이슈 & 해결 과정
 
 - **사전 데이터 확보**  
