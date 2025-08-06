@@ -164,74 +164,46 @@ src/
 ## 🖥️ 기술 스택
 
 ### Front-end
-<div style="text-align: start;">
-  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
-    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/typescript.svg" width="40">
-    </div>
-    <strong>TypeScript</strong>
-  </div>
-  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
-    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/reactjs.svg" width="45">
-    </div>
-    <strong>React</strong>
-  </div>
-  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
-    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/vitejs.svg" width="42">
-    </div>
-    <strong>Vite</strong>
-  </div>
-</div>
+<table>
+<tr>
+  <td align="center"><img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/typescript.svg" width="60"></td>
+  <td align="center"><img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/reactjs.svg" width="60"></td>
+  <td align="center"><img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/vitejs.svg" width="60"></td>
+</tr>
+<tr>
+  <td align="center" width="100"><strong>TypeScript</strong></td>
+  <td align="center" width="100"><strong>React</strong></td>
+  <td align="center" width="100"><strong>Vite</strong></td>
+</tr>
+</table>
 
 ### Deployment & Backend
-<div style="text-align: start;">
-  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
-    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/vercel-dark-wordmark.svg" width="90">
-    </div>
-    <strong>Vercel</strong>
-  </div>
-  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
-    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/supabase.svg" width="36">
-    </div>
-    <strong>Supabase</strong>
-  </div>
-  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
-    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/resend.svg" width="100">
-    </div>
-    <strong>Resend</strong>
-  </div>
-</div>
+<table>
+<tr>
+  <td align="center"><img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/vercel-dark-wordmark.svg" width="80"></td>
+  <td align="center"><img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/supabase.svg" width="60"></td>
+  <td align="center"><img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/resend.svg" width="80"></td>
+</tr>
+<tr>
+  <td align="center" width="100"><strong>Vercel</strong></td>
+  <td align="center" width="100"><strong>Supabase</strong></td>
+  <td align="center" width="100"><strong>Resend</strong></td>
+</tr>
+</table>
 
 ### Tools
-<div style="text-align: start;">
-  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
-    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/github-dark.svg" width="40">
-    </div>
-    <strong>GitHub</strong>
-  </div>
-  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
-    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/notion.svg" width="36">
-    </div>
-    <strong>Notion</strong>
-  </div>
-  <div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 100px; background: #fff;">
-    <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-      <img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/figma.svg" width="40">
-    </div>
-    <strong>Figma</strong>
-  </div>
-</div>
-
----
-## 🎞️ 시연 영상
-[![시연 영상 바로가기](https://img.youtube.com/vi/_o4AmS7OlCA/0.jpg)](https://www.youtube.com/watch?v=_o4AmS7OlCA)
+<table>
+<tr>
+  <td align="center"><img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/github-dark.svg" width="60"></td>
+  <td align="center"><img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/notion.svg" width="60"></td>
+  <td align="center"><img src="https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/figma.svg" width="60"></td>
+</tr>
+<tr>
+  <td align="center" width="100"><strong>GitHub</strong></td>
+  <td align="center" width="100"><strong>Notion</strong></td>
+  <td align="center" width="100"><strong>Figma</strong></td>
+</tr>
+</table>
 
 ---
 
