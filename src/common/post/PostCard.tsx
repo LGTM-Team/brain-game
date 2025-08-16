@@ -19,7 +19,11 @@ function PostCard({ qnaData, onChangeToggle, isOpenCard, noticeData }: Props) {
       qnaData;
     const created_date = formatDate(created_at);
     return (
-      <article className={S.postCardContainer} key={id}>
+      <article
+        className={S.postCardContainer}
+        key={id}
+        onClick={onChangeToggle}
+      >
         <div className={`${S.category}`}>
           <span className={is_answered ? S.finish : ""}>
             {is_answered ? "답변 완료" : "답변 미완료"}
@@ -30,9 +34,9 @@ function PostCard({ qnaData, onChangeToggle, isOpenCard, noticeData }: Props) {
           <span>{created_date}</span>
           <p>{profiles.nickname}</p>
           {isOpenCard ? (
-            <img src={openIcon} alt="펼치는 아이콘" onClick={onChangeToggle} />
+            <img src={openIcon} alt="펼치는 아이콘" />
           ) : (
-            <img src={closeIcon} alt="접는 아이콘" onClick={onChangeToggle} />
+            <img src={closeIcon} alt="접는 아이콘" />
           )}
         </div>
 
@@ -58,15 +62,19 @@ function PostCard({ qnaData, onChangeToggle, isOpenCard, noticeData }: Props) {
     const created_date = formatDate(created_at);
 
     return (
-      <article className={S.postCardContainer} key={id}>
+      <article
+        className={S.postCardContainer}
+        key={id}
+        onClick={onChangeToggle}
+      >
         <h3>{title}</h3>
         <div className={S.dateWithIcon}>
           <span>{created_date}</span>
 
           {isOpenCard ? (
-            <img src={openIcon} alt="펼치는 아이콘" onClick={onChangeToggle} />
+            <img src={openIcon} alt="펼치는 아이콘" />
           ) : (
-            <img src={closeIcon} alt="접는 아이콘" onClick={onChangeToggle} />
+            <img src={closeIcon} alt="접는 아이콘" />
           )}
         </div>
         {isOpenCard && (
