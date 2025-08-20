@@ -20,12 +20,15 @@ import QnaWritePage from "@/pages/Qna/write";
 import SharePage from "@/pages/Games/Share";
 import ResetPasswordPending from "@/pages/FindAccount/components/ResetPasswordPending";
 
+
+import { homePageLoader } from "@/router/loaders/homePageLoader";
+
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-      { handle: { title: "뇌하수체" }, path: "", element: <HomePage /> },
+      { handle: { title: "뇌하수체" }, path: "", element: <HomePage />, loader: homePageLoader},
       {
         path: "games",
         element: <GamesLayout />,

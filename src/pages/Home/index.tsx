@@ -1,16 +1,19 @@
+// src/pages/HomePage/HomePage.tsx
+import { useLoaderData } from "react-router";
+import { useEffect, useState } from "react";
+import { useAllRankingData } from "@/hooks/useAllRankingData";
 import Footer from "./components/Footer";
 import RankingModal from "@/common/modals/Ranking/RankingModal";
-import { useEffect, useState } from "react";
-import { useAllGames } from "@/hooks/useAllGames";
-import { useAllRankingData } from "@/hooks/useAllRankingData";
+import GameCard from "./components/GameCard";
 import S from "./homePage.module.css";
 import img from "@/assets/images/pages/home/home_img.svg";
-import GameCard from "./components/GameCard";
 
 // 이미지들을 import로 가져오기
 import numberGameImg from "@/assets/images/pages/game/number_game.svg";
 import wordGameImg from "@/assets/images/pages/game/word_game.svg";
 import letterColorGameImg from "@/assets/images/pages/game/letterColor_game.svg";
+
+import type { HomeLoaderData } from "@/router/loaders/homePageLoader";
 
 // 이미지 & 라우팅 경로 설정
 const gameMetaMap: Record<string, { image: string; path: string }> = {
@@ -28,18 +31,14 @@ const gameMetaMap: Record<string, { image: string; path: string }> = {
   },
 };
 
-// 기본 게임 데이터 (스켈레톤용)
-const defaultGames = [
-  { game_id: 1, name: "숫자를 외워라!", description: "숫자를 기억하고@순서대로 맞춰보세요" },
-  { game_id: 2, name: "초성 퀴즈", description: "초성을 보고@단어를 맞춰보세요" },
-  { game_id: 3, name: "색깔을 맞춰라!", description: "색깔을 기억하고@순서대로 맞춰보세요" },
-];
-
 function HomePage() {
+  // 로더에서 데이터 가져오기
+  const { games, error: gamesError } = useLoaderData() as HomeLoaderData;
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedGame, setSelectedGame] = useState<{ id: number; name: string } | null>(null);
 
-  const { games, loading: gamesLoading, error: gamesError } = useAllGames();
+  // 랭킹 데이터는 모달용이므로 기존 훅 유지
   const { rankings, loading: rankingLoading } = useAllRankingData(selectedGame?.id ?? 0);
 
   // 랭킹 데이터를 가져오는 로직을 분리합니다.
@@ -60,9 +59,6 @@ function HomePage() {
     setSelectedGame(null); // 모달정보 초기화.
   };
 
-  // 로딩 중이거나 에러가 있을 때는 기본 게임 데이터 사용
-  const displayGames = gamesLoading || gamesError ? defaultGames : games;
-
   return (
     <div className={S.container}>
       <main className={S.main}>
@@ -70,7 +66,7 @@ function HomePage() {
 
         {gamesError && <p>에러 발생: {gamesError}</p>}
 
-        {displayGames?.map((game) => {
+        {games?.map((game) => {
           const meta = gameMetaMap[game.name];
           return (
             <GameCard
@@ -80,7 +76,7 @@ function HomePage() {
               description={game.description}
               linkTo={meta?.path ?? "/games"}
               onIconClick={() => handleOpenRanking(game.game_id, game.name)}
-              isLoading={gamesLoading}
+              isLoading={false} // 로더에서 데이터를 가져왔으므로 항상 false
             />
           );
         })}
