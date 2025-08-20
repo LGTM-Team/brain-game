@@ -16,16 +16,16 @@ export function GameCard({
   description,
   linkTo,
   onIconClick,
-  isLoading = false,
+  
 }: Props) {
   const descriptionLines = description.split("@");
 
   return (
-    <div className={`${S.card} ${isLoading ? S.loading : ""}`}>
+    <div className={S.card}>
       <button
         className={S.iconButton}
         onClick={onIconClick}
-        disabled={isLoading}
+        
       >
         <svg
           width="25"
@@ -94,12 +94,11 @@ export function GameCard({
       <img
         src={imageSrc}
         alt={title}
-        className={isLoading ? S.loadingImage : ""}
       />
-      <p className={`${S.gameTitle} ${isLoading ? S.loadingText : ""}`}>
+      <p className={S.gameTitle}>
         {title}
       </p>
-      <div className={`${S.gameDescription} ${isLoading ? S.loadingText : ""}`}>
+      <div className={S.gameDescription}>
         {descriptionLines.map((line, idx) => (
           <p key={idx}>{line}</p>
         ))}
@@ -107,7 +106,7 @@ export function GameCard({
       <AppLink
         variant="page"
         to={linkTo}
-        className={`${S.link} ${isLoading ? S.loadingLink : ""}`}
+        className={S.link}
       >
         <p>시작하기</p>
       </AppLink>

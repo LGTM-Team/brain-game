@@ -46,8 +46,6 @@ function HomePage() {
         {gamesError && <p>에러 발생: {gamesError}</p>}
 
         {games?.map((game) => {
-          // game.game_url은 완전한 URL이라고 가정 (예: https://.../image.png)
-          
           return (
             <GameCard
               key={game.game_id}
@@ -56,7 +54,6 @@ function HomePage() {
               description={game.description}
               linkTo={"/games"} // 나중에 slug 기반 동적 라우팅으로 교체 예정
               onIconClick={() => handleOpenRanking(game.game_id, game.name)}
-              isLoading={false} // 로더에서 데이터를 가져왔으므로 항상 false
             />
           );
         })}
