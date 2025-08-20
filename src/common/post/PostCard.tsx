@@ -4,7 +4,6 @@ import closeIcon from "@/assets/icons/postCardClose.svg";
 import openIcon from "@/assets/icons/postCardOpen.svg";
 import { formatDate } from "@/utils/getFormatDate";
 import type { Notice } from "@/api/service/notice/getNoticeData";
-import { p } from "framer-motion/client";
 
 interface Props {
   onChangeToggle: () => void;
