@@ -8,28 +8,7 @@ import GameCard from "./components/GameCard";
 import S from "./homePage.module.css";
 import img from "@/assets/images/pages/home/home_img.svg";
 
-// 이미지들을 import로 가져오기
-import numberGameImg from "@/assets/images/pages/game/number_game.svg";
-import wordGameImg from "@/assets/images/pages/game/word_game.svg";
-import letterColorGameImg from "@/assets/images/pages/game/letterColor_game.svg";
-
 import type { HomeLoaderData } from "@/router/loaders/homePageLoader";
-
-// 이미지 & 라우팅 경로 설정
-const gameMetaMap: Record<string, { image: string; path: string }> = {
-  "숫자를 외워라!": {
-    image: numberGameImg,
-    path: "/games/numbers",
-  },
-  "초성 퀴즈": {
-    image: wordGameImg,
-    path: "/games/choseong",
-  },
-  "색깔을 맞춰라!": {
-    image: letterColorGameImg,
-    path: "/games/letter-color",
-  },
-};
 
 function HomePage() {
   // 로더에서 데이터 가져오기
@@ -46,7 +25,7 @@ function HomePage() {
     setIsOpen(false);
     setSelectedGame({ id: gameId, name });
   };
-  
+
   // selectedGame이 업데이트되고 랭킹 로딩이 완료되면 모달 오픈.
   useEffect(() => {
     if (selectedGame && !rankingLoading) {
@@ -67,14 +46,15 @@ function HomePage() {
         {gamesError && <p>에러 발생: {gamesError}</p>}
 
         {games?.map((game) => {
-          const meta = gameMetaMap[game.name];
+          // game.game_url은 완전한 URL이라고 가정 (예: https://.../image.png)
+          
           return (
             <GameCard
               key={game.game_id}
-              imageSrc={meta?.image ?? ""}
+              imageSrc={game.img_url}
               title={game.name}
               description={game.description}
-              linkTo={meta?.path ?? "/games"}
+              linkTo={"/games"} // 나중에 slug 기반 동적 라우팅으로 교체 예정
               onIconClick={() => handleOpenRanking(game.game_id, game.name)}
               isLoading={false} // 로더에서 데이터를 가져왔으므로 항상 false
             />

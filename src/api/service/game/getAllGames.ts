@@ -7,6 +7,7 @@ export interface GameEntry {
   name: string;
   game_url: string | null;
   description: string;
+  img_url:string;
 }
 
 // 모든 게임 목록을 가져오는 API 함수
