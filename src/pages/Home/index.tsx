@@ -52,7 +52,7 @@ function HomePage() {
               imageSrc={game.img_url}
               title={game.name}
               description={game.description}
-              linkTo={"/games"} // 나중에 slug 기반 동적 라우팅으로 교체 예정
+              linkTo={`/games/${game.segment}`}
               onIconClick={() => handleOpenRanking(game.game_id, game.name)}
             />
           );

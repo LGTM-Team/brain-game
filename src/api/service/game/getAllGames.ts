@@ -1,11 +1,10 @@
 import { supabase } from "@/api/service/supabase/supabase";
 
 // supabase games 테이블 전체 컬럼 타입.
-// 추후 path 컬럼 추가해야 함.
 export interface GameEntry {
   game_id: number;
   name: string;
-  game_url: string | null;
+  segment: string | null;
   description: string;
   img_url:string;
 }

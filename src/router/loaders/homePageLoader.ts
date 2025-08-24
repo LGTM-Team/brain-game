@@ -3,9 +3,9 @@ import { getAllGames, type GameEntry } from "@/api/service/game/getAllGames";
 
 // 기본 게임 데이터 (에러 시 fallback용)
 const defaultGames: GameEntry[] = [
-  { game_id: 1, name: "숫자를 외워라!", game_url: null, description: "숫자를 기억하고@순서대로 맞춰보세요" ,img_url : ""},
-  { game_id: 2, name: "초성 퀴즈", game_url: null, description: "초성을 보고@단어를 맞춰보세요" ,img_url : ""},
-  { game_id: 3, name: "색깔을 맞춰라!", game_url: null, description: "색깔을 기억하고@순서대로 맞춰보세요" ,img_url : ""},
+  { game_id: 1, name: "숫자를 외워라!", segment: null, description: "숫자를 기억하고@순서대로 맞춰보세요" ,img_url : ""},
+  { game_id: 2, name: "초성 퀴즈", segment: null, description: "초성을 보고@단어를 맞춰보세요" ,img_url : ""},
+  { game_id: 3, name: "색깔을 맞춰라!", segment: null, description: "색깔을 기억하고@순서대로 맞춰보세요" ,img_url : ""},
 ];
 
 export async function homePageLoader({ request }: LoaderFunctionArgs) {
