@@ -1,31 +1,20 @@
 import { AppLink } from "@/router/AppLink";
-import PostCard from "../../common/post/PostCard";
+import PostCard from "@/common/post/PostCard";
 import S from "./notice.module.css";
 import qnaIcon from "@/assets/icons/qna.svg";
-import { useEffect, useState } from "react";
-import {
-  getNoticeList,
-  type NoticeList,
-} from "@/api/service/notice/getNoticeData";
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import type { NoticeList } from "@/api/service/notice/getNoticeData";
 import Spinner from "@/common/layout/Spinner";
 
 function NoticePage() {
+  const noticeList = useLoaderData() as NoticeList | null;
   const [openCardId, setOpenCardId] = useState<number | null>(null);
-  const [noticeList, setNoticeList] = useState<NoticeList | null>(null);
 
   const onChangeToggle = (id: number) => {
     setOpenCardId((prevId) => (prevId === id ? null : id));
   };
-  useEffect(() => {
-    const fetchNoticeData = async () => {
-      const data = await getNoticeList();
-      setNoticeList(data);
-    };
 
-    fetchNoticeData();
-  }, []);
-
-  useEffect(() => {}, [openCardId]);
   return (
     <div className={S.wrapper}>
       <div className={S.container}>

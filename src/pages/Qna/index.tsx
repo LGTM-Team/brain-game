@@ -2,27 +2,19 @@ import { AppLink } from "@/router/AppLink";
 import PostCard from "@/common/post/PostCard";
 import S from "./qna.module.css";
 import postIcon from "@/assets/icons/post.svg";
-import { useEffect, useState } from "react";
-import { getQnaList, type QnaList } from "@/api/service/qna/getQnaListData";
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import type { QnaList } from "@/api/service/qna/getQnaListData";
 import Spinner from "@/common/layout/Spinner";
 
 function QnaPage() {
+  const qnaList = useLoaderData() as QnaList | null;
   const [openCardId, setOpenCardId] = useState<number | null>(null);
-  const [qnaList, setQnaList] = useState<QnaList | null>(null);
+
   const onChangeToggle = (id: number) => {
     setOpenCardId((prevId) => (prevId === id ? null : id));
   };
 
-  useEffect(() => {
-    const fetchQnaData = async () => {
-      const data = await getQnaList();
-      setQnaList(data);
-    };
-
-    fetchQnaData();
-  }, []);
-
-  useEffect(() => {}, [openCardId]);
   return (
     <div className={S.wrapper}>
       <div className={S.container}>
